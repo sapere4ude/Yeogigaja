@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66E2070E5AFFB3E600ED12CF /* Pods_Yeogigaja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */; };
 		FA97608A251C753300A175EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA976089251C753300A175EA /* AppDelegate.swift */; };
 		FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97608B251C753300A175EA /* SceneDelegate.swift */; };
 		FA97608E251C753300A175EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97608D251C753300A175EA /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yeogigaja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF9F912574944EFCA336717C /* Pods-Yeogigaja.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yeogigaja.release.xcconfig"; path = "Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja.release.xcconfig"; sourceTree = "<group>"; };
+		E463BE4A6F5034780676DFC6 /* Pods-Yeogigaja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yeogigaja.debug.xcconfig"; path = "Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja.debug.xcconfig"; sourceTree = "<group>"; };
 		FA976086251C753300A175EA /* Yeogigaja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yeogigaja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA976089251C753300A175EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA97608B251C753300A175EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66E2070E5AFFB3E600ED12CF /* Pods_Yeogigaja.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07EE5F1262AFE448607AB124 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E463BE4A6F5034780676DFC6 /* Pods-Yeogigaja.debug.xcconfig */,
+				CF9F912574944EFCA336717C /* Pods-Yeogigaja.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		165F13D2298E1DA260438E6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA97607D251C753300A175EA = {
 			isa = PBXGroup;
 			children = (
 				FA976088251C753300A175EA /* Yeogigaja */,
 				FA976087251C753300A175EA /* Products */,
+				07EE5F1262AFE448607AB124 /* Pods */,
+				165F13D2298E1DA260438E6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA97609A251C753700A175EA /* Build configuration list for PBXNativeTarget "Yeogigaja" */;
 			buildPhases = (
+				259FAF5FF5C42EDBD43BBE31 /* [CP] Check Pods Manifest.lock */,
 				FA976082251C753300A175EA /* Sources */,
 				FA976083251C753300A175EA /* Frameworks */,
 				FA976084251C753300A175EA /* Resources */,
+				FC2A16915AE314ACEABFD82B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		259FAF5FF5C42EDBD43BBE31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Yeogigaja-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC2A16915AE314ACEABFD82B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA976082251C753300A175EA /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		FA97609B251C753700A175EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E463BE4A6F5034780676DFC6 /* Pods-Yeogigaja.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +369,7 @@
 		};
 		FA97609C251C753700A175EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF9F912574944EFCA336717C /* Pods-Yeogigaja.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
