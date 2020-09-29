@@ -16,5 +16,6 @@ target 'Yeogigaja' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Storage'
+  pod "PagingKit"
 
 end
