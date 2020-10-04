@@ -10,12 +10,12 @@ import UIKit
 
 class ViewController: UIViewController{
 
-    //MARK:- properties
+    //MARK: properties
     
     @IBOutlet weak var mainTableView: UITableView!
     let cellIdentifier = "mainPageTableViewCell"
     
-    //MARK:- functions
+    //MARK: functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +31,7 @@ class ViewController: UIViewController{
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
+
 
 //MARK:- tableView extension
 extension ViewController:UITableViewDataSource, UITableViewDelegate {

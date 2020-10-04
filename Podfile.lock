@@ -93,6 +93,8 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
+  - PagingKit (1.15.0)
+  - Parchment (2.4.0)
   - PromisesObjC (1.2.9)
   - SnapKit (5.0.1)
   - SwiftyJSON (4.3.0)
@@ -105,6 +107,8 @@ DEPENDENCIES:
   - Firebase/Crashlytics
   - Firebase/Database
   - Firebase/Storage
+  - PagingKit
+  - Parchment
   - SnapKit (~> 5.0.0)
   - SwiftyJSON (~> 4.0)
 
@@ -126,6 +130,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - PagingKit
+    - Parchment
     - PromisesObjC
     - SnapKit
     - SwiftyJSON
@@ -147,10 +153,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
+  PagingKit: 4bd58b65d71a82ab98486b6927e870c7fbc6c6eb
+  Parchment: 002785473861582385db5c6725165353c500198e
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 201e599b078d331b7801e77077ef38a39fd6d3d8
+PODFILE CHECKSUM: b606a11b9a8c96660c52b1b076ec8820e07a9787
 
 COCOAPODS: 1.9.3
