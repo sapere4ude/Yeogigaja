@@ -1,26 +1,25 @@
 //
-//  ViewController.swift
+//  entryTableViewController.swift
 //  Yeogigaja
 //
-//  Created by sapere4ude on 2020/09/24.
+//  Created by 송서영 on 2020/10/05.
 //  Copyright © 2020 sapere4ude. All rights reserved.
 //
 
 import UIKit
+import Parchment
 
-class ViewController: UIViewController{
+class entryTableViewController: UIViewController {
 
-    //MARK: properties
     
-    @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet weak var entryTableView: UITableView!
     let cellIdentifier = "mainPageTableViewCell"
-    
-    //MARK: functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        // Do any additional setup after loading the view.
     }
-    
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -34,13 +33,14 @@ class ViewController: UIViewController{
 
 
 //MARK:- tableView extension
-extension ViewController:UITableViewDataSource, UITableViewDelegate {
+extension entryTableViewController:UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = mainTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for:indexPath)
+        let cell = entryTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for:indexPath)
         
         
         return cell
@@ -51,6 +51,7 @@ extension ViewController:UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("did selected")
         let sb = UIStoryboard(name: "DetailViewStoryboard", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "detailView") as? DetailViewController else{fatalError()}
         self.navigationController?.pushViewController(vc, animated: true)

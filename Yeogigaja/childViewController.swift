@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  childViewController.swift
 //  Yeogigaja
 //
 //  Created by 송서영 on 2020/10/04.
@@ -7,26 +7,12 @@
 //
 
 import UIKit
-import Parchment
 
-class DetailViewController: UIViewController{
-//
-//    func numberOfViewControllers(in pagingViewController: PagingViewController) -> Int {
-//        return cities.count
-//    }
-//
-//    func pagingViewController(_: PagingViewController, viewControllerAt index: Int) -> UIViewController {
-//        return
-//    }
-//
-//    func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
-//        return PagingIndexItem(index: index, title: cities[index])
-//    }
-    
- 
+class childViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("pushed")
+
         // Do any additional setup after loading the view.
     }
     
