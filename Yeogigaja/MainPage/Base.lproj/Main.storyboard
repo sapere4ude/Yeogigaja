@@ -56,6 +56,12 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="entryAreaLabel" destination="9yI-sd-izN" id="if7-3E-6DS"/>
+                                            <outlet property="entryDetailLabel" destination="khT-iL-3ns" id="KLP-un-Nhe"/>
+                                            <outlet property="entryImageView" destination="5Z2-jl-KpP" id="Py5-SR-0VR"/>
+                                            <outlet property="entryTitleLabel" destination="OEb-6i-GeE" id="ef9-gn-HIQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

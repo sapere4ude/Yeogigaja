@@ -32,6 +32,7 @@ class ViewController: UIViewController{
     }
 }
 
+//MARK:- tableView extension
 extension ViewController:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -48,6 +49,12 @@ extension ViewController:UITableViewDataSource, UITableViewDelegate {
         return 170
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "DetailViewStoryboard", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "detailView") as? DetailViewController else{fatalError()}
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
+
 
