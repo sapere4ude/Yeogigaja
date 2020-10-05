@@ -10,18 +10,7 @@ import UIKit
 import Parchment
 
 class DetailViewController: UIViewController{
-//
-//    func numberOfViewControllers(in pagingViewController: PagingViewController) -> Int {
-//        return cities.count
-//    }
-//
-//    func pagingViewController(_: PagingViewController, viewControllerAt index: Int) -> UIViewController {
-//        return
-//    }
-//
-//    func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
-//        return PagingIndexItem(index: index, title: cities[index])
-//    }
+
     
  
     override func viewDidLoad() {
