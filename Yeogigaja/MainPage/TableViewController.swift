@@ -9,7 +9,7 @@
 import UIKit
 import Parchment
 
-class entryTableViewController: UIViewController {
+class TableViewController: UIViewController {
 
     
     @IBOutlet weak var entryTableView: UITableView!
@@ -33,7 +33,7 @@ class entryTableViewController: UIViewController {
 
 
 //MARK:- tableView extension
-extension entryTableViewController:UITableViewDataSource, UITableViewDelegate {
+extension TableViewController:UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -54,7 +54,10 @@ extension entryTableViewController:UITableViewDataSource, UITableViewDelegate {
         print("did selected")
         let sb = UIStoryboard(name: "DetailViewStoryboard", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "detailView") as? DetailViewController else{fatalError()}
-        self.navigationController?.pushViewController(vc, animated: true)
+//        self.navigationController?.pushViewController(vc, animated: true)
+//        view.addSubview(vc.view)
+        vc.modalTransitionStyle = .coverVertical
+        self.present(vc, animated: true, completion: nil)
     }
     
 }

@@ -11,7 +11,7 @@ import Parchment
 
 class ViewController: UIViewController {
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         addChild(pagingViewController)
         view.addSubview(pagingViewController.view)
         pagingViewController.dataSource = self
-        
+
         pagingViewController.didMove(toParent: self)
         pagingViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
