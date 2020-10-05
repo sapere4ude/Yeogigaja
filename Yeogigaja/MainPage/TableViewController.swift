@@ -13,6 +13,7 @@ class TableViewController: UIViewController {
 
     
     @IBOutlet weak var entryTableView: UITableView!
+    
     let cellIdentifier = "mainPageTableViewCell"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,7 @@ extension TableViewController:UITableViewDataSource, UITableViewDelegate {
 //        self.navigationController?.pushViewController(vc, animated: true)
 //        view.addSubview(vc.view)
         vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
