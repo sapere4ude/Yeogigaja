@@ -11,6 +11,9 @@ import Parchment
 
 class TableViewController: UIViewController {
 
+    // Firebase연결 test를 위해 만들었습니다.
+    var name: String = "유재준"
+    var postContent: String = "abcabc"
     
     @IBOutlet weak var entryTableView: UITableView!
     
@@ -18,6 +21,7 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        posting()
 
         // Do any additional setup after loading the view.
     }
@@ -29,6 +33,15 @@ class TableViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool){
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    public func posting() {
+        let postingContent = post(userName: name, postingContent: postContent)
+        DatabaseManager.shared.postingContent(with: postingContent, completion: { success in
+            if success {
+                print("success!")
+            }
+        })
     }
 }
 
