@@ -7,7 +7,11 @@
 		<key>Yeogigaja.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>22</integer>
+=======
+			<integer>1</integer>
+>>>>>>> dc25917fb2f15f46988f3bc11b95c58d0a164021
 		</dict>
 	</dict>
 </dict>
