@@ -1,14 +1,14 @@
 //
-//  childViewController.swift
+//  mapViewController.swift
 //  Yeogigaja
 //
-//  Created by 송서영 on 2020/10/04.
+//  Created by 송서영 on 2020/10/09.
 //  Copyright © 2020 sapere4ude. All rights reserved.
 //
 
 import UIKit
 
-class childViewController: UIViewController {
+class mapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
