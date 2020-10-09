@@ -8,7 +8,7 @@
 
 import UIKit
 
-class mainPageTableViewCell: UITableViewCell {
+class tableViewCell: UITableViewCell {
     @IBOutlet weak var entryImageView: UIImageView!
     @IBOutlet weak var entryTitleLabel: UILabel!
     @IBOutlet weak var entryDetailLabel: UILabel!
