@@ -17,7 +17,7 @@ class TableViewController: UIViewController {
     let cellIdentifier = "mainPageTableViewCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        self.tabbar()
 
         // Do any additional setup after loading the view.
     }

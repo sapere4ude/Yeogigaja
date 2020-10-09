@@ -12,7 +12,7 @@
         <!--Mypage View Controller-->
         <scene sceneID="F8l-wP-7RN">
             <objects>
-                <viewController id="VFC-TR-1Vl" customClass="MypageViewController" customModule="Yeogigaja" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MypageView" id="VFC-TR-1Vl" customClass="MypageViewController" customModule="Yeogigaja" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FxC-px-6ab">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

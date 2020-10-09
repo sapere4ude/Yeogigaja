@@ -12,7 +12,7 @@
         <!--Calendar View Controller-->
         <scene sceneID="ko4-R6-61T">
             <objects>
-                <viewController id="3uZ-GT-UpE" customClass="CalendarViewController" customModule="Yeogigaja" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalendarView" id="3uZ-GT-UpE" customClass="CalendarViewController" customModule="Yeogigaja" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OtW-78-7gl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

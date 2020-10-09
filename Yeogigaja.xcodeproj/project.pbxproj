@@ -15,6 +15,7 @@
 		7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BA2530841100290CE7 /* Calendar.storyboard */; };
 		7C5811BE2530844100290CE7 /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BD2530844100290CE7 /* Mypage.storyboard */; };
 		7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C02530845700290CE7 /* MypageViewController.swift */; };
+		7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C42530BF1A00290CE7 /* TabBarController.swift */; };
 		7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */; };
 		7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */; };
 		7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */; };
@@ -34,6 +35,7 @@
 		7C5811BA2530841100290CE7 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		7C5811BD2530844100290CE7 /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		7C5811C02530845700290CE7 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		7C5811C42530BF1A00290CE7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Yeogigaja/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainPageTableViewCell.swift; sourceTree = "<group>"; };
 		7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewStoryboard.storyboard; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				7CCBA58D2529CE6D0036CE02 /* DetailPage */,
 				7CCBA5882529B5260036CE02 /* TableViewPage */,
 				FA976089251C753300A175EA /* AppDelegate.swift */,
+				7C5811C42530BF1A00290CE7 /* TabBarController.swift */,
 				FA97608B251C753300A175EA /* SceneDelegate.swift */,
 				FA976092251C753700A175EA /* Assets.xcassets */,
 				FA976094251C753700A175EA /* LaunchScreen.storyboard */,
@@ -280,6 +283,7 @@
 				7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */,
 				7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */,
 				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
+				7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */,
 				FA97608A251C753300A175EA /* AppDelegate.swift in Sources */,
 				7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */,
 				7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */,
