@@ -17,21 +17,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="detail view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1n-Hv-btV">
-                                <rect key="frame" x="65" y="367" width="81" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jS0-Yd-BV7">
+                                <rect key="frame" x="34" y="87" width="360" height="284"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="장소명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyd-wc-sji">
+                                <rect key="frame" x="34" y="391" width="78" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeX-P1-7QL">
+                                <rect key="frame" x="37" y="512" width="357" height="287"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <mutableString key="text">앱 기본 색 -&gt; 베이지색
+전체 페이지 전환 -&gt; 탭바 ( 전체항목, 지역별, 캘린더, 마이페이지)
+
+검색기능 -&gt;firebase
+날짜가 다가오면 알림 -&gt;firebase
+서버 -&gt; 회원가입 기능 firebase
+
+찜기능
+변수명 설정 ( 서버 연결을 위해서 ) 
+지도 -&gt; 커스텀을 우선시하는걸로 하되, 안되면 구글맵같은 라이브러리 사용
+디테일 뷰 -&gt; 사진, 장소이름, 메모, 찜하기기능, 같이가고싶은사람(메모별 코드로 메모서버를 코드 받은 사람들끼리 공유), 날짜 
+공유하기 기능 -&gt; 사진 캡쳐 시 공유하기 버튼으로 앱으로 들어올 수 있게
+
+마이페이지
+개발자 정보 및 리뷰남기기 등.. </mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wL-Xr-cuf">
-                                <rect key="frame" x="181" y="718" width="52" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xI-pt-gpe">
+                                <rect key="frame" x="333" y="297" width="61" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="뒤로가기"/>
-                                <connections>
-                                    <action selector="returnBtn:" destination="hIm-XJ-Xtj" eventType="touchUpInside" id="r7W-U4-ReT"/>
-                                </connections>
+                                <state key="normal" image="heart" catalog="system"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEj-U2-v3Z">
+                                <rect key="frame" x="37" y="437" width="33" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g23-u6-IBs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -39,10 +69,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQh-e1-PZT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342" y="80"/>
+            <point key="canvasLocation" x="279.71014492753625" y="67.633928571428569"/>
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

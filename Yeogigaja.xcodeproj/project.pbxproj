@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		66E2070E5AFFB3E600ED12CF /* Pods_Yeogigaja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */; };
-		7C581155252A192300290CE7 /* childViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C581154252A192200290CE7 /* childViewController.swift */; };
-		7C581158252A237E00290CE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C581157252A237E00290CE7 /* ViewController.swift */; };
 		7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58115C252A2C5A00290CE7 /* TableViewController.swift */; };
+		7C5811B22530839D00290CE7 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811B12530839D00290CE7 /* Map.storyboard */; };
+		7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811B4253083BD00290CE7 /* mapViewController.swift */; };
+		7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811B72530840200290CE7 /* CalendarViewController.swift */; };
+		7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BA2530841100290CE7 /* Calendar.storyboard */; };
+		7C5811BE2530844100290CE7 /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BD2530844100290CE7 /* Mypage.storyboard */; };
+		7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C02530845700290CE7 /* MypageViewController.swift */; };
+		7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C42530BF1A00290CE7 /* TabBarController.swift */; };
 		7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */; };
 		7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */; };
 		7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */; };
@@ -23,9 +28,14 @@
 
 /* Begin PBXFileReference section */
 		52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yeogigaja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C581154252A192200290CE7 /* childViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = childViewController.swift; sourceTree = "<group>"; };
-		7C581157252A237E00290CE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Yeogigaja/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		7C58115C252A2C5A00290CE7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		7C5811B12530839D00290CE7 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		7C5811B4253083BD00290CE7 /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
+		7C5811B72530840200290CE7 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		7C5811BA2530841100290CE7 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		7C5811BD2530844100290CE7 /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
+		7C5811C02530845700290CE7 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		7C5811C42530BF1A00290CE7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Yeogigaja/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainPageTableViewCell.swift; sourceTree = "<group>"; };
 		7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewStoryboard.storyboard; sourceTree = "<group>"; };
@@ -69,14 +79,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7CCBA5882529B5260036CE02 /* MainPage */ = {
+		7C5811AE2530835B00290CE7 /* MapPage */ = {
+			isa = PBXGroup;
+			children = (
+				7C5811B12530839D00290CE7 /* Map.storyboard */,
+				7C5811B4253083BD00290CE7 /* mapViewController.swift */,
+			);
+			path = MapPage;
+			sourceTree = "<group>";
+		};
+		7C5811AF2530837000290CE7 /* CalendarPage */ = {
+			isa = PBXGroup;
+			children = (
+				7C5811B72530840200290CE7 /* CalendarViewController.swift */,
+				7C5811BA2530841100290CE7 /* Calendar.storyboard */,
+			);
+			path = CalendarPage;
+			sourceTree = "<group>";
+		};
+		7C5811B02530837A00290CE7 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				7C5811BD2530844100290CE7 /* Mypage.storyboard */,
+				7C5811C02530845700290CE7 /* MypageViewController.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
+		7CCBA5882529B5260036CE02 /* TableViewPage */ = {
 			isa = PBXGroup;
 			children = (
 				FA97608F251C753300A175EA /* Main.storyboard */,
 				7C58115C252A2C5A00290CE7 /* TableViewController.swift */,
 				7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */,
 			);
-			path = MainPage;
+			path = TableViewPage;
 			sourceTree = "<group>";
 		};
 		7CCBA58D2529CE6D0036CE02 /* DetailPage */ = {
@@ -109,12 +146,14 @@
 		FA976088251C753300A175EA /* Yeogigaja */ = {
 			isa = PBXGroup;
 			children = (
+				7C5811B02530837A00290CE7 /* Mypage */,
+				7C5811AF2530837000290CE7 /* CalendarPage */,
+				7C5811AE2530835B00290CE7 /* MapPage */,
 				7CCBA58D2529CE6D0036CE02 /* DetailPage */,
-				7CCBA5882529B5260036CE02 /* MainPage */,
+				7CCBA5882529B5260036CE02 /* TableViewPage */,
 				FA976089251C753300A175EA /* AppDelegate.swift */,
+				7C5811C42530BF1A00290CE7 /* TabBarController.swift */,
 				FA97608B251C753300A175EA /* SceneDelegate.swift */,
-				7C581154252A192200290CE7 /* childViewController.swift */,
-				7C581157252A237E00290CE7 /* ViewController.swift */,
 				FA976092251C753700A175EA /* Assets.xcassets */,
 				FA976094251C753700A175EA /* LaunchScreen.storyboard */,
 				FA976097251C753700A175EA /* Info.plist */,
@@ -182,8 +221,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */,
+				7C5811BE2530844100290CE7 /* Mypage.storyboard in Resources */,
 				FA976096251C753700A175EA /* LaunchScreen.storyboard in Resources */,
 				7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */,
+				7C5811B22530839D00290CE7 /* Map.storyboard in Resources */,
 				FA976093251C753700A175EA /* Assets.xcassets in Resources */,
 				FA976091251C753300A175EA /* Main.storyboard in Resources */,
 			);
@@ -238,11 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C581155252A192300290CE7 /* childViewController.swift in Sources */,
+				7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */,
+				7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */,
 				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
+				7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */,
 				FA97608A251C753300A175EA /* AppDelegate.swift in Sources */,
 				7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */,
-				7C581158252A237E00290CE7 /* ViewController.swift in Sources */,
+				7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */,
 				FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */,
 				7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */,
 			);

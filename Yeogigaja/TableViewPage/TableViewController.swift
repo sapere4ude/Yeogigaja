@@ -17,7 +17,7 @@ class TableViewController: UIViewController {
     let cellIdentifier = "mainPageTableViewCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        self.tabbar()
 
         // Do any additional setup after loading the view.
     }
@@ -55,11 +55,9 @@ extension TableViewController:UITableViewDataSource, UITableViewDelegate {
         print("did selected")
         let sb = UIStoryboard(name: "DetailViewStoryboard", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "detailView") as? DetailViewController else{fatalError()}
-//        self.navigationController?.pushViewController(vc, animated: true)
-//        view.addSubview(vc.view)
-        vc.modalTransitionStyle = .coverVertical
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
 }

@@ -1,25 +1,22 @@
 //
-//  DetailViewController.swift
+//  CalendarViewController.swift
 //  Yeogigaja
 //
-//  Created by 송서영 on 2020/10/04.
+//  Created by 송서영 on 2020/10/09.
 //  Copyright © 2020 sapere4ude. All rights reserved.
 //
 
 import UIKit
-import Parchment
 
-class DetailViewController: UIViewController{
-
+class CalendarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("pushed")
+
         // Do any additional setup after loading the view.
     }
     
 
-    
     /*
     // MARK: - Navigation
 
