@@ -24,6 +24,10 @@
 		FA976091251C753300A175EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA97608F251C753300A175EA /* Main.storyboard */; };
 		FA976093251C753700A175EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA976092251C753700A175EA /* Assets.xcassets */; };
 		FA976096251C753700A175EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA976094251C753700A175EA /* LaunchScreen.storyboard */; };
+		FA9CC319253491EF0069DB71 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CC318253491EF0069DB71 /* RegisterViewController.swift */; };
+		FA9CC31D253492750069DB71 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9CC31C253492750069DB71 /* Register.storyboard */; };
+		FA9CC320253493A10069DB71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CC31F253493A10069DB71 /* LoginViewController.swift */; };
+		FA9CC324253493CC0069DB71 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9CC323253493CC0069DB71 /* Login.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		FA976092251C753700A175EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA976095251C753700A175EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA976097251C753700A175EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA9CC318253491EF0069DB71 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		FA9CC31C253492750069DB71 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		FA9CC31F253493A10069DB71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FA9CC323253493CC0069DB71 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +154,8 @@
 		FA976088251C753300A175EA /* Yeogigaja */ = {
 			isa = PBXGroup;
 			children = (
+				FA9CC322253493AE0069DB71 /* LoginPage */,
+				FA9CC317253491D00069DB71 /* RegisterPage */,
 				7C5811B02530837A00290CE7 /* Mypage */,
 				7C5811AF2530837000290CE7 /* CalendarPage */,
 				7C5811AE2530835B00290CE7 /* MapPage */,
@@ -159,6 +169,24 @@
 				FA976097251C753700A175EA /* Info.plist */,
 			);
 			path = Yeogigaja;
+			sourceTree = "<group>";
+		};
+		FA9CC317253491D00069DB71 /* RegisterPage */ = {
+			isa = PBXGroup;
+			children = (
+				FA9CC318253491EF0069DB71 /* RegisterViewController.swift */,
+				FA9CC31C253492750069DB71 /* Register.storyboard */,
+			);
+			path = RegisterPage;
+			sourceTree = "<group>";
+		};
+		FA9CC322253493AE0069DB71 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				FA9CC31F253493A10069DB71 /* LoginViewController.swift */,
+				FA9CC323253493CC0069DB71 /* Login.storyboard */,
+			);
+			path = LoginPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +256,8 @@
 				7C5811B22530839D00290CE7 /* Map.storyboard in Resources */,
 				FA976093251C753700A175EA /* Assets.xcassets in Resources */,
 				FA976091251C753300A175EA /* Main.storyboard in Resources */,
+				FA9CC31D253492750069DB71 /* Register.storyboard in Resources */,
+				FA9CC324253493CC0069DB71 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */,
+				FA9CC319253491EF0069DB71 /* RegisterViewController.swift in Sources */,
 				7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */,
 				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
 				7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */,
@@ -289,6 +320,7 @@
 				7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */,
 				FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */,
 				7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */,
+				FA9CC320253493A10069DB71 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
