@@ -3,14 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		66E2070E5AFFB3E600ED12CF /* Pods_Yeogigaja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */; };
+		7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58115C252A2C5A00290CE7 /* TableViewController.swift */; };
+		7C5811B22530839D00290CE7 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811B12530839D00290CE7 /* Map.storyboard */; };
+		7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811B4253083BD00290CE7 /* mapViewController.swift */; };
+		7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811B72530840200290CE7 /* CalendarViewController.swift */; };
+		7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BA2530841100290CE7 /* Calendar.storyboard */; };
+		7C5811BE2530844100290CE7 /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BD2530844100290CE7 /* Mypage.storyboard */; };
+		7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C02530845700290CE7 /* MypageViewController.swift */; };
+		7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C42530BF1A00290CE7 /* TabBarController.swift */; };
+		7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */; };
+		7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */; };
+		7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */; };
 		FA97608A251C753300A175EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA976089251C753300A175EA /* AppDelegate.swift */; };
 		FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97608B251C753300A175EA /* SceneDelegate.swift */; };
-		FA97608E251C753300A175EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97608D251C753300A175EA /* ViewController.swift */; };
 		FA976091251C753300A175EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA97608F251C753300A175EA /* Main.storyboard */; };
 		FA976093251C753700A175EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA976092251C753700A175EA /* Assets.xcassets */; };
 		FA976096251C753700A175EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA976094251C753700A175EA /* LaunchScreen.storyboard */; };
@@ -18,12 +28,22 @@
 
 /* Begin PBXFileReference section */
 		52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yeogigaja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C58115C252A2C5A00290CE7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		7C5811B12530839D00290CE7 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		7C5811B4253083BD00290CE7 /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
+		7C5811B72530840200290CE7 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		7C5811BA2530841100290CE7 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		7C5811BD2530844100290CE7 /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
+		7C5811C02530845700290CE7 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		7C5811C42530BF1A00290CE7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Yeogigaja/TabBarController.swift; sourceTree = SOURCE_ROOT; };
+		7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainPageTableViewCell.swift; sourceTree = "<group>"; };
+		7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewStoryboard.storyboard; sourceTree = "<group>"; };
 		CF9F912574944EFCA336717C /* Pods-Yeogigaja.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yeogigaja.release.xcconfig"; path = "Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja.release.xcconfig"; sourceTree = "<group>"; };
 		E463BE4A6F5034780676DFC6 /* Pods-Yeogigaja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yeogigaja.debug.xcconfig"; path = "Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja.debug.xcconfig"; sourceTree = "<group>"; };
 		FA976086251C753300A175EA /* Yeogigaja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yeogigaja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA976089251C753300A175EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA97608B251C753300A175EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA97608D251C753300A175EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA976090251C753300A175EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA976092251C753700A175EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA976095251C753700A175EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +68,6 @@
 				E463BE4A6F5034780676DFC6 /* Pods-Yeogigaja.debug.xcconfig */,
 				CF9F912574944EFCA336717C /* Pods-Yeogigaja.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -58,6 +77,52 @@
 				52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C5811AE2530835B00290CE7 /* MapPage */ = {
+			isa = PBXGroup;
+			children = (
+				7C5811B12530839D00290CE7 /* Map.storyboard */,
+				7C5811B4253083BD00290CE7 /* mapViewController.swift */,
+			);
+			path = MapPage;
+			sourceTree = "<group>";
+		};
+		7C5811AF2530837000290CE7 /* CalendarPage */ = {
+			isa = PBXGroup;
+			children = (
+				7C5811B72530840200290CE7 /* CalendarViewController.swift */,
+				7C5811BA2530841100290CE7 /* Calendar.storyboard */,
+			);
+			path = CalendarPage;
+			sourceTree = "<group>";
+		};
+		7C5811B02530837A00290CE7 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				7C5811BD2530844100290CE7 /* Mypage.storyboard */,
+				7C5811C02530845700290CE7 /* MypageViewController.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
+		7CCBA5882529B5260036CE02 /* TableViewPage */ = {
+			isa = PBXGroup;
+			children = (
+				FA97608F251C753300A175EA /* Main.storyboard */,
+				7C58115C252A2C5A00290CE7 /* TableViewController.swift */,
+				7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */,
+			);
+			path = TableViewPage;
+			sourceTree = "<group>";
+		};
+		7CCBA58D2529CE6D0036CE02 /* DetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */,
+				7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */,
+			);
+			path = DetailPage;
 			sourceTree = "<group>";
 		};
 		FA97607D251C753300A175EA = {
@@ -81,10 +146,14 @@
 		FA976088251C753300A175EA /* Yeogigaja */ = {
 			isa = PBXGroup;
 			children = (
+				7C5811B02530837A00290CE7 /* Mypage */,
+				7C5811AF2530837000290CE7 /* CalendarPage */,
+				7C5811AE2530835B00290CE7 /* MapPage */,
+				7CCBA58D2529CE6D0036CE02 /* DetailPage */,
+				7CCBA5882529B5260036CE02 /* TableViewPage */,
 				FA976089251C753300A175EA /* AppDelegate.swift */,
+				7C5811C42530BF1A00290CE7 /* TabBarController.swift */,
 				FA97608B251C753300A175EA /* SceneDelegate.swift */,
-				FA97608D251C753300A175EA /* ViewController.swift */,
-				FA97608F251C753300A175EA /* Main.storyboard */,
 				FA976092251C753700A175EA /* Assets.xcassets */,
 				FA976094251C753700A175EA /* LaunchScreen.storyboard */,
 				FA976097251C753700A175EA /* Info.plist */,
@@ -152,7 +221,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */,
+				7C5811BE2530844100290CE7 /* Mypage.storyboard in Resources */,
 				FA976096251C753700A175EA /* LaunchScreen.storyboard in Resources */,
+				7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */,
+				7C5811B22530839D00290CE7 /* Map.storyboard in Resources */,
 				FA976093251C753700A175EA /* Assets.xcassets in Resources */,
 				FA976091251C753300A175EA /* Main.storyboard in Resources */,
 			);
@@ -207,9 +280,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA97608E251C753300A175EA /* ViewController.swift in Sources */,
+				7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */,
+				7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */,
+				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
+				7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */,
 				FA97608A251C753300A175EA /* AppDelegate.swift in Sources */,
+				7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */,
+				7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */,
 				FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */,
+				7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
