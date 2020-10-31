@@ -7,7 +7,7 @@
 | 이름 | 역할 | 깃허브 |
 |:---:|:---:|:---:|
 | 유재준 | 서버연결 | [이동](https://github.com/sapere4ude) |
-| 이미연 | -  | [이동](https://github.com/iammiori) |
+| 김진태 | -  | [이동](dd3557@naver.com) |
 | 송서영 | -  | [이동](https://github.com/SongSeoYoung) |
 <br>
 
