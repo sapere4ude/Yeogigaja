@@ -13,16 +13,25 @@ class tableViewCell: UITableViewCell {
     @IBOutlet weak var entryTitleLabel: UILabel!
     @IBOutlet weak var entryDetailLabel: UILabel!
     @IBOutlet weak var entryAreaLabel: UILabel!
+    @IBOutlet weak var entryView: UIView! {
+        didSet {
+            entryView.layer.cornerRadius = 8
+            entryView.clipsToBounds = true
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let spaceBetweenCells: UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 10.0, right: 0.0)
+        self.contentView.frame = self.contentView.frame.inset(by: spaceBetweenCells)
+    }
 }
