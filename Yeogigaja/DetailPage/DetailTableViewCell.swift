@@ -8,10 +8,12 @@
 
 import UIKit
 
-class DetailTextTableViewCell: UITableViewCell {
+class DetailTableViewCell: UITableViewCell {
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var separatorView: UIView!
 
-    @IBOutlet weak var detailLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -19,5 +21,4 @@ class DetailTextTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
 }

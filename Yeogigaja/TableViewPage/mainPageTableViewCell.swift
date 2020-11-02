@@ -31,7 +31,7 @@ class tableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let spaceBetweenCells: UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 10.0, right: 0.0)
-        self.contentView.frame = self.contentView.frame.inset(by: spaceBetweenCells)
+        let spacingBetweenCells: UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 10.0, right: 0.0)
+        self.contentView.frame = self.contentView.frame.inset(by: spacingBetweenCells)
     }
 }
