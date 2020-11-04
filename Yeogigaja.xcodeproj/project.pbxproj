@@ -22,6 +22,9 @@
 		7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */; };
 		FA257C45254D691E007AD711 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA257C44254D691E007AD711 /* loginViewController.swift */; };
 		FA257C48254D692A007AD711 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA257C47254D692A007AD711 /* login.storyboard */; };
+		FA257CE42552F5C6007AD711 /* registerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA257CE32552F5C6007AD711 /* registerViewController.swift */; };
+		FA257CE82552F5D8007AD711 /* register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA257CE72552F5D8007AD711 /* register.storyboard */; };
+		FA257D072552FA21007AD711 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA257D062552FA21007AD711 /* GoogleService-Info.plist */; };
 		FA97608A251C753300A175EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA976089251C753300A175EA /* AppDelegate.swift */; };
 		FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97608B251C753300A175EA /* SceneDelegate.swift */; };
 		FA976091251C753300A175EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA97608F251C753300A175EA /* Main.storyboard */; };
@@ -47,6 +50,9 @@
 		E463BE4A6F5034780676DFC6 /* Pods-Yeogigaja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yeogigaja.debug.xcconfig"; path = "Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja.debug.xcconfig"; sourceTree = "<group>"; };
 		FA257C44254D691E007AD711 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		FA257C47254D692A007AD711 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
+		FA257CE32552F5C6007AD711 /* registerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerViewController.swift; sourceTree = "<group>"; };
+		FA257CE72552F5D8007AD711 /* register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = register.storyboard; sourceTree = "<group>"; };
+		FA257D062552FA21007AD711 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA976086251C753300A175EA /* Yeogigaja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yeogigaja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA976089251C753300A175EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA97608B251C753300A175EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +154,15 @@
 			path = LoginPage;
 			sourceTree = "<group>";
 		};
+		FA257CE22552F59B007AD711 /* RegisterPage */ = {
+			isa = PBXGroup;
+			children = (
+				FA257CE32552F5C6007AD711 /* registerViewController.swift */,
+				FA257CE72552F5D8007AD711 /* register.storyboard */,
+			);
+			path = RegisterPage;
+			sourceTree = "<group>";
+		};
 		FA97607D251C753300A175EA = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +184,7 @@
 		FA976088251C753300A175EA /* Yeogigaja */ = {
 			isa = PBXGroup;
 			children = (
+				FA257CE22552F59B007AD711 /* RegisterPage */,
 				FA257C41254D68BE007AD711 /* LoginPage */,
 				7C87EB59254D63E000C428A5 /* Model */,
 				7C5811B02530837A00290CE7 /* Mypage */,
@@ -182,6 +198,7 @@
 				FA976092251C753700A175EA /* Assets.xcassets */,
 				FA976094251C753700A175EA /* LaunchScreen.storyboard */,
 				FA976097251C753700A175EA /* Info.plist */,
+				FA257D062552FA21007AD711 /* GoogleService-Info.plist */,
 			);
 			path = Yeogigaja;
 			sourceTree = "<group>";
@@ -249,9 +266,11 @@
 				FA257C48254D692A007AD711 /* login.storyboard in Resources */,
 				7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */,
 				7C5811BE2530844100290CE7 /* Mypage.storyboard in Resources */,
+				FA257CE82552F5D8007AD711 /* register.storyboard in Resources */,
 				FA976096251C753700A175EA /* LaunchScreen.storyboard in Resources */,
 				7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */,
 				7C5811B22530839D00290CE7 /* Map.storyboard in Resources */,
+				FA257D072552FA21007AD711 /* GoogleService-Info.plist in Resources */,
 				FA976093251C753700A175EA /* Assets.xcassets in Resources */,
 				FA976091251C753300A175EA /* Main.storyboard in Resources */,
 			);
@@ -309,6 +328,7 @@
 				7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */,
 				FA257C45254D691E007AD711 /* loginViewController.swift in Sources */,
 				7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */,
+				FA257CE42552F5C6007AD711 /* registerViewController.swift in Sources */,
 				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
 				7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */,
 				FA97608A251C753300A175EA /* AppDelegate.swift in Sources */,

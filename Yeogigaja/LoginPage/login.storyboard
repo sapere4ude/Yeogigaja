@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HIt-EG-Dr5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -31,6 +31,9 @@
                                     <constraint firstAttribute="height" constant="30" id="1ga-ks-BXS"/>
                                 </constraints>
                                 <state key="normal" title="로그인하기"/>
+                                <connections>
+                                    <action selector="loginBtn:" destination="HIt-EG-Dr5" eventType="touchUpInside" id="ejv-3E-Std"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9m2-fh-BCi">
                                 <rect key="frame" x="46" y="607" width="321" height="30"/>
@@ -39,6 +42,9 @@
                                     <constraint firstAttribute="height" constant="30" id="da9-0b-kRk"/>
                                 </constraints>
                                 <state key="normal" title="회원가입"/>
+                                <connections>
+                                    <action selector="registerBtn:" destination="HIt-EG-Dr5" eventType="touchUpInside" id="QQd-zI-a5f"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u0o-UU-Rbs">
                                 <rect key="frame" x="46" y="333" width="321" height="34"/>
@@ -84,6 +90,13 @@
                             <constraint firstItem="IkV-N0-X1B" firstAttribute="top" secondItem="PB6-Nz-YAY" secondAttribute="top" constant="91" id="yHF-0l-wjm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="u0o-UU-Rbs" id="uuJ-tJ-tHb"/>
+                        <outlet property="imageView" destination="IkV-N0-X1B" id="evg-sf-gzS"/>
+                        <outlet property="loginBtn" destination="oz8-s8-3Gm" id="dwB-53-VXV"/>
+                        <outlet property="passwordField" destination="54o-VA-p15" id="2JF-7v-k1U"/>
+                        <outlet property="registerBtn" destination="9m2-fh-BCi" id="cyT-6t-RQY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLG-Xo-m3b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

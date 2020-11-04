@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseCore
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //        let tabbarVC = TabBarController()
 //        window?.rootViewController = tabbarVC
+        
+//        let loginVC = loginViewController()
+//        window?.rootViewController = loginVC
+        
+        // Firebase 연결
+        FirebaseApp.configure()
+        
         return true
     }
 
