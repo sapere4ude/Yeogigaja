@@ -12,33 +12,18 @@
         <!--Register View Controller-->
         <scene sceneID="D0K-fP-RSj">
             <objects>
-                <viewController id="DiN-zG-Ivw" customClass="registerViewController" customModule="Yeogigaja" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerViewController" id="DiN-zG-Ivw" customClass="registerViewController" customModule="Yeogigaja" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dxp-8W-ROj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8is-KP-JNS">
-                                <rect key="frame" x="87" y="135" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="ThQ-d9-TuL"/>
-                                    <constraint firstAttribute="width" constant="240" id="anK-eO-PvO"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9d-WB-TwE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9d-WB-TwE" userLabel="RegisterBtn">
                                 <rect key="frame" x="46" y="498" width="321" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="321" id="isi-hR-YVj"/>
                                     <constraint firstAttribute="height" constant="30" id="txz-UV-qhO"/>
                                 </constraints>
                                 <state key="normal" title="로그인하기"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmG-u7-fiZ">
-                                <rect key="frame" x="46" y="607" width="321" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="6jb-1x-GXD"/>
-                                    <constraint firstAttribute="width" constant="321" id="apT-Xc-zhm"/>
-                                </constraints>
-                                <state key="normal" title="회원가입"/>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q75-E4-Pp5">
                                 <rect key="frame" x="46" y="333" width="321" height="34"/>
@@ -58,38 +43,41 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tB2-Gk-Edv" userLabel="Name Field">
+                                <rect key="frame" x="46" y="252" width="321" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="SmG-sK-o97"/>
+                                    <constraint firstAttribute="width" constant="321" id="o8X-MY-j2l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="acw-6q-feF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="q75-E4-Pp5" firstAttribute="leading" secondItem="acw-6q-feF" secondAttribute="leading" constant="46" id="1Aq-3g-Bc6"/>
-                            <constraint firstItem="acw-6q-feF" firstAttribute="bottom" secondItem="XmG-u7-fiZ" secondAttribute="bottom" constant="225" id="2Uy-rI-mbR"/>
+                            <constraint firstItem="acw-6q-feF" firstAttribute="trailing" secondItem="tB2-Gk-Edv" secondAttribute="trailing" constant="47" id="1Nh-aq-iPp"/>
                             <constraint firstItem="5zx-Mi-kjd" firstAttribute="leading" secondItem="acw-6q-feF" secondAttribute="leading" constant="46" id="3VJ-cJ-fC9"/>
-                            <constraint firstItem="XmG-u7-fiZ" firstAttribute="top" secondItem="x9d-WB-TwE" secondAttribute="bottom" constant="79" id="65c-IA-slt"/>
                             <constraint firstItem="5zx-Mi-kjd" firstAttribute="top" secondItem="q75-E4-Pp5" secondAttribute="bottom" constant="36" id="H5D-cn-Tzr"/>
                             <constraint firstItem="acw-6q-feF" firstAttribute="trailing" secondItem="5zx-Mi-kjd" secondAttribute="trailing" constant="47" id="HuR-iB-RYd"/>
-                            <constraint firstItem="acw-6q-feF" firstAttribute="trailing" secondItem="XmG-u7-fiZ" secondAttribute="trailing" constant="47" id="LKf-fW-Glv"/>
+                            <constraint firstItem="tB2-Gk-Edv" firstAttribute="top" secondItem="acw-6q-feF" secondAttribute="top" constant="208" id="LhY-a4-DxN"/>
                             <constraint firstItem="x9d-WB-TwE" firstAttribute="top" secondItem="5zx-Mi-kjd" secondAttribute="bottom" constant="61" id="Ljk-6b-Res"/>
-                            <constraint firstItem="XmG-u7-fiZ" firstAttribute="leading" secondItem="acw-6q-feF" secondAttribute="leading" constant="46" id="NZT-qL-SV8"/>
-                            <constraint firstItem="acw-6q-feF" firstAttribute="trailing" secondItem="8is-KP-JNS" secondAttribute="trailing" constant="87" id="b5e-CP-RgC"/>
+                            <constraint firstItem="q75-E4-Pp5" firstAttribute="top" secondItem="tB2-Gk-Edv" secondAttribute="bottom" constant="47" id="Z4u-jN-5n1"/>
                             <constraint firstItem="acw-6q-feF" firstAttribute="trailing" secondItem="q75-E4-Pp5" secondAttribute="trailing" constant="47" id="kZB-u3-Hod"/>
-                            <constraint firstItem="q75-E4-Pp5" firstAttribute="top" secondItem="8is-KP-JNS" secondAttribute="bottom" constant="70" id="lej-1h-DkW"/>
-                            <constraint firstItem="q75-E4-Pp5" firstAttribute="top" secondItem="8is-KP-JNS" secondAttribute="bottom" constant="70" id="ndl-kF-6a3"/>
-                            <constraint firstItem="XmG-u7-fiZ" firstAttribute="top" secondItem="x9d-WB-TwE" secondAttribute="bottom" constant="79" id="nwt-xG-kIv"/>
-                            <constraint firstItem="8is-KP-JNS" firstAttribute="top" secondItem="acw-6q-feF" secondAttribute="top" constant="91" id="pvw-uN-KL1"/>
+                            <constraint firstItem="tB2-Gk-Edv" firstAttribute="leading" secondItem="acw-6q-feF" secondAttribute="leading" constant="46" id="p4S-tU-fyK"/>
                             <constraint firstItem="acw-6q-feF" firstAttribute="trailing" secondItem="x9d-WB-TwE" secondAttribute="trailing" constant="47" id="q5Q-3x-Z0i"/>
                             <constraint firstItem="x9d-WB-TwE" firstAttribute="leading" secondItem="acw-6q-feF" secondAttribute="leading" constant="46" id="tM0-e0-qBH"/>
-                            <constraint firstItem="8is-KP-JNS" firstAttribute="leading" secondItem="acw-6q-feF" secondAttribute="leading" constant="87" id="tbF-GG-rCH"/>
+                            <constraint firstItem="tB2-Gk-Edv" firstAttribute="leading" secondItem="q75-E4-Pp5" secondAttribute="leading" id="vD3-IO-uFJ"/>
                             <constraint firstItem="5zx-Mi-kjd" firstAttribute="top" secondItem="q75-E4-Pp5" secondAttribute="bottom" constant="36" id="xM5-aJ-MzP"/>
                             <constraint firstItem="x9d-WB-TwE" firstAttribute="top" secondItem="5zx-Mi-kjd" secondAttribute="bottom" constant="61" id="yiN-LL-5Ml"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="q75-E4-Pp5" id="UUl-oj-l4F"/>
-                        <outlet property="imageView" destination="8is-KP-JNS" id="hfp-h0-cpD"/>
-                        <outlet property="loginBtn" destination="x9d-WB-TwE" id="eYC-bL-MHY"/>
-                        <outlet property="passwordField" destination="5zx-Mi-kjd" id="io1-1J-EOq"/>
-                        <outlet property="registerBtn" destination="XmG-u7-fiZ" id="8ch-U9-86p"/>
+                        <outlet property="emailField" destination="q75-E4-Pp5" id="n35-bv-pbZ"/>
+                        <outlet property="nameField" destination="tB2-Gk-Edv" id="TG3-gd-7lb"/>
+                        <outlet property="passwordField" destination="5zx-Mi-kjd" id="7KL-Br-Pcy"/>
+                        <outlet property="registerBtn" destination="x9d-WB-TwE" id="jtA-mY-U8I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VXd-rU-WIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

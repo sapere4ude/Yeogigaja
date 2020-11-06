@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (5.2.2)
   - Firebase/Analytics (6.29.0):
     - Firebase/Core
   - Firebase/Auth (6.29.0):
@@ -10,15 +9,9 @@ PODS:
     - FirebaseAnalytics (= 6.7.0)
   - Firebase/CoreOnly (6.29.0):
     - FirebaseCore (= 6.9.2)
-  - Firebase/Crashlytics (6.29.0):
-    - Firebase/CoreOnly
-    - FirebaseCrashlytics (~> 4.3.1)
   - Firebase/Database (6.29.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.4.0)
-  - Firebase/Storage (6.29.0):
-    - Firebase/CoreOnly
-    - FirebaseStorage (~> 3.8.0)
   - FirebaseAnalytics (6.7.0):
     - FirebaseCore (~> 6.8)
     - FirebaseInstallations (~> 1.4)
@@ -42,12 +35,6 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/Logger (~> 6.7)
     - nanopb (~> 1.30905.0)
-  - FirebaseCrashlytics (4.3.1):
-    - FirebaseCore (~> 6.8)
-    - FirebaseInstallations (~> 1.1)
-    - GoogleDataTransport (~> 7.0)
-    - nanopb (~> 1.30905.0)
-    - PromisesObjC (~> 1.2)
   - FirebaseDatabase (6.4.0):
     - FirebaseCore (~> 6.8)
     - leveldb-library (~> 1.22)
@@ -56,9 +43,6 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
-  - FirebaseStorage (3.8.0):
-    - FirebaseCore (~> 6.8)
-    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleAppMeasurement (6.7.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -97,35 +81,24 @@ PODS:
   - PagingKit (1.15.0)
   - Parchment (2.4.0)
   - PromisesObjC (1.2.9)
-  - SnapKit (5.0.1)
-  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.2)
   - Firebase/Analytics
   - Firebase/Auth
-  - Firebase/Core
-  - Firebase/Crashlytics
   - Firebase/Database
-  - Firebase/Storage
   - JGProgressHUD
   - PagingKit
   - Parchment
-  - SnapKit (~> 5.0.0)
-  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
-    - FirebaseCrashlytics
     - FirebaseDatabase
     - FirebaseInstallations
-    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -136,20 +109,15 @@ SPEC REPOS:
     - PagingKit
     - Parchment
     - PromisesObjC
-    - SnapKit
-    - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Firebase: 57957c8d6eb3d8b80a560b1dc58be24724b89ff2
   FirebaseAnalytics: aa522dce9fd93002ba1554467d23ce7092323000
   FirebaseAuth: a818d73466d51db897d3bf3c0f3baa3dae7fd4c0
   FirebaseCore: 7930a1946517d94256d857f97371ed993b55f7bd
   FirebaseCoreDiagnostics: 7535fe695737f8c5b350584292a70b7f8ff0357b
-  FirebaseCrashlytics: 863c851b034baeb3116cd2c91743e37de2dcedfc
   FirebaseDatabase: 55e69fe802ccb438d9c6ee51eb32fd425d5409d3
   FirebaseInstallations: 3c520c951305cbf9ca54eb891ff9e6d1fd384881
-  FirebaseStorage: 3ef81ca5fa7817f85451ca09d516a34d2c7542a7
   GoogleAppMeasurement: 345d365fd105e6682bf5084783a5352a3db26820
   GoogleDataTransport: af0c79193dc59acd37630b4833d0dc6912ae6bd5
   GoogleUtilities: e121a3867449ce16b0e35ddf1797ea7a389ffdf2
@@ -160,9 +128,7 @@ SPEC CHECKSUMS:
   PagingKit: 4bd58b65d71a82ab98486b6927e870c7fbc6c6eb
   Parchment: 002785473861582385db5c6725165353c500198e
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 060fc23bf409dc3b2a551dee529773cabd242fc1
+PODFILE CHECKSUM: 5eb3227ad0118e3766d90bac4038c6b7d3b01d92
 
 COCOAPODS: 1.9.3

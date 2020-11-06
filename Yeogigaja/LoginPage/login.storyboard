@@ -43,7 +43,7 @@
                                 </constraints>
                                 <state key="normal" title="회원가입"/>
                                 <connections>
-                                    <action selector="registerBtn:" destination="HIt-EG-Dr5" eventType="touchUpInside" id="QQd-zI-a5f"/>
+                                    <action selector="registerBtn:" destination="HIt-EG-Dr5" eventType="touchUpInside" id="311-BO-pGC"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u0o-UU-Rbs">
@@ -95,7 +95,7 @@
                         <outlet property="imageView" destination="IkV-N0-X1B" id="evg-sf-gzS"/>
                         <outlet property="loginBtn" destination="oz8-s8-3Gm" id="dwB-53-VXV"/>
                         <outlet property="passwordField" destination="54o-VA-p15" id="2JF-7v-k1U"/>
-                        <outlet property="registerBtn" destination="9m2-fh-BCi" id="cyT-6t-RQY"/>
+                        <outlet property="registerBtn" destination="9m2-fh-BCi" id="VX3-Gz-b5q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLG-Xo-m3b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

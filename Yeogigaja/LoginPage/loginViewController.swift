@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 import JGProgressHUD
+
 
 class loginViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
@@ -103,7 +105,11 @@ class loginViewController: UIViewController {
         })
     }
     
+    // 회원가입으로 이동
     @IBAction func registerBtn(_ sender: Any) {
+        let vc = UIStoryboard(name: "register", bundle: nil)
+        let controller = vc.instantiateViewController(withIdentifier: "registerViewController")
+        self.present(controller, animated: true, completion: nil)
     }
 
     func alertUserLoginError() {

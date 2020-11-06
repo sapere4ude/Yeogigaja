@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1095242886306-cth2om1laiprmk99b77g0omrh9qtpjlj.apps.googleusercontent.com</string>
+	<string>970862035252-v8chnennim855fij91fmje3j682j20nk.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1095242886306-cth2om1laiprmk99b77g0omrh9qtpjlj</string>
+	<string>com.googleusercontent.apps.970862035252-v8chnennim855fij91fmje3j682j20nk</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCMoBXeNzVOW2SmvtVB4IZvaCQMftRUE5I</string>
+	<string>AIzaSyAqPQFYPSkFKQJwIFen_KJGQVPDnBc6Skw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1095242886306</string>
+	<string>970862035252</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>sapere4ude.Yeogigaja</string>
 	<key>PROJECT_ID</key>
-	<string>yeogigaja</string>
+	<string>yeogigaja-d19f1</string>
 	<key>STORAGE_BUCKET</key>
-	<string>yeogigaja.appspot.com</string>
+	<string>yeogigaja-d19f1.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1095242886306:ios:f6cc76607e2b6c19adbbfb</string>
+	<string>1:970862035252:ios:91060a5624e442858d6561</string>
 	<key>DATABASE_URL</key>
-	<string>https://yeogigaja.firebaseio.com</string>
+	<string>https://yeogigaja-d19f1.firebaseio.com</string>
 </dict>
 </plist>
