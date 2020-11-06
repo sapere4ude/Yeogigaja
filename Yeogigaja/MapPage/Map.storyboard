@@ -36,18 +36,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="서대문구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxR-Ew-J8m">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서대문구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxR-Ew-J8m">
                                                     <rect key="frame" x="35" y="54" width="59" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="RxR-Ew-J8m" firstAttribute="top" secondItem="AgB-ac-IJC" secondAttribute="top" constant="54" id="4x2-Qx-aIo"/>
+                                                <constraint firstAttribute="trailing" secondItem="RxR-Ew-J8m" secondAttribute="trailing" constant="34" id="X3v-3F-h3K"/>
+                                                <constraint firstAttribute="bottom" secondItem="RxR-Ew-J8m" secondAttribute="bottom" constant="53" id="evu-4H-qwa"/>
+                                                <constraint firstItem="RxR-Ew-J8m" firstAttribute="leading" secondItem="AgB-ac-IJC" secondAttribute="leading" constant="35" id="jlo-PX-nnI"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="name" destination="RxR-Ew-J8m" id="Xr3-du-xM6"/>
+                                            <outlet property="name" destination="RxR-Ew-J8m" id="pLo-Pl-OHt"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
