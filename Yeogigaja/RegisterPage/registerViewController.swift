@@ -30,12 +30,15 @@ class registerViewController: UIViewController {
         registerBtn.addTarget(self,
                               action: #selector(registerButtonTapped),
                               for: .touchUpInside)
+
         
         nameField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
         
         scrollView.isUserInteractionEnabled = true
+        
+        scrollViewTapGesture()
         
     }
     
@@ -47,6 +50,20 @@ class registerViewController: UIViewController {
         scrollView.clipsToBounds = true
         return scrollView
     }()
+    
+    func scrollViewTapGesture() {
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        scrollView.addGestureRecognizer(singleTapGestureRecognizer)
+    }
+    
+    
+    @objc func MyTapMethod(sender: UITapGestureRecognizer) {
+            self.view.endEditing(true)
+        }
+
     
     func UIinit() {
         
@@ -103,6 +120,10 @@ class registerViewController: UIViewController {
         scrollView.frame = view.bounds
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.view.endEditing(true)
+   }
+    
     @objc private func registerButtonTapped() {
         
         emailField.resignFirstResponder()   // 키보드 숨기기
@@ -117,7 +138,7 @@ class registerViewController: UIViewController {
             !password.isEmpty,
             !name.isEmpty,
             password.count >= 6 else {
-                //alertUserLoginError()
+                alertUserLoginError()
                 return
             }
 
@@ -141,17 +162,17 @@ class registerViewController: UIViewController {
         
         }
 
-func alertUserLoginError(message: String = "Please enter all information to create a new account.") {
-    let alert = UIAlertController(title: "Woops",
-                                  message: "",
-                                  preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Dismiss",
-                                  style: .cancel,
-                                  handler: nil))
-    present(alert,animated: true)
-    
+    func alertUserLoginError(message: String = "Please enter all information to create a new account.") {
+        let alert = UIAlertController(title: "빈 값이 존재합니다",
+                                      message: "",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인",
+                                      style: .cancel,
+                                      handler: nil))
+        present(alert,animated: true)
+        
     }
-
+    
 }
 
     
@@ -171,4 +192,5 @@ extension registerViewController: UITextFieldDelegate {
         
         return true
     }
+    
 }

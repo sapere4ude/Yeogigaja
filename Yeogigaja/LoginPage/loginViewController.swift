@@ -21,9 +21,17 @@ class loginViewController: UIViewController {
     
     private let spinner = JGProgressHUD(style: .dark)
     
+    private let scrollView: UIScrollView = {    // scrollView를 사용하는 이유는 키보드에 텍스트 입력할때 밀려올라가는듯한 느낌을 내기 위해서! (중요)
+        // 키보드가 텍스트필드의 영역을 가리는 경우를 막기위해서
+        let scrollView = UIScrollView()
+        scrollView.clipsToBounds = true
+        return scrollView
+    }()
+    
     func UIinit() {
         imageView.image = UIImage(named: "logo")
         imageView.contentMode = .scaleAspectFit
+        
         emailField.autocapitalizationType = .none    // 자동 대문자 전환
         emailField.autocorrectionType = .no  // 자동 맞춤법 조정
         emailField.returnKeyType = .continue // 키보드 우측 하단 부분 설정
@@ -54,18 +62,49 @@ class loginViewController: UIViewController {
         loginBtn.layer.masksToBounds = true   // masksToBounds는 layer의 프로퍼티이다
         loginBtn.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         
-       registerBtn.setTitle("회원가입", for: .normal)
-       registerBtn.backgroundColor = .systemRed
-       registerBtn.setTitleColor(.white, for: .normal)
-       registerBtn.layer.cornerRadius = 12
-       registerBtn.layer.masksToBounds = true   // masksToBounds는 layer의 프로퍼티이다
-       registerBtn.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
+        registerBtn.setTitle("회원가입", for: .normal)
+        registerBtn.backgroundColor = .systemRed
+        registerBtn.setTitleColor(.white, for: .normal)
+        registerBtn.layer.cornerRadius = 12
+        registerBtn.layer.masksToBounds = true   // masksToBounds는 layer의 프로퍼티이다
+        registerBtn.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         
+        view.addSubview(scrollView)
+        scrollView.addSubview(imageView)
+        scrollView.addSubview(emailField)
+        scrollView.addSubview(passwordField)
+        scrollView.addSubview(loginBtn)
+        scrollView.addSubview(registerBtn)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.frame = view.bounds
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UIinit()
+        
+        scrollView.isUserInteractionEnabled = true
+        scrollViewTapGesture()
+    }
+    
+    func scrollViewTapGesture() {
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        scrollView.addGestureRecognizer(singleTapGestureRecognizer)
+    }
+    
+    
+    @objc func MyTapMethod(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     @IBAction func loginBtn(_ sender: Any) {
@@ -73,9 +112,9 @@ class loginViewController: UIViewController {
         passwordField.resignFirstResponder()
         
         guard let email = emailField.text, let password = passwordField.text,
-            !email.isEmpty, !password.isEmpty, password.count >= 6 else {
-                alertUserLoginError()
-                return
+              !email.isEmpty, !password.isEmpty, password.count >= 6 else {
+            alertUserLoginError()
+            return
         }
         
         spinner.show(in: view)
@@ -89,7 +128,7 @@ class loginViewController: UIViewController {
             DispatchQueue.main.async {
                 strongSelf.spinner.dismiss()
             }
-
+            
             guard let result = authResult, error == nil else {
                 print("Failed to log in user with email: \(email)")
                 return
@@ -109,14 +148,15 @@ class loginViewController: UIViewController {
     @IBAction func registerBtn(_ sender: Any) {
         let vc = UIStoryboard(name: "register", bundle: nil)
         let controller = vc.instantiateViewController(withIdentifier: "registerViewController")
+        controller.modalPresentationStyle = .formSheet
         self.present(controller, animated: true, completion: nil)
     }
-
+    
     func alertUserLoginError() {
-        let alert = UIAlertController(title: "Woops",
-                                      message: "Please enter all information to log in",
+        let alert = UIAlertController(title: "입력된 정보가 없습니다",
+                                      message: "아이디와 비밀번호를 입력해주세요",
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss",
+        alert.addAction(UIAlertAction(title: "확인",
                                       style: .cancel,
                                       handler: nil))
         present(alert,animated: true)   // Present : 뷰 컨트롤러를 표현해주는 것
