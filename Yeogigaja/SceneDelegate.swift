@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainsb = UIStoryboard(name: "Main", bundle: nil)
         guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? TableViewController else{return}
         let mapsb = UIStoryboard(name: "Map", bundle: nil)
-        guard let view2 = mapsb.instantiateViewController(identifier: "MapView") as? mapViewController else{return}
+        guard let view2 = mapsb.instantiateViewController(identifier: "navigation") as? UINavigationController else{return}
         let calendarsb = UIStoryboard(name: "Calendar", bundle: nil)
         guard let view3 = calendarsb.instantiateViewController(identifier: "CalendarView") as? CalendarViewController else{return}
         let mypagesb = UIStoryboard(name: "Mypage", bundle: nil)

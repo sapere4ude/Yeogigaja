@@ -85,7 +85,7 @@
         <!--Item-->
         <scene sceneID="6qV-mG-lv6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0rI-Za-Pxd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigation" automaticallyAdjustsScrollViewInsets="NO" id="0rI-Za-Pxd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fSf-64-n38"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U4c-8L-fCF">

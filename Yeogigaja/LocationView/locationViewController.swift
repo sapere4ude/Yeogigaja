@@ -12,9 +12,10 @@ class locationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("rrrr")
         // Do any additional setup after loading the view.
     }
+    
+    
     
 
     /*
