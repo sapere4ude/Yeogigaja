@@ -8,23 +8,45 @@
 
 import UIKit
 
-class mapViewController: UIViewController {
+class mapViewController: UIViewController,  UICollectionViewDataSource {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    var cellWidth: CGFloat = 0
+    var cellHeight: CGFloat = 0
+    var padding: CGFloat = 10
+    var numberOfCol: CGFloat = 2
+    
+    
+    @IBOutlet weak var localCollectionView: UICollectionView!
+    
+    override func viewDidLayoutSubviews() {
+        print("layout subview")
+        super.viewDidLayoutSubviews()
+        localCollectionView.contentInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        
+        if let flowLayout = localCollectionView.collectionViewLayout as? UICollectionViewLayout {
+            cellWidth = (localCollectionView.frame.width - (numberOfCol + 1)*padding)/numberOfCol
+            cellHeight = 100
+            
+        }else{
+            print(fatalError())
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 24
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: CollectionViewCell = localCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        
+        return cell
+    }
 
+}
+
+extension mapViewController:UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
 }
