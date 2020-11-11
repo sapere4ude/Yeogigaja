@@ -19,15 +19,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IkV-N0-X1B">
                                 <rect key="frame" x="87" y="135" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="vP7-fP-3jh"/>
-                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oz8-s8-3Gm">
                                 <rect key="frame" x="46" y="466" width="321" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="321" id="0or-ZI-fCX"/>
-                                </constraints>
                                 <state key="normal" title="로그인하기"/>
                                 <connections>
                                     <action selector="loginBtn:" destination="HIt-EG-Dr5" eventType="touchUpInside" id="ejv-3E-Std"/>
@@ -35,25 +29,16 @@
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u0o-UU-Rbs">
                                 <rect key="frame" x="46" y="333" width="321" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="321" id="8aH-ZE-UKw"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="54o-VA-p15">
                                 <rect key="frame" x="46" y="403" width="321" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="321" id="w4o-us-oFb"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9m2-fh-BCi">
                                 <rect key="frame" x="46" y="532" width="321" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="321" id="8XO-is-LpA"/>
-                                </constraints>
                                 <state key="normal" title="회원가입"/>
                                 <connections>
                                     <action selector="registerBtn:" destination="HIt-EG-Dr5" eventType="touchUpInside" id="311-BO-pGC"/>

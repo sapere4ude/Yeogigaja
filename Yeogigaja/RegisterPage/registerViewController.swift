@@ -126,6 +126,7 @@ class registerViewController: UIViewController {
     
     @objc private func registerButtonTapped() {
         
+        
         emailField.resignFirstResponder()   // 키보드 숨기기
         passwordField.resignFirstResponder()
         nameField.resignFirstResponder()

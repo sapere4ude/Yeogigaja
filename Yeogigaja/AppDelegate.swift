@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Firebase 연결
         FirebaseApp.configure()
-        print("s1")
         
         return true
     }

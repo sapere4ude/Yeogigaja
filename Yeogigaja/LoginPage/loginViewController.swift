@@ -129,18 +129,26 @@ class loginViewController: UIViewController {
                 strongSelf.spinner.dismiss()
             }
             
-            guard let result = authResult, error == nil else {
-                print("Failed to log in user with email: \(email)")
-                return
-            }
+//            guard let result = authResult, error == nil else {
+//                print("Failed to log in user with email: \(email)")
+//                return
+//            }
+//
+//            let user = result.user
+//
+//            UserDefaults.standard.set(email, forKey: "email")
             
-            let user = result.user
-            
-            UserDefaults.standard.set(email, forKey: "email")
-            
-            print("Logged in User: \(user)")
+//            print("Logged in User: \(user)")
             // dismiss : 뷰 컨트롤러가 수동으로 제공한 뷰 컨트롤러를 해제하는 것
-            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+//            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+
+            let vc = UIStoryboard(name: "Main", bundle: nil)
+            let controller = vc.instantiateViewController(withIdentifier: "tableView")
+            
+            controller.modalPresentationStyle = .fullScreen
+            
+            strongSelf.present(controller, animated: true, completion: nil)
+            
         })
     }
     
