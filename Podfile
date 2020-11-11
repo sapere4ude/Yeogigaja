@@ -18,4 +18,7 @@ target 'Yeogigaja' do
   pod "Parchment"
   pod 'JGProgressHUD'
 
+  # Calendar
+  pod 'FSCalendar'
+
 end
