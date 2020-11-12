@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let loginVC = loginViewController()
 //        window?.rootViewController = loginVC
         
-        // Firebase 연결
-        FirebaseApp.configure()
+        // Firebase 연결, 여기 다시 체크하기
+//        FirebaseApp.configure()
         
         return true
     }

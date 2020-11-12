@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TZy-51-Clb" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="33" width="414" height="432"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZy-51-Clb" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="35" width="414" height="432"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="3uZ-GT-UpE" id="raJ-EA-VcO"/>
@@ -29,7 +28,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ot5-0m-4Ub"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TZy-51-Clb" firstAttribute="top" secondItem="OtW-78-7gl" secondAttribute="top" constant="35" id="EvC-Ia-SI0"/>
+                            <constraint firstItem="TZy-51-Clb" firstAttribute="leading" secondItem="ot5-0m-4Ub" secondAttribute="leading" id="Gyq-8r-HdW"/>
+                            <constraint firstItem="ot5-0m-4Ub" firstAttribute="bottom" secondItem="TZy-51-Clb" secondAttribute="bottom" constant="395" id="LSK-bb-3VO"/>
+                            <constraint firstItem="TZy-51-Clb" firstAttribute="trailing" secondItem="ot5-0m-4Ub" secondAttribute="trailing" id="LsY-04-iQb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calendarView" destination="TZy-51-Clb" id="exm-mG-Dhe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRD-Vk-b1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

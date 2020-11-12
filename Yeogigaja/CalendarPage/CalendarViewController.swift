@@ -7,13 +7,56 @@
 //
 
 import UIKit
+import FSCalendar
 
 class CalendarViewController: UIViewController {
-
+    
+    @IBOutlet weak var calendarView: FSCalendar!
+    
+    let dateFormatter = DateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("calendar")
+        settingCalendar()
         
     }
 
+    func settingCalendar() {
+//        dateFormatter.locale = Locale(identifier: "ko_KR")
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+        calendarView.appearance.headerDateFormat = "YYYY년 M월"
+        calendarView.locale = Locale(identifier: "ko_KR")
+        calendarView.appearance.headerTitleColor = .black
+        
+        calendarView.appearance.headerMinimumDissolvedAlpha = 0.0
+        // 달력의 평일 날짜 색깔
+        calendarView.appearance.titleDefaultColor = .black
+
+        // 달력의 토,일 날짜 색깔
+        calendarView.appearance.titleWeekendColor = .red
+
+        // 달력의 맨 위의 년도, 월의 색깔
+        calendarView.appearance.headerTitleColor = .systemPink
+
+        // 달력의 요일 글자 색깔
+        calendarView.appearance.weekdayTextColor = .orange
+        
+        calendarView.allowsMultipleSelection = true  // 여러 날짜 선택
+        calendarView.swipeToChooseGesture.isEnabled = true
+        calendarView.delegate = self
+        calendarView.dataSource = self
+    }
+}
+
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
+    
+    // 날짜 선택 시 콜백 메서드
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print(dateFormatter.string(from: date) + " 선택됨")
+    }
+    // 날짜 선택 해제 시 콜백 메서드
+    public func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print(dateFormatter.string(from: date) + " 해제됨")
+    }
+    
 }
