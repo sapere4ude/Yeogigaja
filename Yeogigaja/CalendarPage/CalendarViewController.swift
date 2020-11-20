@@ -45,6 +45,21 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     // 날짜 선택 시 콜백 메서드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print(dateFormatter.string(from: date) + " 선택됨")
+        // action sheet title 설정
+        let alert = UIAlertController(title: "새 글 쓰기", message: "원하는 내용을 작성하실 수 있습니다.", preferredStyle: UIAlertController.Style.actionSheet)
+        
+        // 옵션 설정
+        let writeAction = UIAlertAction(title: "작성하기", style: .default, handler: {_ in
+            
+        })
+        let cancelAction = UIAlertAction(title: "취소하기", style: .default, handler: {
+            ( alert: UIAlertAction!) -> Void in
+        })
+        
+        alert.addAction(writeAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
         
     }
     // 날짜 선택 해제 시 콜백 메서드
