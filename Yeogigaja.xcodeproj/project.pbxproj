@@ -31,6 +31,8 @@
 		FA976093251C753700A175EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA976092251C753700A175EA /* Assets.xcassets */; };
 		FA976096251C753700A175EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA976094251C753700A175EA /* LaunchScreen.storyboard */; };
 		FAA21BEB2554D838007F17E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA21BEA2554D838007F17E2 /* GoogleService-Info.plist */; };
+		FAABDF2E256810AB009B1291 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABDF2D256810AB009B1291 /* WriteViewController.swift */; };
+		FAABDF31256810C3009B1291 /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAABDF30256810C3009B1291 /* Write.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		FA976095251C753700A175EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA976097251C753700A175EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA21BEA2554D838007F17E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAABDF2D256810AB009B1291 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		FAABDF30256810C3009B1291 /* Write.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,7 @@
 		FA976088251C753300A175EA /* Yeogigaja */ = {
 			isa = PBXGroup;
 			children = (
+				FAABDF2C2568108A009B1291 /* WritePage */,
 				FA257D09255386B8007AD711 /* Resources */,
 				FA257CE22552F59B007AD711 /* RegisterPage */,
 				FA257C41254D68BE007AD711 /* LoginPage */,
@@ -212,6 +217,15 @@
 				FAA21BEA2554D838007F17E2 /* GoogleService-Info.plist */,
 			);
 			path = Yeogigaja;
+			sourceTree = "<group>";
+		};
+		FAABDF2C2568108A009B1291 /* WritePage */ = {
+			isa = PBXGroup;
+			children = (
+				FAABDF2D256810AB009B1291 /* WriteViewController.swift */,
+				FAABDF30256810C3009B1291 /* Write.storyboard */,
+			);
+			path = WritePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +297,7 @@
 				7C5811B22530839D00290CE7 /* Map.storyboard in Resources */,
 				FAA21BEB2554D838007F17E2 /* GoogleService-Info.plist in Resources */,
 				FA976093251C753700A175EA /* Assets.xcassets in Resources */,
+				FAABDF31256810C3009B1291 /* Write.storyboard in Resources */,
 				FA976091251C753300A175EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +358,7 @@
 				FA257CE42552F5C6007AD711 /* registerViewController.swift in Sources */,
 				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
 				7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */,
+				FAABDF2E256810AB009B1291 /* WriteViewController.swift in Sources */,
 				FA97608A251C753300A175EA /* AppDelegate.swift in Sources */,
 				7C87EB5B254D649200C428A5 /* model.swift in Sources */,
 				7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */,
