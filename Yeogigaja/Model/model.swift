@@ -8,6 +8,12 @@
 
 import Foundation
 
-struct calendarContents {
-    
+// MARK : 캘런더 파트에서 사용할 프로퍼티
+struct CalendarContents {
+    let date: Date
+    let like: Bool
+    let contents: String
+    let status_id: Int
 }
+
+
