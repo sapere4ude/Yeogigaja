@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "736AF68F6527ACF6B4A4C54728824A1C"
-               BuildableName = "FirebaseDatabase.framework"
-               BlueprintName = "FirebaseDatabase"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "FA976085251C753300A175EA"
+               BuildableName = "Yeogigaja.app"
+               BlueprintName = "Yeogigaja"
+               ReferencedContainer = "container:Yeogigaja.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FA976085251C753300A175EA"
+            BuildableName = "Yeogigaja.app"
+            BlueprintName = "Yeogigaja"
+            ReferencedContainer = "container:Yeogigaja.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FA976085251C753300A175EA"
+            BuildableName = "Yeogigaja.app"
+            BlueprintName = "Yeogigaja"
+            ReferencedContainer = "container:Yeogigaja.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
