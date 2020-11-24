@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o5Y-c8-JXT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -12,7 +12,7 @@
         <!--새 글 쓰기-->
         <scene sceneID="hu1-4x-qIi">
             <objects>
-                <viewController id="o5Y-c8-JXT" customClass="WriteViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Write" id="o5Y-c8-JXT" customClass="WriteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QNh-GN-1UJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,9 +36,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="새 글 쓰기" id="S40-5X-qT6">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nNl-MP-euf"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XiG-cO-YcK"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nNl-MP-euf">
+                            <connections>
+                                <action selector="close:" destination="o5Y-c8-JXT" id="VE2-XS-SjB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XiG-cO-YcK">
+                            <connections>
+                                <action selector="save:" destination="o5Y-c8-JXT" id="8hK-if-Eos"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="writeTextView" destination="hGV-Va-qSS" id="GpP-JO-EKh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7BJ-oT-egG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,6 +58,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Y2d-RF-EPM">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfj-IZ-Czy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="shi-e2-etz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X3r-2q-NSU">
@@ -58,7 +70,6 @@
                         <segue destination="o5Y-c8-JXT" kind="relationship" relationship="rootViewController" id="Qqf-b0-O2u"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jfj-IZ-Czy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-78.260869565217391" y="145.98214285714286"/>
         </scene>

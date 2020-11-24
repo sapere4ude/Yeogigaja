@@ -16,4 +16,21 @@ struct CalendarContents {
     let status_id: Int
 }
 
+// MARK: 글 작성시 사용할 것들
+class Write {
+    var content: String
+    var insertDate: Date
+    
+    init(content: String) {
+        self.content = content
+        insertDate = Date()
+    }
+    
+    static var dummyWriteList = [
+        Write(content: "Example"),
+        Write(content: "ABCDE")
+    ]
+}
+
+
 
