@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.2.2)
   - Firebase/Analytics (6.29.0):
     - Firebase/Core
   - Firebase/Auth (6.29.0):
@@ -82,8 +83,11 @@ PODS:
   - PagingKit (1.15.0)
   - Parchment (2.4.0)
   - PromisesObjC (1.2.9)
+  - SnapKit (5.0.1)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.2)
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
@@ -91,9 +95,12 @@ DEPENDENCIES:
   - JGProgressHUD
   - PagingKit
   - Parchment
+  - SnapKit (~> 5.0.0)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -112,8 +119,11 @@ SPEC REPOS:
     - PagingKit
     - Parchment
     - PromisesObjC
+    - SnapKit
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Firebase: 57957c8d6eb3d8b80a560b1dc58be24724b89ff2
   FirebaseAnalytics: aa522dce9fd93002ba1554467d23ce7092323000
   FirebaseAuth: a818d73466d51db897d3bf3c0f3baa3dae7fd4c0
@@ -132,7 +142,9 @@ SPEC CHECKSUMS:
   PagingKit: 4bd58b65d71a82ab98486b6927e870c7fbc6c6eb
   Parchment: 002785473861582385db5c6725165353c500198e
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: be160e7d5eec6920a92cdf34b20085bfe3f15fe2
+PODFILE CHECKSUM: 1dd1520ff3053b6ae176d5589b1eca42951aebb1
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.9.3

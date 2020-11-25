@@ -51,6 +51,14 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         // 옵션 설정
         let writeAction = UIAlertAction(title: "작성하기", style: .default, handler: {_ in
             
+            // 이곳에 진태님이 만들어주신 사용자 작성 파일 연결하기. 현재 있는 ShareViewController는 연결할 수 없다.
+//            guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "ShareView") else {
+//                return
+//            }
+//
+//            // 화면을 전환
+//            self.navigationController?.pushViewController(uvc, animated: true)
+            
         })
         let cancelAction = UIAlertAction(title: "취소하기", style: .default, handler: {
             ( alert: UIAlertAction!) -> Void in

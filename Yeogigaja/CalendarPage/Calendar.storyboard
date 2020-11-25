@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dwm-aE-Yqe">
+            <objects>
+                <navigationController id="kaM-hz-5Am" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eCb-mN-rCu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3uZ-GT-UpE" kind="relationship" relationship="rootViewController" id="Qkg-Lw-mKO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o08-pB-cDB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3955" y="-372"/>
+        </scene>
         <!--Calendar View Controller-->
         <scene sceneID="ko4-R6-61T">
             <objects>
@@ -54,6 +70,7 @@
                             <constraint firstAttribute="bottom" secondItem="jfr-Ip-d05" secondAttribute="bottom" id="mFZ-gO-kEA"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="SoG-bk-syi"/>
                     <connections>
                         <outlet property="calendarView" destination="TZy-51-Clb" id="exm-mG-Dhe"/>
                     </connections>
