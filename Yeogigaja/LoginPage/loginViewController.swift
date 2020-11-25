@@ -137,9 +137,9 @@ class loginViewController: UIViewController {
 //            let user = result.user
 //
 //            UserDefaults.standard.set(email, forKey: "email")
-            
+//
 //            print("Logged in User: \(user)")
-            // dismiss : 뷰 컨트롤러가 수동으로 제공한 뷰 컨트롤러를 해제하는 것
+//             dismiss : 뷰 컨트롤러가 수동으로 제공한 뷰 컨트롤러를 해제하는 것
 //            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
 
             let vc = UIStoryboard(name: "Main", bundle: nil)

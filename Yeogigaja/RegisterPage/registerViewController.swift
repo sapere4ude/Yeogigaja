@@ -30,7 +30,6 @@ class registerViewController: UIViewController {
         registerBtn.addTarget(self,
                               action: #selector(registerButtonTapped),
                               for: .touchUpInside)
-
         
         nameField.delegate = self
         emailField.delegate = self
