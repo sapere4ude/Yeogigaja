@@ -20,7 +20,7 @@ class registerViewController: UIViewController {
     
     
     // test
-//    private let database = Database.database().reference()
+    //    private let database = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class registerViewController: UIViewController {
     private let spinner = JGProgressHUD(style: .dark)
     
     private let scrollView: UIScrollView = {    // scrollView를 사용하는 이유는 키보드에 텍스트 입력할때 밀려올라가는듯한 느낌을 내기 위해서! (중요)
-                                                // 키보드가 텍스트필드의 영역을 가리는 경우를 막기위해서
+        // 키보드가 텍스트필드의 영역을 가리는 경우를 막기위해서
         let scrollView = UIScrollView()
         scrollView.clipsToBounds = true
         return scrollView
@@ -60,18 +60,18 @@ class registerViewController: UIViewController {
     
     
     @objc func MyTapMethod(sender: UITapGestureRecognizer) {
-            self.view.endEditing(true)
-        }
-
+        self.view.endEditing(true)
+    }
+    
     
     func UIinit() {
         
-       nameField.autocapitalizationType = .none    // 자동 대문자 전환
-       nameField.autocorrectionType = .no  // 자동 맞춤법 조정
-       nameField.returnKeyType = .continue // 키보드 우측 하단 부분 설정
-       nameField.layer.cornerRadius = 12   // text filed 의 모양 조절 (숫자가 클수록 둥글어진다)
-       nameField.layer.borderWidth = 1     // border: 가장자리, width: 폭, 너비
-       nameField.layer.borderColor = UIColor.lightGray.cgColor // cgColor : A set of components that define a color, with a color space specifying how to interpret them.
+        nameField.autocapitalizationType = .none    // 자동 대문자 전환
+        nameField.autocorrectionType = .no  // 자동 맞춤법 조정
+        nameField.returnKeyType = .continue // 키보드 우측 하단 부분 설정
+        nameField.layer.cornerRadius = 12   // text filed 의 모양 조절 (숫자가 클수록 둥글어진다)
+        nameField.layer.borderWidth = 1     // border: 가장자리, width: 폭, 너비
+        nameField.layer.borderColor = UIColor.lightGray.cgColor // cgColor : A set of components that define a color, with a color space specifying how to interpret them.
         nameField.placeholder = "이름을 입력해주세요"
         nameField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0)) // placeholder의 시작 위치를 약간 우측으로 조정해줄 수 있음
         nameField.leftViewMode = .always // leftView에서 정의한 설정을 사용하는 방법
@@ -120,8 +120,18 @@ class registerViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-         self.view.endEditing(true)
-   }
+        self.view.endEditing(true)
+    }
+    
+    
+    
+    func showSuccessHUD() {
+        let spinner = JGProgressHUD()
+        spinner.textLabel.text = "회원가입에 성공하였습니다!"
+        spinner.indicatorView = JGProgressHUDSuccessIndicatorView()
+        spinner.show(in: view)
+        spinner.dismiss(afterDelay: 2.0)
+    }
     
     @objc private func registerButtonTapped() {
         
@@ -129,7 +139,7 @@ class registerViewController: UIViewController {
         emailField.resignFirstResponder()   // 키보드 숨기기
         passwordField.resignFirstResponder()
         nameField.resignFirstResponder()
-
+        
         guard
             let name = nameField.text,
             let email = emailField.text,
@@ -138,32 +148,69 @@ class registerViewController: UIViewController {
             !password.isEmpty,
             !name.isEmpty,
             password.count >= 6 else {
-                alertUserLoginError()
+            alertUserLoginError()
+            return
+        }
+        
+        spinner.show(in: view)
+// 157-171 기존에 진행했던 코드 (정상 실행되는 것)
+//        // Firebase Log In
+//        let yeogigajaUser = YeogigajaAppUser(name: name, emailAddress: email)
+//
+//
+//        DispatchQueue.main.async {
+//            self.spinner.dismiss()
+//            self.showSuccessHUD()
+//            print("성공!")
+//        }
+//
+//        DatabaseManager.shared.insertUser(with: yeogigajaUser, completion: { success in
+//            if success {
+//                print("success")
+//            }
+//        })
+        DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss()
+            }
+
+            guard !exists else {
+                // user already exists
+                strongSelf.alertUserLoginError(message: "Looks like a user account for that email address already exists.")
                 return
             }
 
-        spinner.show(in: view)
-        
-        
-        // Firebase Log In
-        let yeogigajaUser = YeogigajaAppUser(name: name, emailAddress: email)
-        
-        
-        DispatchQueue.main.async {
-            self.spinner.dismiss()
-            print("성공!")
-        }
-        
-        DatabaseManager.shared.insertUser(with: yeogigajaUser, completion: { success in
-            if success {
-                print("success")
-            }
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+                // 189-192에서 중복 아이디를 잡아야하는데 잡지 못하고 있음. 그리고 이 부분을 주석처리한 후 중복 아이디를 만들게 될 경우엔 "빈 값이 존재합니다" 코드로 넘어가게 됨
+                guard authResult != nil, error == nil else {
+                    print("Error currenting user")
+                    return
+                }
+
+                UserDefaults.standard.setValue(email, forKey: "email")
+//                UserDefaults.standard.setValue("\(name)", forKey: "name")
+
+                let yeogigajaUser = YeogigajaAppUser(name: name, emailAddress: email)
+                
+                
+                DatabaseManager.shared.insertUser(with: yeogigajaUser, completion: { success in
+                    if success {
+                        print("success")
+                    }
+                })
+
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
         })
         
-        }
-
+    }
+    
     func alertUserLoginError(message: String = "Please enter all information to create a new account.") {
-        let alert = UIAlertController(title: "빈 값이 존재합니다",
+        let alert = UIAlertController(title: "중복된 아이디 혹은\n빈 값이 존재합니다",
                                       message: "",
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인",
@@ -175,7 +222,7 @@ class registerViewController: UIViewController {
     
 }
 
-    
+
 extension registerViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {  // text 입력위치 조절
         print(#function)
