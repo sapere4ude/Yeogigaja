@@ -135,7 +135,6 @@ class registerViewController: UIViewController {
     
     @objc private func registerButtonTapped() {
         
-        
         emailField.resignFirstResponder()   // 키보드 숨기기
         passwordField.resignFirstResponder()
         nameField.resignFirstResponder()
@@ -224,11 +223,11 @@ class registerViewController: UIViewController {
 
 
 extension registerViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {  // text 입력위치 조절
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print(#function)
         
         if textField == nameField {
-            emailField.becomeFirstResponder()
+            emailField.becomeFirstResponder()   // 키보드 입력커서가 nameField에 존재하고 return 버튼을 누를경우 emailField로 넘어가게 된다.
         }
         else if textField == emailField {
             passwordField.becomeFirstResponder()
