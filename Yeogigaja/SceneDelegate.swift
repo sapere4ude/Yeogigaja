@@ -16,13 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
         let tbVC = UITabBarController()
         let mainsb = UIStoryboard(name: "Main", bundle: nil)
-        guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? TableViewController else{return}
+        guard let view1 = mainsb.instantiateViewController(identifier: "tableViewNavigation") as? UINavigationController else{return}
         let mapsb = UIStoryboard(name: "Map", bundle: nil)
-        guard let view2 = mapsb.instantiateViewController(identifier: "mapNv") as? UINavigationController else{return}
+        guard let view2 = mapsb.instantiateViewController(identifier: "mapViewNavigation") as? UINavigationController else{return}
         let calendarsb = UIStoryboard(name: "Calendar", bundle: nil)
         guard let view3 = calendarsb.instantiateViewController(identifier: "CalendarView") as? CalendarViewController else{return}
         let mypagesb = UIStoryboard(name: "Mypage", bundle: nil)
-        guard let view4 = mypagesb.instantiateViewController(identifier: "MypageView") as? MypageViewController else{return}
+        guard let view4 = mypagesb.instantiateViewController(identifier: "MypageNav") as? UINavigationController else{return}
         
         self.window?.rootViewController = tbVC
         

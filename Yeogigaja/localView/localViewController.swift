@@ -12,7 +12,7 @@ class localViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("local")
         // Do any additional setup after loading the view.
     }
     

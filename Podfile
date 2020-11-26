@@ -18,5 +18,6 @@ target 'Yeogigaja' do
   pod 'Firebase/Storage'
   pod "PagingKit"
   pod "Parchment"
+  pod "GEOSwift"
 
 end

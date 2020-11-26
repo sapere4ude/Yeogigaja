@@ -17,26 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nv-kt-X6H" customClass="mapView" customModule="Yeogigaja" customModuleProvider="target">
-                                <rect key="frame" x="47" y="161" width="98" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1g-zp-hVY" customClass="mapView" customModule="Yeogigaja" customModuleProvider="target">
-                                <rect key="frame" x="63" y="372" width="224" height="211"/>
+                                <rect key="frame" x="20" y="177" width="100" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="touch:" destination="dNg-yy-1wf" eventType="touchUpInside" id="30D-YD-mFk"/>
-                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27n-DI-jr5" customClass="map2" customModule="Yeogigaja" customModuleProvider="target">
+                                <rect key="frame" x="128" y="194" width="64" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JW1-qa-JUG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="f6l-3E-HjS"/>
-                    <connections>
-                        <outlet property="map1" destination="4nv-kt-X6H" id="bEX-Zy-7Aw"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sGB-5e-lVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,7 +38,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ivW-yp-pDG">
             <objects>
-                <navigationController storyboardIdentifier="mapNv" automaticallyAdjustsScrollViewInsets="NO" id="8CQ-tk-MOW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mapViewNavigation" automaticallyAdjustsScrollViewInsets="NO" id="8CQ-tk-MOW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xyO-k1-aMO">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -58,17 +51,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yza-Ug-1ps" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406" y="186"/>
+            <point key="canvasLocation" x="330" y="68"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="4nv-kt-X6H">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="F1g-zp-hVY">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

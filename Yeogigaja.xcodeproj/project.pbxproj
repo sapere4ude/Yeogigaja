@@ -13,13 +13,15 @@
 		7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811B4253083BD00290CE7 /* mapViewController.swift */; };
 		7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811B72530840200290CE7 /* CalendarViewController.swift */; };
 		7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BA2530841100290CE7 /* Calendar.storyboard */; };
-		7C5811BE2530844100290CE7 /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BD2530844100290CE7 /* Mypage.storyboard */; };
 		7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C02530845700290CE7 /* MypageViewController.swift */; };
 		7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C42530BF1A00290CE7 /* TabBarController.swift */; };
 		7C87EB5B254D649200C428A5 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87EB5A254D649200C428A5 /* model.swift */; };
-		7C87EB772555A26700C428A5 /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87EB762555A26600C428A5 /* mapView.swift */; };
 		7C87EB7B2555A72100C428A5 /* localViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87EB7A2555A72100C428A5 /* localViewController.swift */; };
 		7C87EB7F2555A72B00C428A5 /* local.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C87EB7E2555A72B00C428A5 /* local.storyboard */; };
+		7C8E42BB256F96570013A4BC /* MyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8E42BA256F96570013A4BC /* MyInfo.storyboard */; };
+		7C8E42BE256F96B20013A4BC /* myInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E42BD256F96B20013A4BC /* myInfoViewController.swift */; };
+		7C8E42C2256F97E60013A4BC /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8E42C1256F97E60013A4BC /* Mypage.storyboard */; };
+		7C8E42C5256F9E8B0013A4BC /* setttingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E42C4256F9E8B0013A4BC /* setttingTableViewCell.swift */; };
 		7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */; };
 		7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */; };
 		7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */; };
@@ -37,13 +39,15 @@
 		7C5811B4253083BD00290CE7 /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		7C5811B72530840200290CE7 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		7C5811BA2530841100290CE7 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
-		7C5811BD2530844100290CE7 /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		7C5811C02530845700290CE7 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		7C5811C42530BF1A00290CE7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Yeogigaja/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		7C87EB5A254D649200C428A5 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
-		7C87EB762555A26600C428A5 /* mapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapView.swift; sourceTree = "<group>"; };
 		7C87EB7A2555A72100C428A5 /* localViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localViewController.swift; sourceTree = "<group>"; };
 		7C87EB7E2555A72B00C428A5 /* local.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = local.storyboard; sourceTree = "<group>"; };
+		7C8E42BA256F96570013A4BC /* MyInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyInfo.storyboard; sourceTree = "<group>"; };
+		7C8E42BD256F96B20013A4BC /* myInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myInfoViewController.swift; sourceTree = "<group>"; };
+		7C8E42C1256F97E60013A4BC /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
+		7C8E42C4256F9E8B0013A4BC /* setttingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setttingTableViewCell.swift; sourceTree = "<group>"; };
 		7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainPageTableViewCell.swift; sourceTree = "<group>"; };
 		7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewStoryboard.storyboard; sourceTree = "<group>"; };
@@ -92,7 +96,6 @@
 			children = (
 				7C5811B12530839D00290CE7 /* Map.storyboard */,
 				7C5811B4253083BD00290CE7 /* mapViewController.swift */,
-				7C87EB762555A26600C428A5 /* mapView.swift */,
 			);
 			path = MapPage;
 			sourceTree = "<group>";
@@ -109,8 +112,9 @@
 		7C5811B02530837A00290CE7 /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
-				7C5811BD2530844100290CE7 /* Mypage.storyboard */,
 				7C5811C02530845700290CE7 /* MypageViewController.swift */,
+				7C8E42C1256F97E60013A4BC /* Mypage.storyboard */,
+				7C8E42C4256F9E8B0013A4BC /* setttingTableViewCell.swift */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -130,6 +134,15 @@
 				7C87EB7E2555A72B00C428A5 /* local.storyboard */,
 			);
 			path = localView;
+			sourceTree = "<group>";
+		};
+		7C8E42B9256F963B0013A4BC /* MyInfoPage */ = {
+			isa = PBXGroup;
+			children = (
+				7C8E42BA256F96570013A4BC /* MyInfo.storyboard */,
+				7C8E42BD256F96B20013A4BC /* myInfoViewController.swift */,
+			);
+			path = MyInfoPage;
 			sourceTree = "<group>";
 		};
 		7CCBA5882529B5260036CE02 /* TableViewPage */ = {
@@ -172,6 +185,7 @@
 		FA976088251C753300A175EA /* Yeogigaja */ = {
 			isa = PBXGroup;
 			children = (
+				7C8E42B9256F963B0013A4BC /* MyInfoPage */,
 				7C87EB792555A70900C428A5 /* localView */,
 				7C87EB59254D63E000C428A5 /* Model */,
 				7C5811B02530837A00290CE7 /* Mypage */,
@@ -250,12 +264,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */,
-				7C5811BE2530844100290CE7 /* Mypage.storyboard in Resources */,
 				7C87EB7F2555A72B00C428A5 /* local.storyboard in Resources */,
 				FA976096251C753700A175EA /* LaunchScreen.storyboard in Resources */,
 				7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */,
+				7C8E42C2256F97E60013A4BC /* Mypage.storyboard in Resources */,
 				7C5811B22530839D00290CE7 /* Map.storyboard in Resources */,
 				FA976093251C753700A175EA /* Assets.xcassets in Resources */,
+				7C8E42BB256F96570013A4BC /* MyInfo.storyboard in Resources */,
 				FA976091251C753300A175EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,16 +324,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C87EB772555A26700C428A5 /* mapView.swift in Sources */,
 				7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */,
 				7C87EB7B2555A72100C428A5 /* localViewController.swift in Sources */,
 				7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */,
 				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
 				7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */,
 				FA97608A251C753300A175EA /* AppDelegate.swift in Sources */,
+				7C8E42BE256F96B20013A4BC /* myInfoViewController.swift in Sources */,
 				7C87EB5B254D649200C428A5 /* model.swift in Sources */,
 				7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */,
 				7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */,
+				7C8E42C5256F9E8B0013A4BC /* setttingTableViewCell.swift in Sources */,
 				FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */,
 				7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */,
 			);
