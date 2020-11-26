@@ -23,7 +23,21 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         self.settingTableView.delegate = self
         self.settingTableView.dataSource = self
         tapGesture()
+        
     }
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool){
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    //MARK:-methods
+    
+    //modify Info method
     @objc func tapModify(_ gesture: UITapGestureRecognizer) {
         print("modify")
         let sb = UIStoryboard(name: "MyInfo", bundle: nil)
@@ -31,9 +45,12 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    //logOut method
     @objc func tapLogOut(_ gesture: UITapGestureRecognizer) {
         print("logout")
     }
+    
+    
     // 사용자 이미지 원형으로 만들기
     func makeCircleImg(){
         userImg.layer.cornerRadius = userImg.frame.height/2
@@ -43,6 +60,7 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
 
+    //gesture 전체를 관리하는 메서드
     func tapGesture(){
         let tapModifyGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapModify(_: )))
         self.modifyInfo.addGestureRecognizer(tapModifyGesture)
@@ -55,6 +73,8 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
 
 }
 
+
+//MARK:- tableView delegate
 extension MypageViewController:UITableViewDelegate, UITableViewDataSource{
     
 
