@@ -41,7 +41,11 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     // 날짜 선택 시 콜백 메서드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        calendar.deselect(date) // 날짜 선택시 색깔 변하는 것 제거
+        
         print(dateFormatter.string(from: date) + " 선택됨")
+        
         // action sheet title 설정
         let alert = UIAlertController(title: "새 글 쓰기", message: "원하는 내용을 작성하실 수 있습니다.", preferredStyle: UIAlertController.Style.actionSheet)
         
