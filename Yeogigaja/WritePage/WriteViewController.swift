@@ -48,6 +48,23 @@ class WriteViewController: UITableViewController {
             self.descriptionTextView.returnKeyType = .done
         }
     }
+    
+    // MARK: - Firebase로 옮겨주기 위한 작업
+
+    private var writePages = [WritePage]()
+    
+    // MARK: - Firebase 작업
+    
+    public func configure(with model: WritePage) {
+        nameTextField.text = model.name
+        locationTextField.text = model.location
+        tagTextField.text = model.tag
+        friendsTextField.text = model.withFriends
+        descriptionTextView.text = model.description
+        
+        
+    }
+    
 
     // MARK: - 키보드 상태에 따른 뷰의 크기 조절을 위한 Properties
 
@@ -237,13 +254,3 @@ extension WriteViewController: UIImagePickerControllerDelegate, UINavigationCont
         self.dismiss(animated: true, completion: nil)
     }
 }
-
-
-//extension WriteViewController {
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 5
-//    }
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return UITableViewCell
-//    }
-//}
