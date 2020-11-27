@@ -8,37 +8,66 @@
 
 /* Begin PBXBuildFile section */
 		66E2070E5AFFB3E600ED12CF /* Pods_Yeogigaja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */; };
-		7C581155252A192300290CE7 /* childViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C581154252A192200290CE7 /* childViewController.swift */; };
-		7C581158252A237E00290CE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C581157252A237E00290CE7 /* ViewController.swift */; };
 		7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58115C252A2C5A00290CE7 /* TableViewController.swift */; };
+		7C5811B22530839D00290CE7 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811B12530839D00290CE7 /* Map.storyboard */; };
+		7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811B4253083BD00290CE7 /* mapViewController.swift */; };
+		7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811B72530840200290CE7 /* CalendarViewController.swift */; };
+		7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BA2530841100290CE7 /* Calendar.storyboard */; };
+		7C5811BE2530844100290CE7 /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BD2530844100290CE7 /* Mypage.storyboard */; };
+		7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C02530845700290CE7 /* MypageViewController.swift */; };
+		7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C42530BF1A00290CE7 /* TabBarController.swift */; };
+		7C87EB5B254D649200C428A5 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87EB5A254D649200C428A5 /* model.swift */; };
 		7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */; };
 		7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */; };
 		7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */; };
+<<<<<<< HEAD
 		FA890D9B252C0F0D00051B01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA890D9A252C0F0D00051B01 /* GoogleService-Info.plist */; };
 		FA890DA0252C0F4F00051B01 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA890D9F252C0F4F00051B01 /* DatabaseManager.swift */; };
 		FA890DA4252C0F5D00051B01 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA890DA3252C0F5D00051B01 /* StorageManager.swift */; };
 		FA890DA7252C0F6700051B01 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA890DA6252C0F6700051B01 /* Models.swift */; };
+=======
+		FA257C45254D691E007AD711 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA257C44254D691E007AD711 /* loginViewController.swift */; };
+		FA257C48254D692A007AD711 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA257C47254D692A007AD711 /* login.storyboard */; };
+		FA257CE42552F5C6007AD711 /* registerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA257CE32552F5C6007AD711 /* registerViewController.swift */; };
+		FA257CE82552F5D8007AD711 /* register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA257CE72552F5D8007AD711 /* register.storyboard */; };
+		FA257D0B255386E8007AD711 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA257D0A255386E8007AD711 /* DatabaseManager.swift */; };
+>>>>>>> Login
 		FA97608A251C753300A175EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA976089251C753300A175EA /* AppDelegate.swift */; };
 		FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97608B251C753300A175EA /* SceneDelegate.swift */; };
 		FA976091251C753300A175EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA97608F251C753300A175EA /* Main.storyboard */; };
 		FA976093251C753700A175EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA976092251C753700A175EA /* Assets.xcassets */; };
 		FA976096251C753700A175EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA976094251C753700A175EA /* LaunchScreen.storyboard */; };
+		FAA21BEB2554D838007F17E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA21BEA2554D838007F17E2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yeogigaja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C581154252A192200290CE7 /* childViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = childViewController.swift; sourceTree = "<group>"; };
-		7C581157252A237E00290CE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Yeogigaja/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		7C58115C252A2C5A00290CE7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		7C5811B12530839D00290CE7 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		7C5811B4253083BD00290CE7 /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
+		7C5811B72530840200290CE7 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		7C5811BA2530841100290CE7 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		7C5811BD2530844100290CE7 /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
+		7C5811C02530845700290CE7 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		7C5811C42530BF1A00290CE7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Yeogigaja/TabBarController.swift; sourceTree = SOURCE_ROOT; };
+		7C87EB5A254D649200C428A5 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainPageTableViewCell.swift; sourceTree = "<group>"; };
 		7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewStoryboard.storyboard; sourceTree = "<group>"; };
 		CF9F912574944EFCA336717C /* Pods-Yeogigaja.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yeogigaja.release.xcconfig"; path = "Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja.release.xcconfig"; sourceTree = "<group>"; };
 		E463BE4A6F5034780676DFC6 /* Pods-Yeogigaja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yeogigaja.debug.xcconfig"; path = "Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja.debug.xcconfig"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		FA890D9A252C0F0D00051B01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA890D9F252C0F4F00051B01 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		FA890DA3252C0F5D00051B01 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		FA890DA6252C0F6700051B01 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+=======
+		FA257C44254D691E007AD711 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		FA257C47254D692A007AD711 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
+		FA257CE32552F5C6007AD711 /* registerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerViewController.swift; sourceTree = "<group>"; };
+		FA257CE72552F5D8007AD711 /* register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = register.storyboard; sourceTree = "<group>"; };
+		FA257D0A255386E8007AD711 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+>>>>>>> Login
 		FA976086251C753300A175EA /* Yeogigaja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yeogigaja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA976089251C753300A175EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA97608B251C753300A175EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +75,7 @@
 		FA976092251C753700A175EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA976095251C753700A175EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA976097251C753700A175EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA21BEA2554D838007F17E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,14 +107,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7CCBA5882529B5260036CE02 /* MainPage */ = {
+		7C5811AE2530835B00290CE7 /* MapPage */ = {
+			isa = PBXGroup;
+			children = (
+				7C5811B12530839D00290CE7 /* Map.storyboard */,
+				7C5811B4253083BD00290CE7 /* mapViewController.swift */,
+			);
+			path = MapPage;
+			sourceTree = "<group>";
+		};
+		7C5811AF2530837000290CE7 /* CalendarPage */ = {
+			isa = PBXGroup;
+			children = (
+				7C5811B72530840200290CE7 /* CalendarViewController.swift */,
+				7C5811BA2530841100290CE7 /* Calendar.storyboard */,
+			);
+			path = CalendarPage;
+			sourceTree = "<group>";
+		};
+		7C5811B02530837A00290CE7 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				7C5811BD2530844100290CE7 /* Mypage.storyboard */,
+				7C5811C02530845700290CE7 /* MypageViewController.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
+		7C87EB59254D63E000C428A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C87EB5A254D649200C428A5 /* model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7CCBA5882529B5260036CE02 /* TableViewPage */ = {
 			isa = PBXGroup;
 			children = (
 				FA97608F251C753300A175EA /* Main.storyboard */,
 				7C58115C252A2C5A00290CE7 /* TableViewController.swift */,
 				7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */,
 			);
-			path = MainPage;
+			path = TableViewPage;
 			sourceTree = "<group>";
 		};
 		7CCBA58D2529CE6D0036CE02 /* DetailPage */ = {
@@ -96,12 +161,37 @@
 			path = DetailPage;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		FA890D9D252C0F1400051B01 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				FA890D9F252C0F4F00051B01 /* DatabaseManager.swift */,
 				FA890DA3252C0F5D00051B01 /* StorageManager.swift */,
 				FA890DA6252C0F6700051B01 /* Models.swift */,
+=======
+		FA257C41254D68BE007AD711 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				FA257C44254D691E007AD711 /* loginViewController.swift */,
+				FA257C47254D692A007AD711 /* login.storyboard */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		FA257CE22552F59B007AD711 /* RegisterPage */ = {
+			isa = PBXGroup;
+			children = (
+				FA257CE32552F5C6007AD711 /* registerViewController.swift */,
+				FA257CE72552F5D8007AD711 /* register.storyboard */,
+			);
+			path = RegisterPage;
+			sourceTree = "<group>";
+		};
+		FA257D09255386B8007AD711 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA257D0A255386E8007AD711 /* DatabaseManager.swift */,
+>>>>>>> Login
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -127,17 +217,27 @@
 		FA976088251C753300A175EA /* Yeogigaja */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				FA890D9D252C0F1400051B01 /* Resources */,
+=======
+				FA257D09255386B8007AD711 /* Resources */,
+				FA257CE22552F59B007AD711 /* RegisterPage */,
+				FA257C41254D68BE007AD711 /* LoginPage */,
+				7C87EB59254D63E000C428A5 /* Model */,
+				7C5811B02530837A00290CE7 /* Mypage */,
+				7C5811AF2530837000290CE7 /* CalendarPage */,
+				7C5811AE2530835B00290CE7 /* MapPage */,
+>>>>>>> Login
 				7CCBA58D2529CE6D0036CE02 /* DetailPage */,
-				7CCBA5882529B5260036CE02 /* MainPage */,
+				7CCBA5882529B5260036CE02 /* TableViewPage */,
 				FA976089251C753300A175EA /* AppDelegate.swift */,
+				7C5811C42530BF1A00290CE7 /* TabBarController.swift */,
 				FA97608B251C753300A175EA /* SceneDelegate.swift */,
-				7C581154252A192200290CE7 /* childViewController.swift */,
-				7C581157252A237E00290CE7 /* ViewController.swift */,
 				FA976092251C753700A175EA /* Assets.xcassets */,
 				FA976094251C753700A175EA /* LaunchScreen.storyboard */,
 				FA890D9A252C0F0D00051B01 /* GoogleService-Info.plist */,
 				FA976097251C753700A175EA /* Info.plist */,
+				FAA21BEA2554D838007F17E2 /* GoogleService-Info.plist */,
 			);
 			path = Yeogigaja;
 			sourceTree = "<group>";
@@ -202,9 +302,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA257C48254D692A007AD711 /* login.storyboard in Resources */,
+				7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */,
+				7C5811BE2530844100290CE7 /* Mypage.storyboard in Resources */,
+				FA257CE82552F5D8007AD711 /* register.storyboard in Resources */,
 				FA976096251C753700A175EA /* LaunchScreen.storyboard in Resources */,
 				7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */,
+<<<<<<< HEAD
 				FA890D9B252C0F0D00051B01 /* GoogleService-Info.plist in Resources */,
+=======
+				7C5811B22530839D00290CE7 /* Map.storyboard in Resources */,
+				FAA21BEB2554D838007F17E2 /* GoogleService-Info.plist in Resources */,
+>>>>>>> Login
 				FA976093251C753700A175EA /* Assets.xcassets in Resources */,
 				FA976091251C753300A175EA /* Main.storyboard in Resources */,
 			);
@@ -259,13 +368,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				FA890DA0252C0F4F00051B01 /* DatabaseManager.swift in Sources */,
 				7C581155252A192300290CE7 /* childViewController.swift in Sources */,
 				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
 				FA890DA4252C0F5D00051B01 /* StorageManager.swift in Sources */,
+=======
+				7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */,
+				FA257C45254D691E007AD711 /* loginViewController.swift in Sources */,
+				FA257D0B255386E8007AD711 /* DatabaseManager.swift in Sources */,
+				7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */,
+				FA257CE42552F5C6007AD711 /* registerViewController.swift in Sources */,
+				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
+				7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */,
+>>>>>>> Login
 				FA97608A251C753300A175EA /* AppDelegate.swift in Sources */,
+				7C87EB5B254D649200C428A5 /* model.swift in Sources */,
 				7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */,
-				7C581158252A237E00290CE7 /* ViewController.swift in Sources */,
+				7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */,
 				FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */,
 				7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */,
 				FA890DA7252C0F6700051B01 /* Models.swift in Sources */,
@@ -344,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -398,7 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
