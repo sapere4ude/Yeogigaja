@@ -13,7 +13,11 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var settingTableView: UITableView!
-    let cellTitle = ["관심지역", "다크모드", "사용법", "개발자정보"]
+    private let cellTitle0 = ["관심지역", "찜한 장소"]
+    private let cellTitle1 = ["사용법", "공지사항", "설정"]
+    private let cellImg0: [UIImage?] = [UIImage(named: "map"), UIImage(named: "heart")]
+    private let cellImg1: [UIImage?] = [UIImage(named:"help"), UIImage(named:"docs"), UIImage(named:"setting")]
+    private let sections = ["활동", "정보"]
     @IBOutlet weak var modifyInfo: UIView!
     @IBOutlet weak var logOut: UIView!
     
@@ -23,7 +27,7 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         self.settingTableView.delegate = self
         self.settingTableView.dataSource = self
         tapGesture()
-        
+        self.settingTableView.sectionIndexBackgroundColor = .clear
     }
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
@@ -77,15 +81,38 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
 //MARK:- tableView delegate
 extension MypageViewController:UITableViewDelegate, UITableViewDataSource{
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return sections[section]
+    }
 
+    func tableViewCustom(cell: UITableViewCell){
+        self.settingTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellTitle.count
+        switch section {
+        case 0:
+            return cellTitle0.count
+        case 1:
+            return cellTitle1.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = settingTableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! setttingTableViewCell
         
-        cell.titleLabel?.text = cellTitle[indexPath.row]
+        let text = indexPath.section == 0 ? cellTitle0[indexPath.row] : cellTitle1[indexPath.row]
+        let img = indexPath.section == 0 ? cellImg0[indexPath.row] : cellImg1[indexPath.row]
+        cell.titleLabel?.text = text
+        cell.IconImg?.image = img
+        tableViewCustom(cell: cell)
         
         
         return cell
@@ -94,5 +121,14 @@ extension MypageViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        return 0
+//    }
     
 }
