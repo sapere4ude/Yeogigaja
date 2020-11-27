@@ -23,15 +23,20 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeCircleImg()
         self.settingTableView.delegate = self
         self.settingTableView.dataSource = self
         tapGesture()
         settingTableView.isScrollEnabled = false
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        makeCircleImg()
+    }
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool){
@@ -57,11 +62,10 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // 사용자 이미지 원형으로 만들기
     func makeCircleImg(){
-        userImg.layer.cornerRadius = userImg.frame.size.height/2
-//        userImg.layer.borderWidth = 1
-//        userImg.layer.borderColor = UIColor.clear.cgColor
-        userImg.clipsToBounds = true
-//        userImg.layer.masksToBounds = true
+        self.userImg.layer.cornerRadius = userImg.frame.size.height/2
+        self.userImg.layer.borderWidth = 1
+        self.userImg.layer.borderColor = UIColor.clear.cgColor
+        self.userImg.clipsToBounds = true
     }
 
 
