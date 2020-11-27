@@ -27,7 +27,7 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         self.settingTableView.delegate = self
         self.settingTableView.dataSource = self
         tapGesture()
-        self.settingTableView.sectionIndexBackgroundColor = .clear
+        settingTableView.isScrollEnabled = false
     }
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
@@ -81,6 +81,12 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
 //MARK:- tableView delegate
 extension MypageViewController:UITableViewDelegate, UITableViewDataSource{
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor.white
+        guard let header = view as? UITableViewHeaderFooterView else{return}
+        header.textLabel?.textColor = UIColor.black
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
@@ -127,8 +133,8 @@ extension MypageViewController:UITableViewDelegate, UITableViewDataSource{
     }
     
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        return 0
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        return 0
+    }
     
 }
