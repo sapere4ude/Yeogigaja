@@ -68,6 +68,7 @@ class ShareViewController: UITableViewController {
         super.viewDidLoad()
         tableView.separatorStyle = .none
         descriptionTextView.placeholder = "내용"
+        descriptionTextView.placeholderFont = .preferredFont(forTextStyle: .subheadline)
         descriptionTextView.notifier = self
         handleSharedFile()
     }
