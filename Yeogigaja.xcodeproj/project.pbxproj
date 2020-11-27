@@ -22,6 +22,16 @@
 		7C8E42BE256F96B20013A4BC /* myInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E42BD256F96B20013A4BC /* myInfoViewController.swift */; };
 		7C8E42C2256F97E60013A4BC /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8E42C1256F97E60013A4BC /* Mypage.storyboard */; };
 		7C8E42C5256F9E8B0013A4BC /* setttingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E42C4256F9E8B0013A4BC /* setttingTableViewCell.swift */; };
+		7C8E42CD2570CC8D0013A4BC /* FavoriteLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8E42CC2570CC8C0013A4BC /* FavoriteLocation.storyboard */; };
+		7C8E42D02570CCA60013A4BC /* FavoriteLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E42CF2570CCA60013A4BC /* FavoriteLocationViewController.swift */; };
+		7C8E42D32570CE670013A4BC /* FavoritePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E42D22570CE670013A4BC /* FavoritePlaceViewController.swift */; };
+		7C8E42D62570CE750013A4BC /* FavoritePlace.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8E42D52570CE750013A4BC /* FavoritePlace.storyboard */; };
+		7C8E42DA2570CF060013A4BC /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8E42D92570CF060013A4BC /* Help.storyboard */; };
+		7C8E42DD2570CF140013A4BC /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E42DC2570CF140013A4BC /* HelpViewController.swift */; };
+		7C8E42E02570D33E0013A4BC /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E42DF2570D33E0013A4BC /* NotificationViewController.swift */; };
+		7C8E42E32570D34C0013A4BC /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8E42E22570D34C0013A4BC /* Notification.storyboard */; };
+		7C8E42E62570D3DE0013A4BC /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8E42E52570D3DE0013A4BC /* Setting.storyboard */; };
+		7C8E42E92570D3E90013A4BC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E42E82570D3E90013A4BC /* SettingViewController.swift */; };
 		7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */; };
 		7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */; };
 		7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */; };
@@ -48,6 +58,16 @@
 		7C8E42BD256F96B20013A4BC /* myInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myInfoViewController.swift; sourceTree = "<group>"; };
 		7C8E42C1256F97E60013A4BC /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		7C8E42C4256F9E8B0013A4BC /* setttingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setttingTableViewCell.swift; sourceTree = "<group>"; };
+		7C8E42CC2570CC8C0013A4BC /* FavoriteLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteLocation.storyboard; sourceTree = "<group>"; };
+		7C8E42CF2570CCA60013A4BC /* FavoriteLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationViewController.swift; sourceTree = "<group>"; };
+		7C8E42D22570CE670013A4BC /* FavoritePlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceViewController.swift; sourceTree = "<group>"; };
+		7C8E42D52570CE750013A4BC /* FavoritePlace.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritePlace.storyboard; sourceTree = "<group>"; };
+		7C8E42D92570CF060013A4BC /* Help.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
+		7C8E42DC2570CF140013A4BC /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		7C8E42DF2570D33E0013A4BC /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		7C8E42E22570D34C0013A4BC /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		7C8E42E52570D3DE0013A4BC /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		7C8E42E82570D3E90013A4BC /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7CCBA5892529B56A0036CE02 /* mainPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainPageTableViewCell.swift; sourceTree = "<group>"; };
 		7CCBA58F2529CEF90036CE02 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7CCBA5922529CF150036CE02 /* DetailViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewStoryboard.storyboard; sourceTree = "<group>"; };
@@ -112,6 +132,12 @@
 		7C5811B02530837A00290CE7 /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
+				7C8E42B9256F963B0013A4BC /* MyInfoPage */,
+				7C8E42CB2570CC6E0013A4BC /* Settings */,
+				7C8E42CA2570CC640013A4BC /* Notification */,
+				7C8E42C92570CC5C0013A4BC /* Help */,
+				7C8E42C82570CC4C0013A4BC /* FavPlace */,
+				7C8E42C72570CC3E0013A4BC /* FavLocation */,
 				7C5811C02530845700290CE7 /* MypageViewController.swift */,
 				7C8E42C1256F97E60013A4BC /* Mypage.storyboard */,
 				7C8E42C4256F9E8B0013A4BC /* setttingTableViewCell.swift */,
@@ -143,6 +169,51 @@
 				7C8E42BD256F96B20013A4BC /* myInfoViewController.swift */,
 			);
 			path = MyInfoPage;
+			sourceTree = "<group>";
+		};
+		7C8E42C72570CC3E0013A4BC /* FavLocation */ = {
+			isa = PBXGroup;
+			children = (
+				7C8E42CC2570CC8C0013A4BC /* FavoriteLocation.storyboard */,
+				7C8E42CF2570CCA60013A4BC /* FavoriteLocationViewController.swift */,
+			);
+			path = FavLocation;
+			sourceTree = "<group>";
+		};
+		7C8E42C82570CC4C0013A4BC /* FavPlace */ = {
+			isa = PBXGroup;
+			children = (
+				7C8E42D22570CE670013A4BC /* FavoritePlaceViewController.swift */,
+				7C8E42D52570CE750013A4BC /* FavoritePlace.storyboard */,
+			);
+			path = FavPlace;
+			sourceTree = "<group>";
+		};
+		7C8E42C92570CC5C0013A4BC /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				7C8E42D92570CF060013A4BC /* Help.storyboard */,
+				7C8E42DC2570CF140013A4BC /* HelpViewController.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		7C8E42CA2570CC640013A4BC /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				7C8E42DF2570D33E0013A4BC /* NotificationViewController.swift */,
+				7C8E42E22570D34C0013A4BC /* Notification.storyboard */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		7C8E42CB2570CC6E0013A4BC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7C8E42E52570D3DE0013A4BC /* Setting.storyboard */,
+				7C8E42E82570D3E90013A4BC /* SettingViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		7CCBA5882529B5260036CE02 /* TableViewPage */ = {
@@ -185,7 +256,6 @@
 		FA976088251C753300A175EA /* Yeogigaja */ = {
 			isa = PBXGroup;
 			children = (
-				7C8E42B9256F963B0013A4BC /* MyInfoPage */,
 				7C87EB792555A70900C428A5 /* localView */,
 				7C87EB59254D63E000C428A5 /* Model */,
 				7C5811B02530837A00290CE7 /* Mypage */,
@@ -266,12 +336,17 @@
 				7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */,
 				7C87EB7F2555A72B00C428A5 /* local.storyboard in Resources */,
 				FA976096251C753700A175EA /* LaunchScreen.storyboard in Resources */,
+				7C8E42E32570D34C0013A4BC /* Notification.storyboard in Resources */,
 				7CCBA5932529CF150036CE02 /* DetailViewStoryboard.storyboard in Resources */,
 				7C8E42C2256F97E60013A4BC /* Mypage.storyboard in Resources */,
 				7C5811B22530839D00290CE7 /* Map.storyboard in Resources */,
 				FA976093251C753700A175EA /* Assets.xcassets in Resources */,
+				7C8E42DA2570CF060013A4BC /* Help.storyboard in Resources */,
+				7C8E42E62570D3DE0013A4BC /* Setting.storyboard in Resources */,
 				7C8E42BB256F96570013A4BC /* MyInfo.storyboard in Resources */,
 				FA976091251C753300A175EA /* Main.storyboard in Resources */,
+				7C8E42D62570CE750013A4BC /* FavoritePlace.storyboard in Resources */,
+				7C8E42CD2570CC8D0013A4BC /* FavoriteLocation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,12 +404,17 @@
 				7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */,
 				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
 				7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */,
+				7C8E42E92570D3E90013A4BC /* SettingViewController.swift in Sources */,
 				FA97608A251C753300A175EA /* AppDelegate.swift in Sources */,
 				7C8E42BE256F96B20013A4BC /* myInfoViewController.swift in Sources */,
 				7C87EB5B254D649200C428A5 /* model.swift in Sources */,
 				7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */,
 				7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */,
 				7C8E42C5256F9E8B0013A4BC /* setttingTableViewCell.swift in Sources */,
+				7C8E42DD2570CF140013A4BC /* HelpViewController.swift in Sources */,
+				7C8E42E02570D33E0013A4BC /* NotificationViewController.swift in Sources */,
+				7C8E42D02570CCA60013A4BC /* FavoriteLocationViewController.swift in Sources */,
+				7C8E42D32570CE670013A4BC /* FavoritePlaceViewController.swift in Sources */,
 				FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */,
 				7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */,
 			);

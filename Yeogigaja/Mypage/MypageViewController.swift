@@ -57,10 +57,11 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // 사용자 이미지 원형으로 만들기
     func makeCircleImg(){
-        userImg.layer.cornerRadius = userImg.frame.height/2
-        userImg.layer.borderWidth = 1
-        userImg.layer.borderColor = UIColor.clear.cgColor
+        userImg.layer.cornerRadius = userImg.frame.size.height/2
+//        userImg.layer.borderWidth = 1
+//        userImg.layer.borderColor = UIColor.clear.cgColor
         userImg.clipsToBounds = true
+//        userImg.layer.masksToBounds = true
     }
 
 
@@ -100,6 +101,7 @@ extension MypageViewController:UITableViewDelegate, UITableViewDataSource{
         self.settingTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -118,8 +120,9 @@ extension MypageViewController:UITableViewDelegate, UITableViewDataSource{
         let img = indexPath.section == 0 ? cellImg0[indexPath.row] : cellImg1[indexPath.row]
         cell.titleLabel?.text = text
         cell.IconImg?.image = img
-        tableViewCustom(cell: cell)
         
+        //call customizing method
+        tableViewCustom(cell: cell)
         
         return cell
     }
@@ -134,7 +137,58 @@ extension MypageViewController:UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        return 0
+        
+        let FavLocationSb = UIStoryboard(name: "FavoriteLocation", bundle: nil)
+        guard let FavLocationVc = FavLocationSb.instantiateViewController(withIdentifier: "FavoriteLocation") as? FavoriteLocationViewController else{
+            return
+        }
+        
+        let FavPlaceSb = UIStoryboard(name: "FavoritePlace", bundle: nil)
+        guard let FavPlaceVc = FavPlaceSb.instantiateViewController(withIdentifier: "FavoritePlace") as? FavoritePlaceViewController else{
+            return
+        }
+        
+        let HelpSb = UIStoryboard(name: "Help", bundle: nil)
+        guard let HelpVc = HelpSb.instantiateViewController(withIdentifier: "Help") as? HelpViewController else{return}
+        
+        let NotifiSb = UIStoryboard(name: "Notification", bundle: nil)
+        guard let NotifiVc = NotifiSb.instantiateViewController(withIdentifier: "Notification") as? NotificationViewController else{return}
+        
+        let SettingSb = UIStoryboard(name: "Setting", bundle: nil)
+        guard let SettingVc = SettingSb.instantiateViewController(withIdentifier: "Setting") as? SettingViewController else{return}
+        
+
+        if indexPath.section == 0{
+            switch indexPath.row {
+            case 0:
+                self.navigationController?.pushViewController(FavLocationVc, animated: true)
+       
+            case 1:
+                self.navigationController?.pushViewController(FavPlaceVc, animated: true)
+  
+            default:
+                return
+        }
+        }
+        if indexPath.section == 1{
+            switch indexPath.row {
+            case 0:
+                self.navigationController?.pushViewController(HelpVc, animated: true)
+            
+            case 1:
+                self.navigationController?.pushViewController(NotifiVc, animated: true)
+               
+            case 2:
+                self.navigationController?.pushViewController(SettingVc, animated: true)
+                
+            default:
+         
+                return
+            }
+        }
     }
+        
+
+        
     
 }
