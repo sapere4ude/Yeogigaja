@@ -11,49 +11,25 @@ import UIKit
 class WriteViewController: UITableViewController {
     // MARK: - @IBOutlet Properties
 
-    @IBOutlet var selectImageStackView: UIStackView!
+    @IBOutlet var selectImageStackView: UIStackView! {
+        didSet {
+            self.selectImageStackView.layer.cornerRadius = 8.0
+            self.selectImageStackView.layer.borderWidth = 1.0
+            self.selectImageStackView.layer.borderColor = UIColor.lightGray.cgColor
+
+            // selectImageStackView에 Padding 추가
+            self.selectImageStackView.layoutMargins = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
+            self.selectImageStackView.isLayoutMarginsRelativeArrangement = true
+        }
+    }
+
     @IBOutlet var scrollableHorizontalStackView: UIStackView!
 
-    @IBOutlet var nameTextField: RoundedTextField! {
-        didSet {
-            self.nameTextField.tag = 0
-            self.nameTextField.returnKeyType = .continue
-        }
-    }
-
-    @IBOutlet var locationTextField: RoundedTextField! {
-        didSet {
-            self.locationTextField.tag = 1
-            self.locationTextField.returnKeyType = .continue
-        }
-    }
-
-    @IBOutlet var tagTextField: RoundedTextField! {
-        didSet {
-            self.tagTextField.tag = 2
-            self.tagTextField.returnKeyType = .continue
-        }
-    }
-
-    @IBOutlet var friendsTextField: RoundedTextField! {
-        didSet {
-            self.friendsTextField.tag = 3
-            self.friendsTextField.returnKeyType = .continue
-        }
-    }
-
-    @IBOutlet var descriptionTextView: RoundedTextView! {
-        didSet {
-            self.descriptionTextView.tag = 4
-            self.descriptionTextView.returnKeyType = .done
-        }
-    }
-
-    // MARK: - 키보드 상태에 따른 뷰의 크기 조절을 위한 Properties
-
-    var keyboardShown: Bool = false // 키보드 상태 확인
-    var originY: CGFloat? // 오브젝트의 기본 위치
-    var activeTextField: UITextField?
+    @IBOutlet var nameTextField: RoundedTextField!
+    @IBOutlet var locationTextField: RoundedTextField!
+    @IBOutlet var tagTextField: RoundedTextField!
+    @IBOutlet var friendsTextField: RoundedTextField!
+    @IBOutlet var descriptionTextView: RoundedTextView!
 
     // MARK: - Gesture Recognizer Properties
 
@@ -67,48 +43,20 @@ class WriteViewController: UITableViewController {
         return gestureRecognizer
     }()
 
-    // MARK: - Toolbar Properties
-
-    let toolbarFlexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-    let toolbarTagButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(systemName: "tag"), style: .done, target: self, action: nil)
-        button.tintColor = .black
-        return button
-    }()
-
-    lazy var toolbarCloseKeyboardButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(systemName: "keyboard.chevron.compact.down"), style: .done, target: self, action: #selector(hideKeyboard))
-        button.tintColor = .black
-        return button
-    }()
-
-    lazy var toolbar: UIToolbar = {
-        let toolbar = UIToolbar()
-        toolbar.setItems([toolbarFlexibleSpace, toolbarTagButton], animated: false)
-        toolbar.isTranslucent = false
-        toolbar.barTintColor = .white
-        view.addSubview(toolbar)
-        return toolbar
-    }()
-
-    var toolbarBottomConstraint: NSLayoutConstraint!
-
     // MARK: - WriteViewController의 Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setWriteViewController()
-        self.addToolbar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.registerForKeyboardNotifications()
         self.registerGestureRecognizer()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        self.unregisterForKeyboardNotifications()
+        super.viewWillDisappear(true)
         self.unregisterGestureRecognizer()
     }
 
@@ -118,87 +66,16 @@ class WriteViewController: UITableViewController {
         self.tableView.separatorStyle = .none
         self.descriptionTextView.placeholder = "내용 입력"
         self.descriptionTextView.placeholderFont = .preferredFont(forTextStyle: .subheadline)
-    }
-
-    // MARK: - WriteViewController의 Toolbar 설정
-
-    /*
-        1. toolbar를 view에 추가해줌
-        2. toolbar의 constraint 설정
-        3. toolbar의 bottomConstraint를 따로 저장함
-     */
-    private func addToolbar() {
-        view.addSubview(self.toolbar)
-        self.toolbar.translatesAutoresizingMaskIntoConstraints = false
-        self.toolbar.leadingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leadingAnchor, multiplier: 0).isActive = true
-        self.toolbar.trailingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.trailingAnchor, multiplier: 0).isActive = true
-        self.toolbarBottomConstraint = self.toolbar.bottomAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.bottomAnchor, multiplier: 0)
-        self.toolbarBottomConstraint.isActive = true
-    }
-
-    // MARK: - 키보드 상태에 따른 뷰 크기 조절 메소드
-
-    // 코드 출처 - https://m.blog.naver.com/PostView.nhn?blogId=tngh818&logNo=221539007835&categoryNo=29
-
-    func registerForKeyboardNotifications() {
-        // 옵저버 등록
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-
-    func unregisterForKeyboardNotifications() {
-        // 옵저버 등록 해제
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-
-    @objc func keyboardWillHide(_ notification: Notification) {
-        view.transform = .identity
-        let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-
-        // toolbar에서 키보드 닫기 버튼 제거
-        self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarTagButton], animated: false)
-        self.view.layoutIfNeeded()
-
-        // 키보드가 나타났을 경우 키보드의 상단에 toolbar가 붙어있도록 toolbarBottomConstraint 조절
-        UIView.animate(withDuration: duration) {
-            self.toolbarBottomConstraint.constant = 0.0
-            self.view.layoutIfNeeded()
-        }
-    }
-
-    @objc func keyboardWillShow(notification: NSNotification) {
-        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
-        let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        if let activeTextField: UITextField = activeTextField, activeTextField.isEditing == true {
-            self.keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: activeTextField)
-        }
-        // toolbar에 키보드 닫기 버튼 추가
-        self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarTagButton, self.toolbarCloseKeyboardButton], animated: false)
-        self.view.layoutIfNeeded()
-
-        // 키보드가 나타났을 경우 키보드의 상단에 toolbar가 붙어있도록 toolbarBottomConstraint 조절
-        UIView.animate(withDuration: duration) {
-            self.toolbarBottomConstraint.constant = self.view.safeAreaInsets.bottom - keyboardRectangle.height
-            self.view.layoutIfNeeded()
-        }
-    }
-
-    func keyboardAnimate(keyboardRectangle: CGRect, textField: UITextField) {
-        if keyboardRectangle.height > (view.frame.height - textField.frame.maxY) {
-            view.transform = CGAffineTransform(translationX: 0, y: view.frame.height - keyboardRectangle.height - textField.frame.maxY)
-        }
+        self.descriptionTextView.delegate = self
     }
 
     // MARK: - 화면 스크롤 시 또는 터치 시 키보드 숨기기 / 카메라 아이콘 터치 시 이미지 선택
 
-    @objc func hideKeyboard() {
+    @objc private func hideKeyboard() {
         self.view.endEditing(true)
     }
 
-    @objc func selectImage() {
+    @objc private func selectImage() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let imagePickerController = UIImagePickerController()
             imagePickerController.delegate = self
@@ -208,32 +85,37 @@ class WriteViewController: UITableViewController {
         }
     }
 
-    func registerGestureRecognizer() {
+    private func registerGestureRecognizer() {
         self.view.addGestureRecognizer(self.hideKeyboardTapGestureRecognizer)
         self.tableView.keyboardDismissMode = .onDrag
         self.selectImageStackView.addGestureRecognizer(self.selectImageTapGestureRecognizer)
     }
 
-    func unregisterGestureRecognizer() {
+    private func unregisterGestureRecognizer() {
         self.view.removeGestureRecognizer(self.hideKeyboardTapGestureRecognizer)
         self.tableView.keyboardDismissMode = .none
         self.selectImageStackView.removeGestureRecognizer(self.selectImageTapGestureRecognizer)
     }
 
-    // MARK: - 네비게이션 바 버튼이 눌렸을 때 불리는 메소드
-
-    @IBAction func writeViewClosePressed(sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+    // MARKED: - TableView를 맨 아래로 스크롤하는 메소드
+    private func scrollToBottom() {
+        let point = CGPoint(x: 0, y: self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.frame.height)
+        if point.y >= 0 {
+            self.tableView.setContentOffset(point, animated: true)
+        }
     }
+}
 
-    @IBAction func writeViewDonePressed(sender: UIBarButtonItem) {
+// MARK: - 이미지를 선택하였을 때에 이미지 정보를 가져오도록 하는 Delegate. 아직 구현 안함
+
+extension WriteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         self.dismiss(animated: true, completion: nil)
     }
 }
 
-// 이미지를 선택하였을 때에 이미지 정보를 가져오도록 하는 Delegate. 아직 구현 안함
-extension WriteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        self.dismiss(animated: true, completion: nil)
+extension WriteViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.scrollToBottom()
     }
 }
