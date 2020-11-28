@@ -28,7 +28,26 @@ final class DatabaseManager {
 
 extension DatabaseManager {
     
+    // 중복 유저 확인코드 32-49
+    public func userExists(with email: String,
+                           completion: @escaping ((Bool) -> Void)) {
+
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        
+        // observeSingleEventOfType (데이터 읽기) -> 추가된 이벤트 콜백이 한 번 트리거된 후에 다시 트리거되지 않는다. 이 방법은 한 번 로드된 후 자주 변경되지 않거나 능동적으로 수신 대기할 필요가 없는 데이터에 유용하다.
+        // escaping closure 이기 때문에 { snapshot in } 부분은 결과가 모두 들어온 뒤에 실행된다.
+        
+        database.child(safeEmail).observeSingleEvent(of: .value, with: { snapshot in
+            guard snapshot.value as? [String: Any] != nil else {
+                completion(false)
+                return
+            }
+
+            completion(true)
+        })
+    }
     
+    // 사용자 등록
     public func insertUser(with user: YeogigajaAppUser, completion: @escaping (Bool) -> Void) {
         database.child(user.safeEmail).setValue([
             "name" : user.name
@@ -81,10 +100,6 @@ extension DatabaseManager {
             })
         })
     }
-    
-    
-    
-    
 }
 
 struct YeogigajaAppUser {
