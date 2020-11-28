@@ -10,10 +10,11 @@ import Foundation
 
 // MARK: 글 입력할 때 얻게되는 정보. 이를 Firebase로 전달
 struct WritePage {
-    let id: String
-    let name: String
-    let location: String
-    let tag: String
-    let withFriends: String
-    let description: String
+    var id: String
+    var name: String
+    var location: String
+    var tag: String
+    var withFriends: String
+    var description: String
+    var sentDate: Date
 }

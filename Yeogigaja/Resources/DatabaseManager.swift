@@ -16,6 +16,7 @@ final class DatabaseManager {
     /// Shared instance of class
     public static let shared = DatabaseManager()
 
+    /// 데이터베이스에서 데이터를 읽고 쓰기위해 사용하는 프로퍼티
     private let database = Database.database().reference()
 
     static func safeEmail(emailAddress: String) -> String {
@@ -47,7 +48,9 @@ extension DatabaseManager {
         })
     }
     
-    // 사용자 등록
+    /// 사용자 등록
+    /// setValue 코드를 사용하여 지정된 참조에 데이터를 저장하고 해당 경로의 기존 데이터를 모두 바꾼다
+    /// observeSingleEventOfType - 한 번 로드된 후 자주 변경되지 않거나 능동적으로 수신 대기할 필요가 없는 데이터에 유용함. ex) 사용자 프로필 로드
     public func insertUser(with user: YeogigajaAppUser, completion: @escaping (Bool) -> Void) {
         database.child(user.safeEmail).setValue([
             "name" : user.name
@@ -100,6 +103,55 @@ extension DatabaseManager {
             })
         })
     }
+    
+    public func createNewWritePage(with writePage: WritePage, completion: @escaping (Bool) -> Void) {
+        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String,
+              let currentName = UserDefaults.standard.value(forKey: "name") as? String else {
+                return
+        }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: currentEmail)
+        
+        let ref = database.child("\(safeEmail)")    // 로그인되는 이메일 -> ref 라는 이름으로 전달
+        
+        ref.observeSingleEvent(of: .value, with: { [weak self] snapshot in
+            guard var userNode = snapshot.value as? [String: Any] else {
+                completion(false)
+                print("user not found")
+                return
+            }
+//            let dateString = // 보류
+            let writePageId = "writePage_\(writePage.id)"
+            let writePageName = "writePage_\(writePage.name)"
+            let writePageLocation = "writePage_\(writePage.location)"
+            let writePageTag = "writePage_\(writePage.tag)"
+            let writePageWithFriends = "writePage_\(writePage.withFriends)"
+            let writePageDescription = "writePage_\(writePage.description)"
+            let writeSentDate = "writePage_\(writePage.sentDate)"
+            
+            let newWritePageData: [String: Any] = [
+                "id": writePageId,
+                "name": writePageName,
+                "location": writePageLocation,
+                "tag": writePageTag,
+                "withFriends": writePageWithFriends,
+                "description": writePageDescription,
+                "sentDate": writeSentDate,
+            ]
+
+            if var conversations = userNode["conversations"] as? [[String: Any]] {
+                conversations.append(newWritePageData)
+                userNode["conversations"] = conversations
+                ref.setValue(userNode, withCompletionBlock: { [weak self] error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                })
+            }
+            
+        })
+    }
+    
 }
 
 struct YeogigajaAppUser {
