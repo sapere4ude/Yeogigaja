@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		66E2070E5AFFB3E600ED12CF /* Pods_Yeogigaja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */; };
+		6B309FEC25738F3500AEE7F3 /* AddTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309FEB25738F3500AEE7F3 /* AddTagViewController.swift */; };
 		6B4BB80C254FCDB800C5EFBE /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4BB80B254FCDB800C5EFBE /* DetailHeaderView.swift */; };
 		6B4BB811254FD52600C5EFBE /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4BB810254FD52600C5EFBE /* DetailTableViewCell.swift */; };
+		6B770DB52574DF7F00B10F25 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B770DB42574DF7F00B10F25 /* UIView+Snapshot.swift */; };
 		6BB10254255D10F6002079A1 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB10253255D10F6002079A1 /* ShareViewController.swift */; };
 		6BB10257255D10F6002079A1 /* ShareImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB10255255D10F6002079A1 /* ShareImage.storyboard */; };
 		6BB1025B255D10F6002079A1 /* ShareImageData.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6BB10251255D10F6002079A1 /* ShareImageData.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -71,8 +73,10 @@
 
 /* Begin PBXFileReference section */
 		52D85463D516E831A4717E29 /* Pods_Yeogigaja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yeogigaja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B309FEB25738F3500AEE7F3 /* AddTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewController.swift; sourceTree = "<group>"; };
 		6B4BB80B254FCDB800C5EFBE /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		6B4BB810254FD52600C5EFBE /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		6B770DB42574DF7F00B10F25 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
 		6BB10251255D10F6002079A1 /* ShareImageData.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareImageData.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB10253255D10F6002079A1 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		6BB10256255D10F6002079A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShareImage.storyboard; sourceTree = "<group>"; };
@@ -150,6 +154,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6B770DB32574DF7200B10F25 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6B770DB42574DF7F00B10F25 /* UIView+Snapshot.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		6BB10252255D10F6002079A1 /* ShareImageData */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +190,7 @@
 				6BBC4384256FC1BF00D5D91F /* WriteViewController.swift */,
 				6BF071572572623B00140E2C /* WriteContainerViewController.swift */,
 				6BBC4388256FC1E700D5D91F /* Write.storyboard */,
+				6B309FEB25738F3500AEE7F3 /* AddTagViewController.swift */,
 			);
 			path = WritePage;
 			sourceTree = "<group>";
@@ -287,6 +300,7 @@
 		FA976088251C753300A175EA /* Yeogigaja */ = {
 			isa = PBXGroup;
 			children = (
+				6B770DB32574DF7200B10F25 /* Extension */,
 				6BBC4373256FC0BC00D5D91F /* CustomView */,
 				FA257D09255386B8007AD711 /* Resources */,
 				FA257CE22552F59B007AD711 /* RegisterPage */,
@@ -474,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BBC4385256FC1BF00D5D91F /* WriteViewController.swift in Sources */,
+				6B309FEC25738F3500AEE7F3 /* AddTagViewController.swift in Sources */,
 				7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */,
 				6BBC437E256FC14C00D5D91F /* RoundedTextView.swift in Sources */,
 				FA257C45254D691E007AD711 /* loginViewController.swift in Sources */,
@@ -487,6 +502,7 @@
 				6BF071582572623B00140E2C /* WriteContainerViewController.swift in Sources */,
 				FA97608A251C753300A175EA /* AppDelegate.swift in Sources */,
 				7C87EB5B254D649200C428A5 /* model.swift in Sources */,
+				6B770DB52574DF7F00B10F25 /* UIView+Snapshot.swift in Sources */,
 				6BBC4378256FC13F00D5D91F /* RoundedTextField.swift in Sources */,
 				7CCBA5902529CEFA0036CE02 /* DetailViewController.swift in Sources */,
 				7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */,

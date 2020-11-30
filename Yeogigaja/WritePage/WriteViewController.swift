@@ -22,12 +22,10 @@ class WriteViewController: UITableViewController {
             self.selectImageStackView.isLayoutMarginsRelativeArrangement = true
         }
     }
-
     @IBOutlet var scrollableHorizontalStackView: UIStackView!
 
     @IBOutlet var nameTextField: RoundedTextField!
     @IBOutlet var locationTextField: RoundedTextField!
-    @IBOutlet var tagTextField: RoundedTextField!
     @IBOutlet var friendsTextField: RoundedTextField!
     @IBOutlet var descriptionTextView: RoundedTextView!
 
@@ -97,7 +95,7 @@ class WriteViewController: UITableViewController {
         self.selectImageStackView.removeGestureRecognizer(self.selectImageTapGestureRecognizer)
     }
 
-    // MARKED: - TableView를 맨 아래로 스크롤하는 메소드
+    // MARK: - TableView를 맨 아래로 스크롤하는 메소드
     private func scrollToBottom() {
         let point = CGPoint(x: 0, y: self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.frame.height)
         if point.y >= 0 {
@@ -113,6 +111,8 @@ extension WriteViewController: UIImagePickerControllerDelegate, UINavigationCont
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+// MARK: - TextView를 선택하였을 때 맨 아래로 스크롤되도록 하기 위한 Delegate.
 
 extension WriteViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<string>ko_KR</string>
 	<key>CFBundleDisplayName</key>
 	<string>ShareImageData</string>
 	<key>CFBundleExecutable</key>
@@ -30,8 +30,8 @@
 				<string>1</string>
 			</dict>
 		</dict>
-        <key>NSExtensionMainStoryboard</key>
-            <string>ShareImage</string>
+		<key>NSExtensionMainStoryboard</key>
+		<string>ShareImage</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>
 	</dict>

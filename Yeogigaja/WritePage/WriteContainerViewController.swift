@@ -9,19 +9,19 @@
 import UIKit
 
 class WriteContainerViewController: UIViewController {
-    
     // MARK: - @IBOutlet Properties
+
     @IBOutlet var toolbar: UIToolbar! {
         didSet {
-            self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarTagButton], animated: false)
+            self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarAddTagButton], animated: false)
         }
     }
-    
+
     // MARK: - Toolbar Properties
 
     let toolbarFlexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-    let toolbarTagButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(systemName: "tag"), style: .done, target: self, action: nil)
+    lazy var toolbarAddTagButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(image: UIImage(systemName: "tag"), style: .done, target: self, action: #selector(showAddTagView))
         button.tintColor = .black
         return button
     }()
@@ -32,13 +32,6 @@ class WriteContainerViewController: UIViewController {
         return button
     }()
 
-    /**
-        키보드가 나타났을 때의 툴 바 높이 계산
-     */
-    var appearedToolbarHeight: CGFloat {
-        return self.toolbar.frame.height - self.view.safeAreaInsets.bottom
-    }
-
     @IBOutlet var toolbarBottomConstraint: NSLayoutConstraint!
 
     // MARKED:- WriteContainerViewController의 Lifecycle
@@ -46,7 +39,7 @@ class WriteContainerViewController: UIViewController {
         super.viewWillAppear(animated)
         self.registerForKeyboardNotifications()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.unregisterForKeyboardNotifications()
@@ -73,7 +66,7 @@ class WriteContainerViewController: UIViewController {
         let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
 
         // toolbar에서 키보드 닫기 버튼 제거
-        self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarTagButton], animated: false)
+        self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarAddTagButton], animated: false)
         self.view.layoutIfNeeded()
 
         // 키보드가 나타났을 경우 키보드의 상단에 toolbar가 붙어있도록 toolbarBottomConstraint 조절
@@ -90,7 +83,7 @@ class WriteContainerViewController: UIViewController {
         let keyboardRectangle = keyboardFrame.cgRectValue
 
         // toolbar에 키보드 닫기 버튼 추가
-        self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarTagButton, self.toolbarCloseKeyboardButton], animated: false)
+        self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarAddTagButton, self.toolbarCloseKeyboardButton], animated: false)
         self.view.layoutIfNeeded()
 
         // 키보드가 나타났을 경우 키보드의 상단에 toolbar가 붙어있도록 toolbarBottomConstraint 조절
@@ -99,13 +92,25 @@ class WriteContainerViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
-    // MARK:- 키보드 숨김 버튼 메소드
+
+    // MARK: - 키보드 숨김 버튼 메소드
 
     @objc private func hideKeyboard() {
         self.view.endEditing(true)
     }
-    
+
+    @objc private func showAddTagView() {
+        let writesb = UIStoryboard(name: "Write", bundle: nil)
+        let addTagViewIdentifier: String = "AddTagView"
+        guard let addTagView: AddTagViewController = writesb.instantiateViewController(identifier: addTagViewIdentifier) as? AddTagViewController else { return }
+        addTagView.modalPresentationStyle = .fullScreen
+        self.hideKeyboard()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            addTagView.backingImage = self.navigationController?.view.asImage()
+            self.present(addTagView, animated: false, completion: nil)
+        }
+    }
+
     // MARK: - 네비게이션 바 버튼이 눌렸을 때 불리는 메소드
 
     @IBAction func writeViewCancelPressed(sender: UIBarButtonItem) {
