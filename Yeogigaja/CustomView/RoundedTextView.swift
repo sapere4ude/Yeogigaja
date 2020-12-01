@@ -95,7 +95,7 @@ extension RoundedTextView : UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
             notifier?.roundedTextViewDidReturnPressed()
-            return false
+            return true
         }
         return true
     }

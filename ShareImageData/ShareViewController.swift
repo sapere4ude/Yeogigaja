@@ -56,12 +56,6 @@ class ShareViewController: UITableViewController {
         }
     }
 
-    // MARK: - 키보드 상태에 따른 뷰의 크기 조절을 위한 Properties
-
-    var keyboardShown: Bool = false // 키보드 상태 확인
-    var originY: CGFloat? // 오브젝트의 기본 위치
-    var activeTextField: UITextField?
-
     // MARK: - ShareViewController의 Life Cycle
 
     override func viewDidLoad() {
@@ -76,11 +70,10 @@ class ShareViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         descriptionTextView.becomeFirstResponder() // 뷰가 열릴 때마다 descriptionTextView에 포커싱이 맞추어진 채 키보드가 자동 열리도록 함
-        registerForKeyboardNotifications()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        unregisterForKeyboardNotifications()
+        self.view.endEditing(true)
     }
 
     // MARK: - 네비게이션바의 취소, 확인 버튼 눌렀을 때 실행되는 메소드 구현
@@ -184,41 +177,6 @@ class ShareViewController: UITableViewController {
         let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions)!
         return UIImage(cgImage: downsampledImage)
     }
-
-    // MARK: - 키보드 상태에 따른 뷰 크기 조절 메소드
-
-    // 코드 출처 - https://m.blog.naver.com/PostView.nhn?blogId=tngh818&logNo=221539007835&categoryNo=29
-
-    func registerForKeyboardNotifications() {
-        // 옵저버 등록
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-
-    func unregisterForKeyboardNotifications() {
-        // 옵저버 등록 해제
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-
-    @objc func keyboardWillHide(_ notification: Notification) {
-        view.transform = .identity
-    }
-
-    @objc func keyboardWillShow(notification: NSNotification) {
-        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        if let activeTextField: UITextField = activeTextField, activeTextField.isEditing == true {
-            keyboardAnimate(keyboardRectangle: keyboardRectangle, textField: activeTextField)
-        }
-    }
-
-    func keyboardAnimate(keyboardRectangle: CGRect, textField: UITextField) {
-        if keyboardRectangle.height > (view.frame.height - textField.frame.maxY) {
-            view.transform = CGAffineTransform(translationX: 0, y: view.frame.height - keyboardRectangle.height - textField.frame.maxY)
-        }
-    }
 }
 
 // MARK: - RoundedTextViewDelegate 구현 부분
@@ -233,13 +191,6 @@ extension ShareViewController: RoundedTextViewDelegate {
 // MARK: - 키보드의 다음 버튼을 누를 시 UITextField의 포커싱 이동 구현 부분
 
 extension ShareViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        activeTextField = textField
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        activeTextField = nil
-    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let currentTextFieldTag: Int = textField.tag
