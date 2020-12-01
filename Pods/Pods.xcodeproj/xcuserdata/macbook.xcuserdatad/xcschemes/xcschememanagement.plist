@@ -6,258 +6,123 @@
 	<dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
-<<<<<<< HEAD
 			<key>isShown</key>
 			<false/>
-		</dict>
-		<key>Alamofire.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>21</integer>
 		</dict>
 		<key>FSCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
-=======
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-		<key>FSCalendar.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
->>>>>>> Login
 		</dict>
 		<key>Firebase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>2</integer>
-=======
-			<integer>1</integer>
->>>>>>> Login
 		</dict>
 		<key>FirebaseAnalytics.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>3</integer>
-=======
-			<integer>2</integer>
->>>>>>> Login
 		</dict>
 		<key>FirebaseAuth.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>4</integer>
-=======
-			<integer>3</integer>
->>>>>>> Login
 		</dict>
 		<key>FirebaseCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>5</integer>
-=======
-			<integer>4</integer>
->>>>>>> Login
 		</dict>
 		<key>FirebaseCoreDiagnostics.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>6</integer>
-=======
-			<integer>5</integer>
->>>>>>> Login
 		</dict>
 		<key>FirebaseDatabase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>7</integer>
-=======
-			<integer>6</integer>
->>>>>>> Login
 		</dict>
 		<key>FirebaseInstallations.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>8</integer>
-=======
-			<integer>7</integer>
->>>>>>> Login
+		</dict>
+		<key>GEOSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>13</integer>
-=======
-			<integer>11</integer>
->>>>>>> Login
 		</dict>
 		<key>GoogleAppMeasurement.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>10</integer>
-=======
-			<integer>8</integer>
->>>>>>> Login
 		</dict>
 		<key>GoogleDataTransport.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>11</integer>
-=======
-			<integer>9</integer>
->>>>>>> Login
 		</dict>
 		<key>GoogleUtilities.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>12</integer>
-=======
-			<integer>10</integer>
->>>>>>> Login
 		</dict>
 		<key>JGProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>14</integer>
-=======
-			<integer>12</integer>
->>>>>>> Login
 		</dict>
 		<key>PagingKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>17</integer>
-=======
-			<integer>15</integer>
->>>>>>> Login
 		</dict>
 		<key>Parchment.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>18</integer>
-=======
-			<integer>16</integer>
->>>>>>> Login
 		</dict>
 		<key>Pods-Yeogigaja.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>19</integer>
-=======
-			<integer>17</integer>
->>>>>>> Login
 		</dict>
 		<key>PromisesObjC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>20</integer>
 		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SnapKit.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>23</integer>
-		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftyJSON.xcscheme_^#shared#^_</key>
+		<key>geos.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>22</integer>
-=======
-			<integer>18</integer>
-		</dict>
-		<key>SnapKit.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>19</integer>
-		</dict>
-		<key>SwiftyJSON.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>20</integer>
->>>>>>> Login
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>15</integer>
-=======
-			<integer>13</integer>
->>>>>>> Login
 		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>16</integer>
-=======
-			<integer>14</integer>
->>>>>>> Login
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

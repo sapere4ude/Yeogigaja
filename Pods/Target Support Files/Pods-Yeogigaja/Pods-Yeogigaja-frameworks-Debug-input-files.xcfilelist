@@ -1,10 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-Yeogigaja/Pods-Yeogigaja-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-<<<<<<< HEAD
 ${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework
-=======
 ${BUILT_PRODUCTS_DIR}/GEOSwift/GEOSwift.framework
->>>>>>> myPage
 ${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework
 ${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework
 ${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework

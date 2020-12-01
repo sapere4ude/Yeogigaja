@@ -24,7 +24,7 @@ class WriteViewController: UITableViewController {
     }
     @IBOutlet var scrollableHorizontalStackView: UIStackView!
 
-<<<<<<< HEAD
+
     @IBOutlet var tagTextField: RoundedTextField! {
         didSet {
             self.tagTextField.tag = 2
@@ -68,12 +68,12 @@ class WriteViewController: UITableViewController {
     var keyboardShown: Bool = false // 키보드 상태 확인
     var originY: CGFloat? // 오브젝트의 기본 위치
     var activeTextField: UITextField?
-=======
+
     @IBOutlet var nameTextField: RoundedTextField!
     @IBOutlet var locationTextField: RoundedTextField!
-    @IBOutlet var friendsTextField: RoundedTextField!
-    @IBOutlet var descriptionTextView: RoundedTextView!
->>>>>>> e3e15fff58fae6203a43a258f4b8a254f93d8505
+//    @IBOutlet var friendsTextField: RoundedTextField!
+//    @IBOutlet var descriptionTextView: RoundedTextView!
+
 
     // MARK: - Gesture Recognizer Properties
 
