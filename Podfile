@@ -19,9 +19,13 @@ target 'Yeogigaja' do
   pod 'SnapKit', '~> 5.0.0'
   pod "PagingKit"
   pod "Parchment"
+<<<<<<< HEAD
   pod 'JGProgressHUD'
 
   # Calendar
   pod 'FSCalendar'
+=======
+  pod "GEOSwift"
+>>>>>>> myPage
 
 end
