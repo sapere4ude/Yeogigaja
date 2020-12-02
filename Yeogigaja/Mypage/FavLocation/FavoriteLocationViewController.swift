@@ -16,9 +16,26 @@ class FavoriteLocationViewController: UIViewController {
         super.viewDidLoad()
         self.LoccollectionView.dataSource = self
         self.LoccollectionView.delegate = self
-        // Do any additional setup after loading the view.
-        print("loc")
+        customLayout()
     }
+    
+    
+    //customizing collectionView layout
+    func customLayout(){
+        let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        flowLayout.minimumLineSpacing = 7
+        flowLayout.minimumInteritemSpacing = 5
+        
+        let halfWidth:CGFloat = UIScreen.main.bounds.width / 2.0
+        flowLayout.itemSize = CGSize(width: halfWidth - 20, height: 40)
+        self.LoccollectionView.collectionViewLayout = flowLayout
+    }
+    
+    @IBAction func didTappedLocation(_ sender: UIButton) {
+        sender.isSelected.toggle()
+    }
+    
 
 
 }
@@ -36,9 +53,9 @@ extension FavoriteLocationViewController:UICollectionViewDelegate, UICollectionV
         
         let cell : LocCollectionViewCell = LoccollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LocCollectionViewCell
         
-//        cell.Locbtn.imageView?.contentMode = .scaleAspectFit
-//        cell.Locbtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        cell.Locbtn.setTitle(location[indexPath.row], for: .normal)
+        cell.Locbtn.imageView?.contentMode = .scaleAspectFit
+        cell.Locbtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 10)
+        cell.Locbtn.setTitle("  " + location[indexPath.row], for: .normal)
         
         return cell
     }
