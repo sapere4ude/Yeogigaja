@@ -23,7 +23,7 @@ class FavoriteLocationViewController: UIViewController {
     //customizing collectionView layout
     func customLayout(){
         let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 10)
         flowLayout.minimumLineSpacing = 7
         flowLayout.minimumInteritemSpacing = 5
         
@@ -55,7 +55,7 @@ extension FavoriteLocationViewController:UICollectionViewDelegate, UICollectionV
         
         cell.Locbtn.imageView?.contentMode = .scaleAspectFit
         cell.Locbtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 10)
-        cell.Locbtn.setTitle("  " + location[indexPath.row], for: .normal)
+        cell.Locbtn.setTitle("   " + location[indexPath.row], for: .normal)
         
         return cell
     }
