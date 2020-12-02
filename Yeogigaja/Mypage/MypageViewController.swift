@@ -51,6 +51,7 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK:- IBActions
 
+    //복사 이미지 클릭시 아이디 복사메서드
     @IBAction func tapCopyBtn(_ sender: Any) {
         UIPasteboard.general.string = self.userID.text
         print(UIPasteboard.general.string ?? "nill")
