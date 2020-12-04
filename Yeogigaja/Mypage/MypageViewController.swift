@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
-
+    
+    let users: String = "users"
+    let db = Database.database().reference()
+    var profile: [Profile] = []
+    
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImg: UIImageView!
+    @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var settingTableView: UITableView!
+    
     private let cellTitle0 = ["관심지역", "찜한 장소"]
     private let cellTitle1 = ["사용법", "공지사항", "설정"]
     private let cellImg0: [UIImage?] = [UIImage(named: "map"), UIImage(named: "heart")]
     private let cellImg1: [UIImage?] = [UIImage(named:"help"), UIImage(named:"docs"), UIImage(named:"setting")]
     private let sections = ["활동", "정보"]
+    
     @IBOutlet weak var modifyInfo: UIView!
     @IBOutlet weak var logOut: UIView!
     
@@ -27,6 +35,7 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         self.settingTableView.dataSource = self
         tapGesture()
         settingTableView.isScrollEnabled = false
+        getDataFor(path: "\(users)")
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,6 +53,24 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    //MARK: - Firebase 연동
+    func getDataFor(path: String) {
+        db.child("\(users)").observeSingleEvent(of: .value) { snapshot in
+            do {
+                let data = try JSONSerialization.data(withJSONObject: snapshot.value, options: [])
+                let decoder = JSONDecoder()
+                let profile: [Profile] = try decoder.decode([Profile].self, from: data)
+                self.profile = profile
+                print("value --> \(snapshot.value)")
+                DispatchQueue.main.async {
+                    self.userName?.text = profile[0].id
+                    self.userEmail?.text = profile[0].email
+                }
+            } catch let error {
+                print("--> Error: \(error.localizedDescription)")
+            }
+        }
+    }
     //MARK:-methods
     
     //modify Info method

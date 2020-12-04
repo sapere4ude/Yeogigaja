@@ -15,30 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let loginVC = loginViewController()
 //        self.window?.rootViewController = loginVC
-//<<<<<<< HEAD
-////
-//        let tbVC = UITabBarController()
-//        let mainsb = UIStoryboard(name: "Main", bundle: nil)
-//        guard let view1 = mainsb.instantiateViewController(identifier: "tableViewNavigation") as? UINavigationController else{return}
-//        let mapsb = UIStoryboard(name: "Map", bundle: nil)
-//        guard let view2 = mapsb.instantiateViewController(identifier: "mapViewNavigation") as? UINavigationController else{return}
-//        let calendarsb = UIStoryboard(name: "Calendar", bundle: nil)
-//        guard let view3 = calendarsb.instantiateViewController(identifier: "CalendarView") as? CalendarViewController else{return}
-//        let mypagesb = UIStoryboard(name: "Mypage", bundle: nil)
-//<<<<<<< HEAD
-//        guard let view4 = mypagesb.instantiateViewController(identifier: "MypageView") as? MypageViewController else{return}
-//
-//=======
-//        guard let view4 = mypagesb.instantiateViewController(identifier: "MypageNav") as? UINavigationController else{return}
-//
-//>>>>>>> myPage
-//        self.window?.rootViewController = tbVC
-//
-//        tbVC.setViewControllers([view1, view2, view3, view4], animated: false)
-//=======
-//>>>>>>> Login
 
 //        Line19-32 : 이곳 주석을 풀게 되면 로그인 & 회원가입 창이 나오질 않고있음. 이 부분에 대해서도 해결해야함
+        
         let tbVC = UITabBarController()
         let mainsb = UIStoryboard(name: "Main", bundle: nil)
         guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? TableViewController else{return}
@@ -62,6 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
     guard let _ = (scene as? UIWindowScene) else { return }
     }
 

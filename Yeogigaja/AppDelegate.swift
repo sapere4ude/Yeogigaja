@@ -20,17 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 //<<<<<<< HEAD
-////        window = UIWindow(frame: UIScreen.main.bounds)
-////        window?.makeKeyAndVisible()
-////
-////        let tabbarVC = TabBarController()
-////        window?.rootViewController = tabbarVC
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.makeKeyAndVisible()
+//
+//        let tabbarVC = TabBarController()
+//        window?.rootViewController = tabbarVC
+        
+//        let loginVC = loginViewController()
+//        window?.rootViewController = loginVC
 //        
-////        let loginVC = loginViewController()
-////        window?.rootViewController = loginVC
-//        
-//        // Firebase 연결, 여기 다시 체크하기
-////        FirebaseApp.configure()
+//         Firebase 연결, 여기 다시 체크하기
+        FirebaseApp.configure()
 //        
 //=======
 //>>>>>>> myPage

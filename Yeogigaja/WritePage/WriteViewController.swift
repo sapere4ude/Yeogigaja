@@ -53,14 +53,15 @@ class WriteViewController: UITableViewController {
     // MARK: - Firebase 작업
     
     public func configure(with model: WritePage) {
+        print(#function)
         nameTextField.text = model.name
         locationTextField.text = model.location
         tagTextField.text = model.tag
         friendsTextField.text = model.withFriends
         descriptionTextView.text = model.description
-        
-        
     }
+    
+    
     
 
     // MARK: - 키보드 상태에 따른 뷰의 크기 조절을 위한 Properties

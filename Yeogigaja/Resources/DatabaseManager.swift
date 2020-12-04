@@ -24,7 +24,6 @@ final class DatabaseManager {
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
-    
 }
 
 extension DatabaseManager {
@@ -151,7 +150,6 @@ extension DatabaseManager {
             
         })
     }
-    
 }
 
 struct YeogigajaAppUser {

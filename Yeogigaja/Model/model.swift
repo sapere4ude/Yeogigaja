@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: 글 입력할 때 얻게되는 정보. 이를 Firebase로 전달
-struct WritePage {
+struct WritePage: Codable {
     var id: String
     var name: String
     var location: String
@@ -17,4 +17,9 @@ struct WritePage {
     var withFriends: String
     var description: String
     var sentDate: Date
+}
+
+struct Profile: Codable {
+    let id: String
+    let email: String
 }
