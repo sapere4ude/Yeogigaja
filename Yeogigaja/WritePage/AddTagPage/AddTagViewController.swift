@@ -35,7 +35,7 @@ class AddTagViewController: UIViewController {
     var cardPanStartingTopConstant: CGFloat!
 
     // MARK:- tag 관련 Properties
-    var tagsArray: [String] = ["안녕_친구들", "해결사가_왔어", "오늘도_일좀_해볼까", "아니_안할래", "아니_안할래", "아니_안할래"]
+    var tagsArray: [String] = ["안녕_친구들", "해결사가_왔어", "뭐하고_놀지", "아무말_대잔치", "에라_모르겠다", "여섯개_다채움"]
     let tagFont: UIFont = {
         let tagFontSize: CGFloat = 15.0
         let font = UIFont.systemFont(ofSize: tagFontSize, weight: .regular)
@@ -83,10 +83,6 @@ class AddTagViewController: UIViewController {
         viewPan.delaysTouchesBegan = false
         viewPan.delaysTouchesEnded = false
         self.view.addGestureRecognizer(viewPan)
-
-        let viewTap = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
-        viewTap.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(viewTap)
     }
 
     private func setHandleView() {
@@ -298,6 +294,10 @@ extension AddTagViewController: UITextFieldDelegate {
             if tagText.isEmpty { return false }
             // 맨 앞의 # 제거
             tagText.removeFirst()
+            if tagsArray.contains(tagText) {
+                Toast.show(message: "같은 태그는 입력할 수 없습니다.", font: .preferredFont(forTextStyle: .subheadline), in: cardContentView)
+                return false
+            }
             self.tagsArray.append(tagText)
             let newTagIndex: Int = self.tagsArray.count - 1
 
@@ -330,24 +330,24 @@ extension AddTagViewController: UITextFieldDelegate {
 
         // 입력값이 emoji일 경우
         if (textField.textInputMode?.primaryLanguage == "emoji") || textField.textInputMode?.primaryLanguage == nil {
-            self.showNewToast(message: "특수문자는 입력할 수 없습니다.", font: .preferredFont(forTextStyle: .subheadline))
+            Toast.show(message: "특수문자는 입력할 수 없습니다.", font: .preferredFont(forTextStyle: .subheadline), in: cardContentView)
             return false
         }
         // 입력값이 위에서 지정한 특수 문자일 경우
         if string.rangeOfCharacter(from: validString) != nil {
-            self.showNewToast(message: "특수문자는 입력할 수 없습니다.", font: .preferredFont(forTextStyle: .subheadline))
+            Toast.show(message: "특수문자는 입력할 수 없습니다.", font: .preferredFont(forTextStyle: .subheadline), in: cardContentView)
             return false
         }
         
         let isErasing: Bool = string.isEmpty
         
         if curTextFieldText.count >= (maxTagTextCount + 1), !isErasing {
-            self.showNewToast(message: "태그는 최대 \(maxTagTextCount)자까지 입력할 수 있습니다.", font: .preferredFont(forTextStyle: .subheadline))
+            Toast.show(message: "태그는 최대 \(maxTagTextCount)자까지 입력할 수 있습니다.", font: .preferredFont(forTextStyle: .subheadline), in: cardContentView)
             return false
         }
 
         if self.tagsArray.count >= self.maxTagCount {
-            self.showNewToast(message: "태그는 최대 \(self.maxTagCount)개까지만 입력할 수 있습니다.", font: .preferredFont(forTextStyle: .subheadline))
+            Toast.show(message: "태그는 최대 \(self.maxTagCount)개까지만 입력할 수 있습니다.", font: .preferredFont(forTextStyle: .subheadline), in: cardContentView)
             return false
         }
 
@@ -360,59 +360,6 @@ extension AddTagViewController: UITextFieldDelegate {
         }
 
         return true
-    }
-}
-
-// MARK: - 안드로이드의 Toast와 같은 형태를 구현하기 위해 작성한 extension
-
-extension AddTagViewController {
-    // 베이스 코드 출처 - https://royhelen.tistory.com/46
-
-    private func showNewToast(message: String, font: UIFont) {
-        self.finishToastAnimation()
-
-        let toastSize = (message as NSString).size(withAttributes: [NSAttributedString.Key.font: font])
-        var toastWidth = toastSize.width + 24.0
-        var toastHeight: CGFloat = 35.0
-        let maxToastWidth = self.cardContentView.frame.size.width - 60
-
-        if toastWidth > maxToastWidth {
-            toastHeight += (toastWidth / maxToastWidth + 1) * toastSize.height
-            toastWidth = maxToastWidth
-        }
-
-        let toastLabel = self.createToastLabel(width: toastWidth, height: toastHeight, message: message, font: font)
-        self.cardContentView.addSubview(toastLabel)
-        self.startToastAnimation(label: toastLabel)
-    }
-
-    private func createToastLabel(width toastWidth: CGFloat, height toastHeight: CGFloat, message: String, font: UIFont) -> UILabel {
-        let toastLabel = UILabel(frame: CGRect(x: self.cardContentView.frame.size.width / 2 - toastWidth / 2, y: self.cardContentView.frame.size.height - 60, width: toastWidth, height: toastHeight))
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.font = font
-        toastLabel.textAlignment = .center
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10
-        toastLabel.clipsToBounds = true
-        toastLabel.numberOfLines = 0
-        return toastLabel
-    }
-
-    private func startToastAnimation(label toastLabel: UILabel) {
-        self.toastAnimator = UIViewPropertyAnimator(duration: 4.0, curve: .easeOut) {
-            toastLabel.alpha = 0.0
-        }
-        self.toastAnimator?.addCompletion { _ in
-            toastLabel.removeFromSuperview()
-        }
-        self.toastAnimator?.startAnimation()
-    }
-
-    private func finishToastAnimation() {
-        self.toastAnimator?.stopAnimation(false)
-        self.toastAnimator?.finishAnimation(at: .current)
     }
 }
 

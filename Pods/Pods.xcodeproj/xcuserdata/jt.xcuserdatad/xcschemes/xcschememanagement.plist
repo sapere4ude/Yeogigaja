@@ -82,7 +82,7 @@
 		<key>GEOSwift.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>24</integer>
+			<integer>27</integer>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
@@ -115,7 +115,7 @@
 		<key>JGProgressHUD.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>25</integer>
+			<integer>24</integer>
 		</dict>
 		<key>PagingKit.xcscheme</key>
 		<dict>
@@ -162,7 +162,7 @@
 		<key>geos.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>27</integer>
+			<integer>25</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>

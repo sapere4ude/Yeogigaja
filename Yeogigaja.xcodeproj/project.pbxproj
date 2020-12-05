@@ -12,6 +12,7 @@
 		6B4BB80C254FCDB800C5EFBE /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4BB80B254FCDB800C5EFBE /* DetailHeaderView.swift */; };
 		6B4BB811254FD52600C5EFBE /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4BB810254FD52600C5EFBE /* DetailTableViewCell.swift */; };
 		6B770DB52574DF7F00B10F25 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B770DB42574DF7F00B10F25 /* UIView+Snapshot.swift */; };
+		6B8A53F2257B1982006C77C2 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A53F1257B1982006C77C2 /* Toast.swift */; };
 		6BA83F1F2579CE1A00052538 /* TagsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA83F1E2579CE1A00052538 /* TagsFlowLayout.swift */; };
 		6BA83F252579D52500052538 /* TagsFlowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA83F242579D52500052538 /* TagsFlowCollectionViewCell.swift */; };
 		6BB10254255D10F6002079A1 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB10253255D10F6002079A1 /* ShareViewController.swift */; };
@@ -94,6 +95,7 @@
 		6B4BB80B254FCDB800C5EFBE /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		6B4BB810254FD52600C5EFBE /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		6B770DB42574DF7F00B10F25 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
+		6B8A53F1257B1982006C77C2 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		6BA83F1E2579CE1A00052538 /* TagsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsFlowLayout.swift; sourceTree = "<group>"; };
 		6BA83F242579D52500052538 /* TagsFlowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsFlowCollectionViewCell.swift; sourceTree = "<group>"; };
 		6BB10251255D10F6002079A1 /* ShareImageData.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareImageData.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +196,14 @@
 				6B770DB42574DF7F00B10F25 /* UIView+Snapshot.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		6B8A53F0257B1976006C77C2 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				6B8A53F1257B1982006C77C2 /* Toast.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		6BA83F1D2579CE0700052538 /* AddTagPage */ = {
@@ -414,6 +424,7 @@
 		FA976088251C753300A175EA /* Yeogigaja */ = {
 			isa = PBXGroup;
 			children = (
+				6B8A53F0257B1976006C77C2 /* Toast */,
 				6B770DB32574DF7200B10F25 /* Extension */,
 				6BBC4373256FC0BC00D5D91F /* CustomView */,
 				FA257D09255386B8007AD711 /* Resources */,
@@ -626,6 +637,7 @@
 				6BA83F252579D52500052538 /* TagsFlowCollectionViewCell.swift in Sources */,
 				7C8E42E92570D3E90013A4BC /* SettingViewController.swift in Sources */,
 				FA97608A251C753300A175EA /* AppDelegate.swift in Sources */,
+				6B8A53F2257B1982006C77C2 /* Toast.swift in Sources */,
 				7C8E42BE256F96B20013A4BC /* myInfoViewController.swift in Sources */,
 				7C87EB5B254D649200C428A5 /* model.swift in Sources */,
 				6B770DB52574DF7F00B10F25 /* UIView+Snapshot.swift in Sources */,
