@@ -123,7 +123,7 @@ extension DatabaseManager {
             let writePageId = "writePage_\(writePage.id)"
             let writePageName = "writePage_\(writePage.name)"
             let writePageLocation = "writePage_\(writePage.location)"
-            let writePageTag = "writePage_\(writePage.tag)"
+            let writePageTags = "writePage_\(writePage.tags)"
             let writePageWithFriends = "writePage_\(writePage.withFriends)"
             let writePageDescription = "writePage_\(writePage.description)"
             let writeSentDate = "writePage_\(writePage.sentDate)"
@@ -132,7 +132,7 @@ extension DatabaseManager {
                 "id": writePageId,
                 "name": writePageName,
                 "location": writePageLocation,
-                "tag": writePageTag,
+                "tags": writePageTags,
                 "withFriends": writePageWithFriends,
                 "description": writePageDescription,
                 "sentDate": writeSentDate,
