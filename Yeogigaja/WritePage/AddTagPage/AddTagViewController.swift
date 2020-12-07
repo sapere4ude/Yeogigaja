@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddTagViewControllerDelegate {
+    func saveTagsAfterClosing(tags: [String])
+}
+
 class AddTagViewController: UIViewController {
     // MARK: - @IBOutlet Properties
     @IBOutlet var backingImageView: UIImageView!
@@ -17,6 +21,8 @@ class AddTagViewController: UIViewController {
     @IBOutlet var handleView: UIView!
     @IBOutlet var tagTextField: UITextField!
     @IBOutlet var tagsFlowCollectionView: UICollectionView!
+    @IBOutlet var saveButton: UIButton!
+    @IBOutlet var cancelButton: UIButton!
 
     @IBOutlet var cardViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var cardViewBottomConstraint: NSLayoutConstraint!
@@ -27,6 +33,8 @@ class AddTagViewController: UIViewController {
         return self.view.safeAreaInsets.bottom
     }
 
+    var delegate: AddTagViewControllerDelegate?
+    
     // MARK:- 배경 이미지를 전달받기 위한 Property
     var backingImage: UIImage?
 
@@ -35,7 +43,7 @@ class AddTagViewController: UIViewController {
     var cardPanStartingTopConstant: CGFloat!
 
     // MARK:- tag 관련 Properties
-    var tagsArray: [String] = ["안녕_친구들", "해결사가_왔어", "뭐하고_놀지", "아무말_대잔치", "에라_모르겠다", "여섯개_다채움"]
+    var tagsArray: [String] = [String]()
     let tagFont: UIFont = {
         let tagFontSize: CGFloat = 15.0
         let font = UIFont.systemFont(ofSize: tagFontSize, weight: .regular)
@@ -59,6 +67,7 @@ class AddTagViewController: UIViewController {
         self.setAnimationInitialValue()
         self.setTagsFlowCollectionView()
         self.setTagTextField()
+        self.setButtons()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -125,6 +134,33 @@ class AddTagViewController: UIViewController {
         self.tagTextField.smartDashesType = .no
         self.tagTextField.smartInsertDeleteType = .no
     }
+    
+    private func setButtons() {
+        self.saveButton.backgroundColor = .orange
+        self.saveButton.contentEdgeInsets = UIEdgeInsets(top: 8.0, left: 64.0, bottom: 8.0, right: 64.0)
+        self.saveButton.layer.cornerRadius = self.saveButton.layer.bounds.height / 2.0
+        self.saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 17.0)
+        self.saveButton.setTitleColor(.white, for: .normal)
+        self.saveButton.clipsToBounds = true
+        self.setSaveButtonDisabled()
+        self.saveButton.setTitleColor(.darkGray, for: .disabled)
+        self.cancelButton.backgroundColor = .red
+        self.cancelButton.contentEdgeInsets = UIEdgeInsets(top: 8.0, left: 64.0, bottom: 8.0, right: 64.0)
+        self.cancelButton.layer.cornerRadius = self.cancelButton.layer.bounds.height / 2.0
+        self.cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 17.0)
+        self.cancelButton.tintColor = .white
+        self.cancelButton.clipsToBounds = true
+    }
+    
+    private func setSaveButtonEnabled() {
+        self.saveButton.isEnabled = true
+        self.saveButton.backgroundColor = .orange
+    }
+    
+    private func setSaveButtonDisabled() {
+        self.saveButton.isEnabled = false
+        self.saveButton.backgroundColor = .lightGray
+    }
 
     // MARK:- card 애니메이션 관련 메소드들
     private func showCard() {
@@ -142,7 +178,9 @@ class AddTagViewController: UIViewController {
     }
 
     private func hideCardAndGoBack() {
+        self.hideKeyboard()
         self.view.layoutIfNeeded()
+        self.delegate?.saveTagsAfterClosing(tags: tagsArray)
         let safeAreaHeight = view.safeAreaLayoutGuide.layoutFrame.height
         let bottomPadding = view.safeAreaInsets.bottom
         self.cardViewTopConstraint.constant = safeAreaHeight + bottomPadding
@@ -191,6 +229,7 @@ class AddTagViewController: UIViewController {
         let transition = panRecognizer.translation(in: self.view)
 
         self.hideKeyboard()
+        self.view.layoutIfNeeded()
 
         switch panRecognizer.state {
         case .began:
@@ -220,6 +259,14 @@ class AddTagViewController: UIViewController {
     
     @objc private func hideKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    @IBAction private func addTagViewCloseButtonPressed(_ sender: UIButton) {
+        self.hideCardAndGoBack()
+    }
+    
+    @IBAction private func addTagViewConfirmButtonPressed(_ sender: UIButton) {
+        self.hideCardAndGoBack()
     }
 }
 
@@ -282,10 +329,13 @@ extension AddTagViewController: UICollectionViewDelegate {
         } completion: { (_) in
             UIView.setAnimationsEnabled(true)
         }
+        if self.saveButton.isEnabled {
+            self.setSaveButtonDisabled()
+        }
     }
 }
 
-// MARK:- tagTextField에 입력한 값에 따른 반응을 구현하기 위한 Delegate
+// MARK:- tagTextField에 입력한 값에 따른 반응을 구현하기 위한 Delegate. Tag 추가도 담당
 extension AddTagViewController: UITextFieldDelegate {
     // Return 키의 작동 여부를 판단하는 메소드
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -308,7 +358,9 @@ extension AddTagViewController: UITextFieldDelegate {
             }) { _ in
                 UIView.setAnimationsEnabled(true)
             }
-
+            if !self.saveButton.isEnabled {
+                self.setSaveButtonEnabled()
+            }
             textField.text = ""
             return true
         } else {

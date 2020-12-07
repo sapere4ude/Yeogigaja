@@ -26,4 +26,6 @@ target 'Yeogigaja' do
 
   pod "GEOSwift"
 
+  pod 'DKImagePickerController'
+
 end

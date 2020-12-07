@@ -13,7 +13,7 @@ struct WritePage {
     var id: String
     var name: String
     var location: String
-    var tag: String
+    var tags: [String]
     var withFriends: String
     var description: String
     var sentDate: Date

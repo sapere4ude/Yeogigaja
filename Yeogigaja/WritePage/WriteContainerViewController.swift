@@ -34,7 +34,7 @@ class WriteContainerViewController: UIViewController {
 
     @IBOutlet var toolbarBottomConstraint: NSLayoutConstraint!
 
-    // MARKED:- WriteContainerViewController의 Lifecycle
+    // MARK:- WriteContainerViewController의 Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.registerForKeyboardNotifications()
@@ -119,5 +119,11 @@ class WriteContainerViewController: UIViewController {
 
     @IBAction func writeViewDonePressed(sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension WriteContainerViewController: AddTagViewControllerDelegate {
+    func saveTagsAfterClosing(tags: [String]) {
+        UserDefaults.standard.set(tags, forKey: "WritePageTags")
     }
 }
