@@ -61,6 +61,7 @@ class WriteViewController: UITableViewController {
         descriptionTextView.text = model.description
     }
     
+    // 기본 컨셉을 입력받은 값들을 딕셔너리에 표현해주고 그것 자체로 파이어베이스로 넘겨줄 수 있게하기
     
     
 

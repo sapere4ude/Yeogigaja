@@ -28,7 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mypagesb = UIStoryboard(name: "Mypage", bundle: nil)
         guard let view4 = mypagesb.instantiateViewController(identifier: "MypageView") as? MypageViewController else{return}
 
-        self.window?.rootViewController = tbVC
+        // 여기 주석 살리기
+        //self.window?.rootViewController = tbVC
 
         tbVC.setViewControllers([view1, view2, view3, view4], animated: false)
 
