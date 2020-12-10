@@ -29,7 +29,7 @@ class loginViewController: UIViewController {
         return scrollView
     }()
     
-    func UIinit() {
+    func initUI() {
         imageView.image = UIImage(named: "logo")
         imageView.contentMode = .scaleAspectFit
         
@@ -89,10 +89,18 @@ class loginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIinit()
+        initUI()
         
         scrollView.isUserInteractionEnabled = true
         scrollViewTapGesture()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+   
     }
     
     func scrollViewTapGesture() {
@@ -121,30 +129,14 @@ class loginViewController: UIViewController {
         spinner.show(in: view)
         
         // Firebase Log in
-        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
-            
-            guard let strongSelf = self else {
-                return
-            }
-            DispatchQueue.main.async {
-                strongSelf.spinner.dismiss()
-            }
-            
-//            guard let result = authResult, error == nil else {
-//                print("Failed to log in user with email: \(email)")
-//                return
-//            }
-//
-//            let user = result.user
-//
-//            UserDefaults.standard.set(email, forKey: "email")
-//
-//            print("Logged in User: \(user)")
-//             dismiss : 뷰 컨트롤러가 수동으로 제공한 뷰 컨트롤러를 해제하는 것
-//            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { authResult, error in
 
-            let tbVC = TabBarController()
+            DispatchQueue.main.async {
+                self.spinner.dismiss()
+            }
             
+            let tbVC = TabBarController()
+
             let mainsb = UIStoryboard(name: "Main", bundle: nil)
             guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? TableViewController else{return}
             let mapsb = UIStoryboard(name: "Map", bundle: nil)
@@ -154,9 +146,6 @@ class loginViewController: UIViewController {
             let mypagesb = UIStoryboard(name: "Mypage", bundle: nil)
             guard let view4 = mypagesb.instantiateViewController(identifier: "MypageView") as? MypageViewController else{return}
 
-            // 여기 주석 살리기
-            //self.window?.rootViewController = tbVC
-
             tbVC.setViewControllers([view1, view2, view3, view4], animated: false)
 
             //MARK:- image 수정 필요
@@ -164,25 +153,9 @@ class loginViewController: UIViewController {
             view2.tabBarItem = UITabBarItem(title: "지역별 항목", image: nil, tag: 1)
             view3.tabBarItem = UITabBarItem(title: "캘린더", image: nil, tag: 2)
             view4.tabBarItem = UITabBarItem(title: "마이페이지", image: nil, tag: 3)
-            
-            
-//            let vc = UIStoryboard(name: "Main", bundle: nil)
-//            let controller = vc.instantiateViewController(withIdentifier: "tableView")
-//
-//            controller.modalPresentationStyle = .fullScreen
-            
-           // 이 부분 다시 체크하기
-//            let tbVC = UITabBarController()
-//            self?.view.window?.rootViewController = tbVC
-            strongSelf.view.window?.rootViewController = tbVC
-//            let viewController = UIStoryboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
-//            self.view.window?.rootViewController = viewController
-            strongSelf.view.window?.makeKeyAndVisible()
-            
-            
-            
-//            strongSelf.present(controller, animated: true, completion: nil)
-            
+
+            self.view.window?.rootViewController = tbVC
+            self.view.window?.makeKeyAndVisible()
         })
     }
     

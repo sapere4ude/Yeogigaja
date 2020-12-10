@@ -8,6 +8,7 @@
 
 import UIKit
 import Parchment
+import FirebaseAuth
 
 class TableViewController: UIViewController {
 
@@ -20,6 +21,7 @@ class TableViewController: UIViewController {
         entryTableView.separatorStyle = .none
         
         navigationItem.backButtonTitle = ""
+
     }
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)

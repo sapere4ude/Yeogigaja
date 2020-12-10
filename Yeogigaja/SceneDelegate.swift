@@ -7,16 +7,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-//        let loginVC = loginViewController()
-//        self.window?.rootViewController = loginVC
-
-//        Line19-32 : 이곳 주석을 풀게 되면 로그인 & 회원가입 창이 나오질 않고있음. 이 부분에 대해서도 해결해야함
         
         let tbVC = UITabBarController()
         let mainsb = UIStoryboard(name: "Main", bundle: nil)
@@ -28,9 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mypagesb = UIStoryboard(name: "Mypage", bundle: nil)
         guard let view4 = mypagesb.instantiateViewController(identifier: "MypageView") as? MypageViewController else{return}
 
-        // 여기 주석 살리기
-        //self.window?.rootViewController = tbVC
-
         tbVC.setViewControllers([view1, view2, view3, view4], animated: false)
 
         //MARK:- image 수정 필요
@@ -38,11 +31,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         view2.tabBarItem = UITabBarItem(title: "지역별 항목", image: nil, tag: 1)
         view3.tabBarItem = UITabBarItem(title: "캘린더", image: nil, tag: 2)
         view4.tabBarItem = UITabBarItem(title: "마이페이지", image: nil, tag: 3)
+
         
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        //MARK: - 현재 Firebase 서버에 사용자가 존재하는지 여부를 판별하고 존재한다면 -> tableViewController, 존재하지않는다면 -> loginViewController 이동시킨다.
         
+        if FirebaseAuth.Auth.auth().currentUser != nil {
+            print("현재 존재하는 ID --->","\(FirebaseAuth.Auth.auth().currentUser)")
+            window?.rootViewController = tbVC
+        } else {
+            print("존재하는 ID가 없어서 이쪽으로 넘어옴")
+            let storyboard: UIStoryboard = UIStoryboard(name: "login", bundle: nil)
+            let pushVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! loginViewController
+            window?.rootViewController = pushVC
+            window?.makeKeyAndVisible()
+        }
+        
+    //Line50,51은 제가 작성한게 아니라 확인이 필요합니다.
     guard let _ = (scene as? UIWindowScene) else { return }
     }
 

@@ -205,7 +205,7 @@ class registerViewController: UIViewController {
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
             })
         })
-        
+//        print("register 이후 >> ", "\(FirebaseAuth.Auth.auth().currentUser)")
     }
     
     func alertUserLoginError(message: String = "Please enter all information to create a new account.") {

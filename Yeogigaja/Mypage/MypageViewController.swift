@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -29,6 +30,15 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var modifyInfo: UIView!
     @IBOutlet weak var logOut: UIView!
     
+    @IBAction func touchUpLogout(_ sender: Any) {
+        print(#function)
+        do {
+            try Auth.auth().signOut()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+            self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settingTableView.delegate = self

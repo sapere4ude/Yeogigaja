@@ -9,16 +9,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="FyF-8t-Y07">
+            <objects>
+                <navigationController id="DX1-nA-1wE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bch-oe-UGI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HIt-EG-Dr5" kind="relationship" relationship="rootViewController" id="CeB-6y-gp6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BIm-h3-rtx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1439" y="7"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="pJG-rS-PF5">
             <objects>
-                <viewController id="HIt-EG-Dr5" customClass="loginViewController" customModule="Yeogigaja" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="HIt-EG-Dr5" customClass="loginViewController" customModule="Yeogigaja" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WjD-Df-6U6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IkV-N0-X1B">
-                                <rect key="frame" x="87" y="135" width="240" height="128"/>
+                                <rect key="frame" x="87" y="179" width="240" height="84"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oz8-s8-3Gm">
                                 <rect key="frame" x="46" y="466" width="321" height="30"/>
@@ -66,6 +82,7 @@
                             <constraint firstItem="IkV-N0-X1B" firstAttribute="leading" secondItem="PB6-Nz-YAY" secondAttribute="leading" constant="87" id="uRD-Te-VHG"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="U6W-rL-WoX"/>
                     <connections>
                         <outlet property="emailField" destination="u0o-UU-Rbs" id="uuJ-tJ-tHb"/>
                         <outlet property="imageView" destination="IkV-N0-X1B" id="evg-sf-gzS"/>

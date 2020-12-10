@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseCore
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,24 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        // Override point for customization after application launch.
-        
-//<<<<<<< HEAD
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        window?.makeKeyAndVisible()
-//
-//        let tabbarVC = TabBarController()
-//        window?.rootViewController = tabbarVC
-        
-//        let loginVC = loginViewController()
-//        window?.rootViewController = loginVC
-//        
-//         Firebase 연결, 여기 다시 체크하기
+
         FirebaseApp.configure()
-//        
-//=======
-//>>>>>>> myPage
+        
         return true
     }
 
