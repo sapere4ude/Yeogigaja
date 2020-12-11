@@ -150,40 +150,45 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="link" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Ff-WU-yTA">
-                                <rect key="frame" x="342" y="275.5" width="22" height="21"/>
-                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08m-VY-Cy2">
+                                <rect key="frame" x="354" y="278" width="22" height="22"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="link" catalog="system"/>
+                                <connections>
+                                    <action selector="tapCopyBtn:" destination="a4p-he-VC9" eventType="touchUpInside" id="4D1-jd-0lf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EwP-YN-CIG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="X5e-aH-KCV" firstAttribute="top" secondItem="9Ff-WU-yTA" secondAttribute="bottom" constant="103" id="00C-Wb-Osv"/>
                             <constraint firstItem="EwP-YN-CIG" firstAttribute="trailing" secondItem="SRF-UA-B8Z" secondAttribute="trailing" constant="149" id="0LP-FB-jjg"/>
                             <constraint firstItem="lzZ-rR-kYP" firstAttribute="top" secondItem="SRF-UA-B8Z" secondAttribute="bottom" id="0aC-BC-jl2"/>
+                            <constraint firstItem="08m-VY-Cy2" firstAttribute="leading" secondItem="lzZ-rR-kYP" secondAttribute="trailing" constant="53" id="5h3-aO-8oR"/>
                             <constraint firstItem="25h-rj-KZ0" firstAttribute="top" secondItem="X5e-aH-KCV" secondAttribute="bottom" constant="30" id="6nB-Ke-qxU"/>
-                            <constraint firstItem="EwP-YN-CIG" firstAttribute="trailing" secondItem="9Ff-WU-yTA" secondAttribute="trailing" constant="50" id="A38-c1-Qrx"/>
                             <constraint firstItem="EwP-YN-CIG" firstAttribute="trailing" secondItem="X5e-aH-KCV" secondAttribute="trailing" constant="20" id="HTS-5g-ju5"/>
-                            <constraint firstItem="9Ff-WU-yTA" firstAttribute="leading" secondItem="lzZ-rR-kYP" secondAttribute="trailing" constant="41" id="J7s-b2-sIl"/>
                             <constraint firstItem="MqR-yb-C7z" firstAttribute="leading" secondItem="Lst-1I-vY1" secondAttribute="leading" id="JPz-NR-rWU"/>
+                            <constraint firstItem="EwP-YN-CIG" firstAttribute="trailing" secondItem="08m-VY-Cy2" secondAttribute="trailing" constant="38" id="RRG-HN-HH9"/>
                             <constraint firstItem="X5e-aH-KCV" firstAttribute="leading" secondItem="EwP-YN-CIG" secondAttribute="leading" id="XSD-OS-PUH"/>
                             <constraint firstItem="X5e-aH-KCV" firstAttribute="top" secondItem="lzZ-rR-kYP" secondAttribute="bottom" constant="99" id="YSh-4w-2rm"/>
-                            <constraint firstItem="9Ff-WU-yTA" firstAttribute="top" secondItem="EwP-YN-CIG" secondAttribute="top" constant="188" id="aef-wU-VnR"/>
                             <constraint firstItem="SRF-UA-B8Z" firstAttribute="top" secondItem="MqR-yb-C7z" secondAttribute="bottom" constant="42" id="anL-3W-U3h"/>
                             <constraint firstItem="EwP-YN-CIG" firstAttribute="bottom" secondItem="25h-rj-KZ0" secondAttribute="bottom" constant="20" id="bnQ-rx-e38"/>
                             <constraint firstItem="snH-CD-lJ9" firstAttribute="bottom" secondItem="lzZ-rR-kYP" secondAttribute="bottom" id="drY-fQ-2TH"/>
+                            <constraint firstItem="X5e-aH-KCV" firstAttribute="top" secondItem="08m-VY-Cy2" secondAttribute="bottom" constant="99" id="ec4-nG-klX"/>
                             <constraint firstItem="X5e-aH-KCV" firstAttribute="top" secondItem="3O4-cx-49l" secondAttribute="top" constant="399" id="eve-7Q-JCD"/>
                             <constraint firstItem="EwP-YN-CIG" firstAttribute="trailing" secondItem="25h-rj-KZ0" secondAttribute="trailing" constant="20" id="hlk-XA-IZT"/>
                             <constraint firstItem="25h-rj-KZ0" firstAttribute="leading" secondItem="EwP-YN-CIG" secondAttribute="leading" constant="20" id="iEp-MA-1Ck"/>
                             <constraint firstItem="lzZ-rR-kYP" firstAttribute="top" secondItem="SRF-UA-B8Z" secondAttribute="bottom" id="k0a-c3-9XF"/>
                             <constraint firstItem="EwP-YN-CIG" firstAttribute="trailing" secondItem="Lst-1I-vY1" secondAttribute="trailing" constant="169" id="sxh-eY-h6Z"/>
                             <constraint firstItem="MqR-yb-C7z" firstAttribute="top" secondItem="Lst-1I-vY1" secondAttribute="bottom" constant="1" id="xEe-FG-vYe"/>
+                            <constraint firstItem="08m-VY-Cy2" firstAttribute="top" secondItem="EwP-YN-CIG" secondAttribute="top" constant="190" id="yRn-dG-bDJ"/>
                             <constraint firstItem="snH-CD-lJ9" firstAttribute="leading" secondItem="EwP-YN-CIG" secondAttribute="leading" constant="30" id="zvv-F5-g87"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QVz-j9-Gho"/>
                     <connections>
+                        <outlet property="copyBtn" destination="08m-VY-Cy2" id="5Hd-NB-yz6"/>
                         <outlet property="logOut" destination="wWD-s5-zdg" id="Nv3-KJ-u1C"/>
                         <outlet property="modifyInfo" destination="qlG-Uv-c4c" id="ZsD-YC-GVv"/>
                         <outlet property="settingTableView" destination="X5e-aH-KCV" id="Wfa-Qk-DeZ"/>
@@ -195,13 +200,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZFQ-fk-iCR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="tMl-fe-mtF">
                     <connections>
-                        <action selector="tapLogOut:" destination="a4p-he-VC9" id="yaU-gO-cVN"/>
                         <outlet property="delegate" destination="wWD-s5-zdg" id="qiq-Ha-lPo"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="ACQ-l5-esB">
                     <connections>
-                        <action selector="tapModify:" destination="a4p-he-VC9" id="vrE-GO-Lvc"/>
                         <outlet property="delegate" destination="qlG-Uv-c4c" id="0U6-Mv-bGo"/>
                     </connections>
                 </tapGestureRecognizer>

@@ -28,7 +28,11 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var modifyInfo: UIView!
     @IBOutlet weak var logOut: UIView!
+    @IBOutlet weak var userID: UILabel!
+    @IBOutlet weak var copyBtn: UIButton!
     
+    
+    //MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settingTableView.delegate = self
@@ -73,7 +77,7 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     //MARK:-methods
     
-    //modify Info method
+    //개인정보 수정 제스처 등록
     @objc func tapModify(_ gesture: UITapGestureRecognizer) {
         print("modify")
         let sb = UIStoryboard(name: "MyInfo", bundle: nil)
@@ -81,7 +85,7 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    //logOut method
+    //로그아웃 메서드 제스처 등록
     @objc func tapLogOut(_ gesture: UITapGestureRecognizer) {
         print("logout")
     }
@@ -102,6 +106,12 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         self.modifyInfo.addGestureRecognizer(tapModifyGesture)
         let logOutGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapLogOut(_: )))
         self.logOut.addGestureRecognizer(logOutGesture)
+    }
+    
+    //서버에서 데이터를 가져오는 메서드
+    func getData(){
+        self.userID.text = "00d293ae123"
+        
     }
     
 
