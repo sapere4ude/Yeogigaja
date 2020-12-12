@@ -9,7 +9,9 @@
 import UIKit
 
 class LocCollectionViewCell: UICollectionViewCell {
+
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationView: UIView!
     
-    @IBOutlet weak var Locbtn: UIButton!
-    
+
 }

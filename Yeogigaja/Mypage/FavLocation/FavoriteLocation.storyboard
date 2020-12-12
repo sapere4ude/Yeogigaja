@@ -23,43 +23,44 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tTc-ss-wSd">
-                                    <size key="itemSize" width="187" height="56"/>
+                                    <size key="itemSize" width="225" height="226"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="dXw-6q-Vfe" customClass="LocCollectionViewCell" customModule="Yeogigaja" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="187" height="56"/>
+                                        <rect key="frame" x="94.5" y="0.0" width="225" height="226"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZvG-E0-MoC">
-                                            <rect key="frame" x="0.0" y="0.0" width="187" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="225" height="226"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8M-b8-nco">
-                                                    <rect key="frame" x="10" y="19" width="87" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal" title="종로구" image="checkmark.circle" catalog="system">
-                                                        <color key="titleColor" systemColor="labelColor"/>
-                                                    </state>
-                                                    <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="avz-GH-jla">
+                                                    <rect key="frame" x="38" y="40" width="131" height="127"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="종로구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aJ-gZ-fnF">
+                                                            <rect key="frame" x="45" y="53" width="45" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                    <gestureRecognizers/>
                                                     <connections>
-                                                        <action selector="didTappedLocation:" destination="Iz9-e5-KUT" eventType="touchUpInside" id="HqE-OD-8Jb"/>
+                                                        <outletCollection property="gestureRecognizers" destination="i2z-jY-hPF" appends="YES" id="Lak-8r-cXk"/>
                                                     </connections>
-                                                </button>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="J8M-b8-nco" secondAttribute="bottom" constant="19" id="Oa7-o5-U3N"/>
-                                                <constraint firstItem="J8M-b8-nco" firstAttribute="top" secondItem="ZvG-E0-MoC" secondAttribute="top" constant="19" id="ZeE-IT-Be2"/>
-                                                <constraint firstItem="J8M-b8-nco" firstAttribute="leading" secondItem="ZvG-E0-MoC" secondAttribute="leading" constant="10" id="ot6-Bb-6yi"/>
-                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="J8M-b8-nco" secondAttribute="trailing" priority="750" constant="90" id="sz9-sp-V06"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="187" height="56"/>
+                                        <size key="customSize" width="225" height="226"/>
                                         <connections>
-                                            <outlet property="Locbtn" destination="J8M-b8-nco" id="Kna-nc-45Z"/>
+                                            <outlet property="locationLabel" destination="9aJ-gZ-fnF" id="3Ip-JH-pmr"/>
+                                            <outlet property="locationView" destination="avz-GH-jla" id="jyL-W7-dls"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -77,18 +78,21 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yke-JR-zq6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="i2z-jY-hPF">
+                    <connections>
+                        <action selector="touchView:" destination="Iz9-e5-KUT" id="5AG-rL-EcS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="40.579710144927539" y="-72.321428571428569"/>
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
-        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
