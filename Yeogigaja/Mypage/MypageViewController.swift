@@ -30,14 +30,38 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var modifyInfo: UIView!
     @IBOutlet weak var logOut: UIView!
     
+    
     @IBAction func touchUpLogout(_ sender: Any) {
         print(#function)
-        do {
-            try Auth.auth().signOut()
+        
+//        let alert = UIAlertController(title: "로그아웃", message: "정말로 진행하시겠습니까?", preferredStyle: .alert)
+//        let cancel = UIAlertAction(title: "취소", style: .cancel)
+//        let progress = UIAlertAction(title: "로그아웃", style: .default) { (UIAlertAction) in
+//            do {
+//                try FirebaseAuth.Auth.auth().signOut()
+//                } catch let signOutError as NSError {
+//                    print ("Error signing out: %@", signOutError)
+//                }
+//            self.present(alert, animated: false)
+//                print("로그아웃 되었습니다")
+//        }
+        let alert = UIAlertController(title: "로그아웃", message: "정말로 진행하시겠습니까?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let progress = UIAlertAction(title: "로그아웃", style: .default, handler: { (UIAlertAction) in
+            do {
+                try FirebaseAuth.Auth.auth().signOut()
+                print("로그아웃 되었습니다")
+                let storyboard: UIStoryboard = UIStoryboard(name: "login", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! loginViewController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
             } catch let signOutError as NSError {
                 print ("Error signing out: %@", signOutError)
             }
-            self.dismiss(animated: true, completion: nil)
+        })
+        alert.addAction(cancel)
+        alert.addAction(progress)
+        self.present(alert, animated: false, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -158,7 +158,7 @@
                                 <rect key="frame" x="219" y="334" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="touchUpLogout:" destination="a4p-he-VC9" eventType="touchUpInside" id="BSJ-fO-NXJ"/>
+                                    <action selector="touchUpLogout:" destination="a4p-he-VC9" eventType="touchUpInside" id="cVC-H2-f3c"/>
                                 </connections>
                             </button>
                         </subviews>
