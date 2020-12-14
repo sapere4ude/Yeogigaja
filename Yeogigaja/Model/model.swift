@@ -20,6 +20,6 @@ struct WritePage: Codable {
 }
 
 struct Profile: Codable {
-    let id: String
-    let email: String
+    //let email: String
+    let name: String
 }

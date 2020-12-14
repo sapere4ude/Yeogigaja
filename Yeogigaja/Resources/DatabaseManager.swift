@@ -13,6 +13,7 @@ import FirebaseDatabase
 /// Manager object to read and write data to real time firebase database
 final class DatabaseManager {
 
+    
     /// Shared instance of class
     public static let shared = DatabaseManager()
 
@@ -52,7 +53,8 @@ extension DatabaseManager {
     /// observeSingleEventOfType - 한 번 로드된 후 자주 변경되지 않거나 능동적으로 수신 대기할 필요가 없는 데이터에 유용함. ex) 사용자 프로필 로드
     public func insertUser(with user: YeogigajaAppUser, completion: @escaping (Bool) -> Void) {
         database.child(user.safeEmail).setValue([
-            "name" : user.name
+            "name" : user.name,
+            "email" : user.emailAddress
         ], withCompletionBlock: { [weak self] error, _ in
             
             guard let strongSelf = self else {

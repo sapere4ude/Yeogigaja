@@ -34,17 +34,6 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func touchUpLogout(_ sender: Any) {
         print(#function)
         
-//        let alert = UIAlertController(title: "로그아웃", message: "정말로 진행하시겠습니까?", preferredStyle: .alert)
-//        let cancel = UIAlertAction(title: "취소", style: .cancel)
-//        let progress = UIAlertAction(title: "로그아웃", style: .default) { (UIAlertAction) in
-//            do {
-//                try FirebaseAuth.Auth.auth().signOut()
-//                } catch let signOutError as NSError {
-//                    print ("Error signing out: %@", signOutError)
-//                }
-//            self.present(alert, animated: false)
-//                print("로그아웃 되었습니다")
-//        }
         let alert = UIAlertController(title: "로그아웃", message: "정말로 진행하시겠습니까?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let progress = UIAlertAction(title: "로그아웃", style: .default, handler: { (UIAlertAction) in
@@ -89,22 +78,43 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: - Firebase 연동
     func getDataFor(path: String) {
-        db.child("\(users)").observeSingleEvent(of: .value) { snapshot in
+        
+        let userEmail = Auth.auth().currentUser?.email
+        print("\(userEmail)")
+        
+        var safeEmail = userEmail!.replacingOccurrences(of: ".", with: "-") // 문자열에서 원하는 문자 다른것으로 대체
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        
+        db.child("\(safeEmail)").observeSingleEvent(of: .value) { snapshot in
             do {
-                let data = try JSONSerialization.data(withJSONObject: snapshot.value, options: [])
-                let decoder = JSONDecoder()
-                let profile: [Profile] = try decoder.decode([Profile].self, from: data)
-                self.profile = profile
-                print("value --> \(snapshot.value)")
-                DispatchQueue.main.async {
-                    self.userName?.text = profile[0].id
-                    self.userEmail?.text = profile[0].email
-                }
+                print(#function)
+                print("\(snapshot)")
+                
+                // JSON 형태로 있는 값들에서 원하는 정보 가져오기
+                let value = snapshot.value as? NSDictionary
+                let userName = value?["name"] as? String ?? ""
+                let userEmail = value?["email"] as? String ?? ""
+                
+                self.userName?.text = userName
+                self.userEmail?.text = userEmail
+                
             } catch let error {
                 print("--> Error: \(error.localizedDescription)")
             }
+//        db.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+//          // Get user value
+//          let value = snapshot.value as? NSDictionary
+//            print("\(value)")
+////          let username = value?["username"] as? String ?? ""
+////          let user = User(username: username)
+//
+//          // ...
+//          }) { (error) in
+//            print(error.localizedDescription)
+//        }
         }
     }
+    
     //MARK:-methods
     
     //modify Info method
