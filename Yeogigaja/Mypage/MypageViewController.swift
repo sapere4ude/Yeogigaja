@@ -58,7 +58,7 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         self.settingTableView.dataSource = self
         tapGesture()
         settingTableView.isScrollEnabled = false
-        getDataFor(path: "\(users)")
+        getDataFor()
     }
     
     override func viewDidLayoutSubviews() {
@@ -77,7 +77,7 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     //MARK: - Firebase 연동
-    func getDataFor(path: String) {
+    func getDataFor() {
         
         let userEmail = Auth.auth().currentUser?.email
         print("\(userEmail)")
@@ -101,17 +101,6 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
             } catch let error {
                 print("--> Error: \(error.localizedDescription)")
             }
-//        db.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-//          // Get user value
-//          let value = snapshot.value as? NSDictionary
-//            print("\(value)")
-////          let username = value?["username"] as? String ?? ""
-////          let user = User(username: username)
-//
-//          // ...
-//          }) { (error) in
-//            print(error.localizedDescription)
-//        }
         }
     }
     
