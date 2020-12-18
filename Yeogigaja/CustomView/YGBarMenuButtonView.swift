@@ -53,6 +53,16 @@ class YGBarMenuButtonView: UIView {
         self.rightImage = rightImage
         setupView()
     }
+    
+    convenience init(titleText: String?, leftImage: UIImage?, rightImage: UIImage?, leftImageSize: CGSize?, rightImageSize: CGSize?) {
+        self.init(frame: CGRect(x: 0.0, y: 0.0, width: 128.0, height: 33.0))
+        self.leftImageSize = leftImageSize
+        self.rightImageSize = rightImageSize
+        self.titleText = titleText
+        self.leftImage = leftImage
+        self.rightImage = rightImage
+        setupView()
+    }
 
     override func layoutSubviews() {
         super.layoutSubviews()

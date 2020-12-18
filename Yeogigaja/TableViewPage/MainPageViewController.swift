@@ -10,8 +10,16 @@ import UIKit
 
 class MainPageViewController: YGPageViewController {
     override func viewDidLoad() {
-        setupPageCollection()
+        setupMainPageViewController()
         super.viewDidLoad()
+    }
+    
+    private func setupMainPageViewController() {
+        setupPageCollection()
+        self.useLeftBarMenuButton = true
+        self.leftBarButtonTitleText = "서울시 강동구"
+        self.leftBarButtonLeftImage = UIImage(named: "mapMarker")
+        self.leftBarButtonRightImage = UIImage(named: "arrowDown")
     }
     
     private func setupPageCollection() {

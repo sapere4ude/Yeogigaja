@@ -15,6 +15,15 @@ class YGPageViewController: UIViewController {
     var pageCollection = PageCollection(pages: [Page(name: "pageCollection을", viewController: UIViewController()), Page(name: "설정해주세요", viewController: UIViewController())], selectedPageIndex: 0)
     var menuBarHeight: CGFloat?
     var delegate: YGPageViewControllerDelegate?
+    
+    var useLeftBarMenuButton: Bool = false
+    var leftBarButtonLeftImage: UIImage?
+    var leftBarButtonRightImage: UIImage?
+    var leftBarButtonTitleText: String?
+    var leftBarButtonLeftImageSize: CGSize?
+    var leftBarButtonRightImageSize: CGSize?
+    var disablesFirstAndLastPageBounce: Bool = false
+    
 
     private var pageViewController: UIPageViewController!
     private let menuBar = YGMenuBar()
@@ -26,7 +35,9 @@ class YGPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        setupLeftBarMenuButton()
+        if useLeftBarMenuButton {
+            setupLeftBarMenuButton()
+        }
         setupMenuBar()
         setupPageViewController()
     }
@@ -40,7 +51,7 @@ class YGPageViewController: UIViewController {
     }
 
     private func setupLeftBarMenuButton() {
-        let barMenuButtonView = YGBarMenuButtonView(titleText: "경기도 하남시", leftImage: UIImage(named: "mapMarker"), rightImage: UIImage(named: "arrowDown"))
+        let barMenuButtonView = YGBarMenuButtonView(titleText: leftBarButtonTitleText, leftImage: leftBarButtonLeftImage, rightImage: leftBarButtonRightImage, leftImageSize: leftBarButtonLeftImageSize, rightImageSize: leftBarButtonRightImageSize)
         let leftBarMenuButton = UIBarButtonItem(customView: barMenuButtonView)
         let leftBarMenuButtonGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onLeftBarMenuButtonClicked))
         leftBarMenuButton.customView?.addGestureRecognizer(leftBarMenuButtonGestureRecognizer)
