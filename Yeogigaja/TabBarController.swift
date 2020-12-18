@@ -11,38 +11,33 @@ import FirebaseAuth
 
 class TabBarController: UITabBarController {
     
-    static let identifier = "TabBarController"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabbar()
+        setupTabbar()
     }
     
     
-    func tabbar(){
-        guard let tableView = self.storyboard?.instantiateViewController(withIdentifier: "tableView") else{return}
-
-        let mapSb = UIStoryboard(name: "Map", bundle: nil)
-        guard let map = mapSb.instantiateViewController(withIdentifier: "MapView") as? mapViewController else{return}
-
-        let CalendarSb = UIStoryboard(name: "Calendar", bundle: nil)
-        guard let calendar = CalendarSb.instantiateViewController(withIdentifier: "CalendarView") as? CalendarViewController else{return}
-
-        let myPageSb = UIStoryboard(name: "Mypage", bundle: nil)
-        guard let myPage = myPageSb.instantiateViewController(withIdentifier: "MypageView") as? MypageViewController else{return}
-        let pages = [tableView, map, calendar, myPage]
+    func setupTabbar(){
+        let view1 = MainPageViewController()
+        let mapsb = UIStoryboard(name: "Map", bundle: nil)
+        guard let view2 = mapsb.instantiateViewController(identifier: "MapView") as? mapViewController else{return}
+        let calendarsb = UIStoryboard(name: "Calendar", bundle: nil)
+        guard let view3 = calendarsb.instantiateViewController(identifier: "CalendarView") as? CalendarViewController else{return}
+        let mypagesb = UIStoryboard(name: "Mypage", bundle: nil)
+        guard let view4 = mypagesb.instantiateViewController(identifier: "MypageView") as? MypageViewController else{return}
         
-        //MARK:  image 수정 필요
-        let items = [
-            UITabBarItem(title: "전체항목", image: UIImage(named: "tes1"), tag: 0),
-            UITabBarItem(title: "지역별", image: UIImage(named: "tes1"), tag: 1),
-            UITabBarItem(title: "일정", image: UIImage(named: "tes1"), tag: 2),
-            UITabBarItem(title: "my Page", image: UIImage(named: "tes1"), tag: 3),
-        ]
-        
-        (0..<items.count).forEach{ pages[$0].tabBarItem = items[$0]}
-        self.setViewControllers([tableView, map, calendar, myPage], animated: true)
-        print("pages count", pages.count)
+        let navVC1 = UINavigationController(rootViewController: view1)
+        let navVC2 = UINavigationController(rootViewController: view2)
+        let navVC3 = UINavigationController(rootViewController: view3)
+        let navVC4 = UINavigationController(rootViewController: view4)
+
+        self.setViewControllers([navVC1, navVC2, navVC3, navVC4], animated: false)
+
+        //MARK:- image 수정 필요
+        navVC1.tabBarItem = UITabBarItem(title: "전체 항목", image: nil, tag: 0)
+        navVC2.tabBarItem = UITabBarItem(title: "지역별 항목", image: nil, tag: 1)
+        navVC3.tabBarItem = UITabBarItem(title: "캘린더", image: nil, tag: 2)
+        navVC4.tabBarItem = UITabBarItem(title: "마이페이지", image: nil, tag: 3)
         
     }
 }
