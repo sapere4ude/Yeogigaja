@@ -23,7 +23,7 @@ target 'Yeogigaja' do
 
   # Calendar
   pod 'FSCalendar'
-
   pod "GEOSwift"
+  pod 'DKImagePickerController'
 
 end

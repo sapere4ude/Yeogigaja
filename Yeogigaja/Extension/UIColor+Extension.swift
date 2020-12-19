@@ -8,6 +8,9 @@ extension UIColor {
         self.init(red: redValue, green: greenValue, blue: blueValue, alpha: 1.0)
     }
 
-    static let navigationLabelColor: UIColor = .black
-    static let navigationBackgroundColor: UIColor = .white
+    static let navigationBarLabelColor: UIColor = .black
+    static let navigationBarBackgroundColor: UIColor = .white
+    
+    static let tabBarLabelColor: UIColor = .black
+    static let tabBarBackgroundColor: UIColor = .white
 }

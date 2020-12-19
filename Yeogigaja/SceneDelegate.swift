@@ -14,6 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        window?.backgroundColor = .white
+        
         let tbVC = TabBarController()
         
         //MARK: - 현재 Firebase 서버에 사용자가 존재하는지 여부를 판별하고 존재한다면 -> tableViewController, 존재하지않는다면 -> loginViewController 이동시킨다.

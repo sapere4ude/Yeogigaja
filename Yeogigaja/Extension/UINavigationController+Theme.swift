@@ -7,8 +7,8 @@ extension UINavigationController {
         사용법 : navigationController?.setThemeAsDefault()
      */
     func setThemeAsDefault() {
-        self.navigationBar.tintColor = UIColor.navigationLabelColor
-        self.navigationBar.barTintColor = UIColor.navigationBackgroundColor
+        self.navigationBar.tintColor = UIColor.navigationBarLabelColor
+        self.navigationBar.barTintColor = UIColor.navigationBarBackgroundColor
         self.navigationBar.shadowImage = UIImage()
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.isTranslucent = false
