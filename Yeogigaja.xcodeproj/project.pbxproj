@@ -43,6 +43,7 @@
 		7C5811BB2530841100290CE7 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811BA2530841100290CE7 /* Calendar.storyboard */; };
 		7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C02530845700290CE7 /* MypageViewController.swift */; };
 		7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C42530BF1A00290CE7 /* TabBarController.swift */; };
+		7C873352258F1B23007D51DD /* FavoriteLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C873351258F1B23007D51DD /* FavoriteLocationCollectionViewCell.swift */; };
 		7C87EB5B254D649200C428A5 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87EB5A254D649200C428A5 /* model.swift */; };
 		7C87EB7B2555A72100C428A5 /* localViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87EB7A2555A72100C428A5 /* localViewController.swift */; };
 		7C87EB7F2555A72B00C428A5 /* local.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C87EB7E2555A72B00C428A5 /* local.storyboard */; };
@@ -139,6 +140,7 @@
 		7C5811BA2530841100290CE7 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		7C5811C02530845700290CE7 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		7C5811C42530BF1A00290CE7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Yeogigaja/TabBarController.swift; sourceTree = SOURCE_ROOT; };
+		7C873351258F1B23007D51DD /* FavoriteLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C87EB5A254D649200C428A5 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		7C87EB7A2555A72100C428A5 /* localViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localViewController.swift; sourceTree = "<group>"; };
 		7C87EB7E2555A72B00C428A5 /* local.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = local.storyboard; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 			children = (
 				7C8E42CC2570CC8C0013A4BC /* FavoriteLocation.storyboard */,
 				7C8E42CF2570CCA60013A4BC /* FavoriteLocationViewController.swift */,
+				7C873351258F1B23007D51DD /* FavoriteLocationCollectionViewCell.swift */,
 			);
 			path = FavLocation;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				7C8E42DD2570CF140013A4BC /* HelpViewController.swift in Sources */,
 				7C8E42E02570D33E0013A4BC /* NotificationViewController.swift in Sources */,
 				6BEBF7DB258C3DEE00082D7F /* UINavigationController+Theme.swift in Sources */,
+				7C873352258F1B23007D51DD /* FavoriteLocationCollectionViewCell.swift in Sources */,
 				7C8E42D02570CCA60013A4BC /* FavoriteLocationViewController.swift in Sources */,
 				7C8E42D32570CE670013A4BC /* FavoritePlaceViewController.swift in Sources */,
 				FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */,
