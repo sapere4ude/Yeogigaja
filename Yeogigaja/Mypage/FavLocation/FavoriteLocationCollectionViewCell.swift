@@ -10,6 +10,7 @@ import UIKit
 
 class FavoriteLocationCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var locationLabel: UILabel!
     
 }

@@ -29,9 +29,15 @@ extension FavoriteLocationViewController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = locationCollectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteLocationCollectionViewCell", for: indexPath) as! FavoriteLocationCollectionViewCell
+        makeCircle(cell: cell)
         cell.locationLabel.text = SeoulLocation[indexPath.row]
         return cell
     }
-    
+    func makeCircle(cell: FavoriteLocationCollectionViewCell){
+        cell.locationView.layer.cornerRadius = cell.locationView.frame.height / 2
+        cell.locationView.layer.borderWidth = 1
+        cell.locationView.layer.borderColor = CGColor(red: 128 / 255 , green: 128 / 255, blue: 128 / 255 , alpha: 0)
+        cell.locationView.clipsToBounds = true
+    }
     
 }

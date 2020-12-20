@@ -57,25 +57,27 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <constraints>
-                                                        <constraint firstItem="3ky-0a-8Ai" firstAttribute="top" secondItem="JA2-z6-O6k" secondAttribute="top" constant="37" id="OYf-lY-eD0"/>
-                                                        <constraint firstAttribute="trailing" secondItem="3ky-0a-8Ai" secondAttribute="trailing" constant="30" id="Ran-ag-I4p"/>
-                                                        <constraint firstItem="3ky-0a-8Ai" firstAttribute="leading" secondItem="JA2-z6-O6k" secondAttribute="leading" constant="30" id="Y8K-xI-m4p"/>
-                                                        <constraint firstAttribute="bottom" secondItem="3ky-0a-8Ai" secondAttribute="bottom" constant="37" id="ccc-NK-Zgs"/>
+                                                        <constraint firstItem="3ky-0a-8Ai" firstAttribute="leading" secondItem="JA2-z6-O6k" secondAttribute="leading" constant="30" id="3EB-k7-FdI"/>
+                                                        <constraint firstAttribute="bottom" secondItem="3ky-0a-8Ai" secondAttribute="bottom" constant="37" id="GN2-rn-bKx"/>
+                                                        <constraint firstAttribute="width" constant="110" id="VJK-IZ-ZwT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3ky-0a-8Ai" secondAttribute="trailing" constant="30" id="WKz-1P-7qt"/>
+                                                        <constraint firstItem="3ky-0a-8Ai" firstAttribute="top" secondItem="JA2-z6-O6k" secondAttribute="top" constant="37" id="d9Y-J2-aih"/>
+                                                        <constraint firstAttribute="height" constant="110" id="kDa-pN-M6o"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="JA2-z6-O6k" secondAttribute="bottom" id="Hx5-B7-Pbi"/>
-                                                <constraint firstItem="JA2-z6-O6k" firstAttribute="top" secondItem="Jb7-yw-4mE" secondAttribute="top" id="aM9-UV-G1E"/>
-                                                <constraint firstItem="JA2-z6-O6k" firstAttribute="leading" secondItem="Jb7-yw-4mE" secondAttribute="leading" id="frl-ds-Ic5"/>
-                                                <constraint firstAttribute="trailing" secondItem="JA2-z6-O6k" secondAttribute="trailing" id="klR-BR-QNr"/>
+                                                <constraint firstItem="JA2-z6-O6k" firstAttribute="leading" secondItem="Jb7-yw-4mE" secondAttribute="leading" id="2GB-Wf-YIc"/>
+                                                <constraint firstAttribute="bottom" secondItem="JA2-z6-O6k" secondAttribute="bottom" id="Glh-pe-mPU"/>
+                                                <constraint firstItem="JA2-z6-O6k" firstAttribute="top" secondItem="Jb7-yw-4mE" secondAttribute="top" id="WT9-mY-ALG"/>
+                                                <constraint firstAttribute="trailing" secondItem="JA2-z6-O6k" secondAttribute="trailing" id="ezI-a8-ib3"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="106" height="110"/>
                                         <connections>
                                             <outlet property="locationLabel" destination="3ky-0a-8Ai" id="KeP-Nm-t4G"/>
+                                            <outlet property="locationView" destination="JA2-z6-O6k" id="PZ5-SY-ldK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -115,9 +117,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
