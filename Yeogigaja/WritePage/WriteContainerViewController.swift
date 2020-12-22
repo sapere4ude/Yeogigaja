@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class WriteContainerViewController: UIViewController {
+    
+    var writePage: [WritePage] = []
+    var name: String = ""
+
     // MARK: - @IBOutlet Properties
 
     @IBOutlet var toolbar: UIToolbar! {
@@ -16,9 +22,44 @@ class WriteContainerViewController: UIViewController {
             self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarAddTagButton], animated: false)
         }
     }
+    
+    // MARK: - Segue. WriteViewController의 파라미터를 WriteViewContainer로 가져오기
+    var writeViewController: WriteViewController?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        writeViewController = segue.destination as? WriteViewController
+    }
+    
+    
+    // MARK: - Button Action + Firebase 연동
     @IBAction func btnDone(_ sender: Any) {
+        let userEmail = Auth.auth().currentUser?.email
+        var safeEmail = userEmail!.replacingOccurrences(of: ".", with: "-") // 문자열에서 원하는 문자 다른것으로 대체
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        print(safeEmail)
+        print(writeViewController?.nameTextField.text! ?? " ")
+        print(writeViewController?.locationTextField.text! ?? " ")
+        print(writeViewController?.friendsTextField.text! ?? " ")
+        print(writeViewController?.descriptionTextView.text! ?? " ")
+    
+        let newElement = [
+            "name" : self.writeViewController?.nameTextField.text!,
+            "location" : self.writeViewController?.locationTextField.text!,
+            "withFriends" : self.writeViewController?.friendsTextField.text!,
+            "description" : self.writeViewController?.descriptionTextView.text!
+        ]
         
-        
+        Database.database().reference().child("\(safeEmail)").child("Contents").observeSingleEvent(of: .value, with: { snapshot in
+            if var contents = snapshot.value as? [[String: String?]] {
+                // append
+                contents.append(newElement)
+                Database.database().reference().child("\(safeEmail)").child("Contents").setValue(contents)
+            }
+            else {
+                // create
+                Database.database().reference().child("\(safeEmail)").child("Contents").setValue([newElement])
+            }
+        })
     }
     
     // MARK: - Toolbar Properties

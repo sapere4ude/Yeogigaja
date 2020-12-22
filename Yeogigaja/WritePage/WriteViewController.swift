@@ -9,6 +9,7 @@
 import UIKit
 
 class WriteViewController: UITableViewController {
+    
     // MARK: - @IBOutlet Properties
 
     @IBOutlet var selectImageStackView: UIStackView! {
@@ -45,25 +46,6 @@ class WriteViewController: UITableViewController {
             self.descriptionTextView.returnKeyType = .done
         }
     }
-    
-    // MARK: - Firebase로 옮겨주기 위한 작업
-
-    private var writePages = [WritePage]()
-    
-    // MARK: - Firebase 작업
-    
-    public func configure(with model: WritePage) {
-        print(#function)
-        nameTextField.text = model.name
-        locationTextField.text = model.location
-        tagTextField.text = model.tag
-        friendsTextField.text = model.withFriends
-        descriptionTextView.text = model.description
-    }
-    
-    // 기본 컨셉을 입력받은 값들을 딕셔너리에 표현해주고 그것 자체로 파이어베이스로 넘겨줄 수 있게하기
-    
-    
 
     // MARK: - 키보드 상태에 따른 뷰의 크기 조절을 위한 Properties
 
@@ -75,8 +57,7 @@ class WriteViewController: UITableViewController {
     @IBOutlet var locationTextField: RoundedTextField!
 //    @IBOutlet var friendsTextField: RoundedTextField!
 //    @IBOutlet var descriptionTextView: RoundedTextView!
-
-
+    
     // MARK: - Gesture Recognizer Properties
 
     lazy var hideKeyboardTapGestureRecognizer: UITapGestureRecognizer = {
@@ -88,20 +69,22 @@ class WriteViewController: UITableViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectImage))
         return gestureRecognizer
     }()
-
+    
     // MARK: - WriteViewController의 Lifecycle
-
     override func viewDidLoad() {
+        print(#function)
         super.viewDidLoad()
         self.setWriteViewController()
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        print(#function)
         super.viewWillAppear(animated)
         self.registerGestureRecognizer()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        print(#function)
         super.viewWillDisappear(true)
         self.unregisterGestureRecognizer()
     }
