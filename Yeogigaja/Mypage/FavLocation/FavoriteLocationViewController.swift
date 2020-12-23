@@ -13,16 +13,27 @@ class FavoriteLocationViewController: UIViewController {
     let SeoulLocation = ["종로구", "중구", "용산구", "성동구", "광진구", "동대문구", "종랑구", "성북구", "강북구", "도봉구", "노원구", "은평구", "서대문구", "마포구", "양천구", "강서구", "구로구", "금천구", "영등포구", "동작구", "관악구", "서초구", "강남구", "송파구"]
     
     @IBOutlet weak var locationCollectionView: UICollectionView!
-
     
+    private var rightButton: UIBarButtonItem = { let button = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(buttonPressed(_:)))
+        return button
+        
+    }()
+
+    @objc private func buttonPressed(_ sender: Any) {
+        //data 전송
+        print("data send")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.locationCollectionView.allowsMultipleSelection = true
+        self.title = "관심 지역"
     }
     
 
 }
 
+//MARK:-  collcectionView delegate, datasource
 extension FavoriteLocationViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 24
@@ -32,14 +43,21 @@ extension FavoriteLocationViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = locationCollectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteLocationCollectionViewCell", for: indexPath) as! FavoriteLocationCollectionViewCell
         makeCircle(cell: cell)
+        cellLabelTextSize(cell: cell)
         cell.locationLabel.text = SeoulLocation[indexPath.row]
         return cell
     }
+    
+    //셀 텍스트 사이즈 자동 조정
+    func cellLabelTextSize(cell: FavoriteLocationCollectionViewCell){
+        if cell.locationLabel.adjustsFontSizeToFitWidth == false{
+            cell.locationLabel.adjustsFontSizeToFitWidth = true
+        }
+    }
+    
     //cell 이미지를 원형으로
     func makeCircle(cell: FavoriteLocationCollectionViewCell){
         cell.locationView.layer.cornerRadius = cell.locationView.frame.height / 2
-        cell.locationView.layer.borderWidth = 1
-        cell.locationView.layer.borderColor = CGColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
         cell.locationView.clipsToBounds = true
     }
     
@@ -55,15 +73,18 @@ extension FavoriteLocationViewController: UICollectionViewDelegate, UICollection
         }
     }
     
-    func alertMaxSelectItem(cell: FavoriteLocationCollectionViewCell){
-        let alert = UIAlertController(title: "경고", message: "지역 선택 갯수를 초과하였습니다.", preferredStyle: UIAlertController.Style.alert)
-        
-        let oKAlert = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(oKAlert)
-        self.present(alert, animated: true) {
-            cell.locationView.backgroundColor = UIColor.white
-            cell.isSelected = false
-            print(cell.isSelected)
+    //선택된 cell 갯수 확인
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let count = locationCollectionView.indexPathsForSelectedItems?.count
+        if (count ?? 0 >= 1){
+            makeNavBarRightBtn(count: count)
         }
     }
+    
+    
+    //셀 1개 이상 선택 시 완료버튼 및 데이터 전송
+    func makeNavBarRightBtn(count: Int?){
+        self.navigationItem.rightBarButtonItem = self.rightButton
+    }
+    
 }

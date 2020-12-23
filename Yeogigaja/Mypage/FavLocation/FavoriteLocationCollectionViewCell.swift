@@ -17,7 +17,8 @@ class FavoriteLocationCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool{
         didSet {
             //did SEt 으로 바뀔 때 마다
-            self.locationView.backgroundColor = isSelected ? UIColor.red : UIColor.white
+            self.locationView.backgroundColor = isSelected ? UIColor.red : UIColor.systemGray5
+            self.locationLabel.textColor = isSelected ? UIColor.white : UIColor.black
         }
     }
 }
