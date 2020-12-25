@@ -51,3 +51,5 @@ class HelpViewController: UIViewController, UIScrollViewDelegate {
     }
     
 }
+
+//https://baked-corn.tistory.com/35

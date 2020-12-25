@@ -44,6 +44,8 @@
 		7C5811C12530845700290CE7 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C02530845700290CE7 /* MypageViewController.swift */; };
 		7C5811C52530BF1A00290CE7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811C42530BF1A00290CE7 /* TabBarController.swift */; };
 		7C598EF72594534B00CC1880 /* HelpCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C598EF62594534B00CC1880 /* HelpCollectionViewCell.swift */; };
+		7C598EFD2595C7D300CC1880 /* NotifiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C598EFC2595C7D300CC1880 /* NotifiTableViewCell.swift */; };
+		7C598F012595C7E300CC1880 /* IndicatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C598F002595C7E300CC1880 /* IndicatorTableViewCell.swift */; };
 		7C873352258F1B23007D51DD /* FavoriteLocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C873351258F1B23007D51DD /* FavoriteLocationCollectionViewCell.swift */; };
 		7C87EB5B254D649200C428A5 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87EB5A254D649200C428A5 /* model.swift */; };
 		7C87EB7B2555A72100C428A5 /* localViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C87EB7A2555A72100C428A5 /* localViewController.swift */; };
@@ -142,6 +144,8 @@
 		7C5811C02530845700290CE7 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		7C5811C42530BF1A00290CE7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Yeogigaja/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		7C598EF62594534B00CC1880 /* HelpCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C598EFC2595C7D300CC1880 /* NotifiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiTableViewCell.swift; sourceTree = "<group>"; };
+		7C598F002595C7E300CC1880 /* IndicatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorTableViewCell.swift; sourceTree = "<group>"; };
 		7C873351258F1B23007D51DD /* FavoriteLocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C87EB5A254D649200C428A5 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		7C87EB7A2555A72100C428A5 /* localViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +346,15 @@
 			path = Mypage;
 			sourceTree = "<group>";
 		};
+		7C598F042595C7EC00CC1880 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7C598F002595C7E300CC1880 /* IndicatorTableViewCell.swift */,
+				7C598EFC2595C7D300CC1880 /* NotifiTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		7C87EB59254D63E000C428A5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +415,7 @@
 			children = (
 				7C8E42DF2570D33E0013A4BC /* NotificationViewController.swift */,
 				7C8E42E22570D34C0013A4BC /* Notification.storyboard */,
+				7C598F042595C7EC00CC1880 /* Cell */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -707,6 +721,7 @@
 				6B598E2F258D1C47000C46EB /* WriteViewController.swift in Sources */,
 				7C8E42BE256F96B20013A4BC /* myInfoViewController.swift in Sources */,
 				7C87EB5B254D649200C428A5 /* model.swift in Sources */,
+				7C598EFD2595C7D300CC1880 /* NotifiTableViewCell.swift in Sources */,
 				6BEBF7DA258C3DEE00082D7F /* UIColor+Extension.swift in Sources */,
 				6B598E30258D1C47000C46EB /* WriteContainerViewController.swift in Sources */,
 				6B770DB52574DF7F00B10F25 /* UIView+Snapshot.swift in Sources */,
@@ -716,6 +731,7 @@
 				7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */,
 				6B598E2B258D1C47000C46EB /* HorizontalCollectionImageViewStackCell.swift in Sources */,
 				7C598EF72594534B00CC1880 /* HelpCollectionViewCell.swift in Sources */,
+				7C598F012595C7E300CC1880 /* IndicatorTableViewCell.swift in Sources */,
 				6BEBF7CF258C3CA200082D7F /* YGMenuBarCell.swift in Sources */,
 				7C8E42C5256F9E8B0013A4BC /* setttingTableViewCell.swift in Sources */,
 				7C8E42DD2570CF140013A4BC /* HelpViewController.swift in Sources */,
