@@ -12,6 +12,10 @@ class WriteViewController: UITableViewController {
     
     // MARK: - @IBOutlet Properties
 
+    // 이미지 추가를 위한 IBOutlet
+    @IBOutlet weak var inputImage: UIImageView!
+    
+    
     @IBOutlet var selectImageStackView: UIStackView! {
         didSet {
             self.selectImageStackView.layer.cornerRadius = 8.0
@@ -103,7 +107,8 @@ class WriteViewController: UITableViewController {
     @objc private func hideKeyboard() {
         self.view.endEditing(true)
     }
-
+    
+    // 이미지 선택
     @objc private func selectImage() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let imagePickerController = UIImagePickerController()
@@ -140,6 +145,11 @@ class WriteViewController: UITableViewController {
 extension WriteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         self.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        inputImage.layer.isHidden = false
+        inputImage.image = selectedImage
     }
 }
 

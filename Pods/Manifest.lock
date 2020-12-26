@@ -13,6 +13,9 @@ PODS:
   - Firebase/Database (6.29.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.4.0)
+  - Firebase/Storage (6.29.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 3.8.0)
   - FirebaseAnalytics (6.7.0):
     - FirebaseCore (~> 6.8)
     - FirebaseInstallations (~> 1.4)
@@ -44,6 +47,9 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
+  - FirebaseStorage (3.8.0):
+    - FirebaseCore (~> 6.8)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FSCalendar (2.8.1)
   - geos (5.0.0)
   - GEOSwift (7.2.0):
@@ -94,6 +100,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
+  - Firebase/Storage
   - FSCalendar
   - GEOSwift
   - JGProgressHUD
@@ -112,6 +119,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseDatabase
     - FirebaseInstallations
+    - FirebaseStorage
     - FSCalendar
     - geos
     - GEOSwift
@@ -137,6 +145,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 7535fe695737f8c5b350584292a70b7f8ff0357b
   FirebaseDatabase: 55e69fe802ccb438d9c6ee51eb32fd425d5409d3
   FirebaseInstallations: 3c520c951305cbf9ca54eb891ff9e6d1fd384881
+  FirebaseStorage: 3ef81ca5fa7817f85451ca09d516a34d2c7542a7
   FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
   geos: e91fba0bb3497e3a8e68ca6103bddd45ec548e06
   GEOSwift: 1aed09f3a98848017717d2402ac74df6c3ff3ee0
@@ -153,6 +162,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 9235d5100aad23b1769a3f74ccb1ed24154144a0
+PODFILE CHECKSUM: 7322201858d14f1fa23b9aa1a9fe3e038712b28f
 
 COCOAPODS: 1.9.3

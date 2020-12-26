@@ -9,9 +9,11 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class WriteContainerViewController: UIViewController {
     
+    var storage = Storage.storage()
     var writePage: [WritePage] = []
     var name: String = ""
 
@@ -32,25 +34,22 @@ class WriteContainerViewController: UIViewController {
     
     
     // MARK: - Button Action + Firebase 연동
+    
     @IBAction func btnDone(_ sender: Any) {
         let userEmail = Auth.auth().currentUser?.email
         var safeEmail = userEmail!.replacingOccurrences(of: ".", with: "-") // 문자열에서 원하는 문자 다른것으로 대체
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
-        print(safeEmail)
-        print(writeViewController?.nameTextField.text! ?? " ")
-        print(writeViewController?.locationTextField.text! ?? " ")
-        print(writeViewController?.friendsTextField.text! ?? " ")
-        print(writeViewController?.descriptionTextView.text! ?? " ")
     
         let newElement = [
             "name" : self.writeViewController?.nameTextField.text!,
             "location" : self.writeViewController?.locationTextField.text!,
             "withFriends" : self.writeViewController?.friendsTextField.text!,
-            "description" : self.writeViewController?.descriptionTextView.text!
-        ]
+            "description" : self.writeViewController?.descriptionTextView.text!,
+            "image" : "\(self.writeViewController?.inputImage.image!)"
+        ] as [String : Any]
         
         Database.database().reference().child("\(safeEmail)").child("Contents").observeSingleEvent(of: .value, with: { snapshot in
-            if var contents = snapshot.value as? [[String: String?]] {
+            if var contents = snapshot.value as? [[String: Any]] {
                 // append
                 contents.append(newElement)
                 Database.database().reference().child("\(safeEmail)").child("Contents").setValue(contents)
@@ -60,6 +59,23 @@ class WriteContainerViewController: UIViewController {
                 Database.database().reference().child("\(safeEmail)").child("Contents").setValue([newElement])
             }
         })
+
+        // TODO: 이미지 추가 진행하기
+        var data = Data()
+        data = (self.writeViewController?.inputImage.image)!.jpegData(compressionQuality: 0.8)!
+        let filePath = "\(safeEmail)-"+"images"
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/png"
+        storage.reference().child(filePath).child("\(Date())").putData(data, metadata: metaData) { (metaData, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            } else {
+                
+                print("success")
+            }
+        }
+        
     }
     
     // MARK: - Toolbar Properties
