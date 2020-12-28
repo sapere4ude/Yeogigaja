@@ -24,6 +24,7 @@ class WriteContainerViewController: UIViewController {
             self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarAddTagButton], animated: false)
         }
     }
+//<<<<<<< HEAD
     
     // MARK: - Segue. WriteViewController의 파라미터를 WriteViewContainer로 가져오기
     var writeViewController: WriteViewController?
@@ -61,7 +62,7 @@ class WriteContainerViewController: UIViewController {
 
         // 같은 사용자가 여러 게시물을 올려도 시간단위를 이용하여 게시물의 이름을 구분할 수 있음
         var data = Data()
-        data = (self.writeViewController?.inputImage.image)!.jpegData(compressionQuality: 0.8)!
+        data = (self.writeViewController?.horizontalCollectionImageView.asImage())!.jpegData(compressionQuality: 0.8)!
         let filePath = "\(safeEmail)-"+"images"
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"
@@ -74,9 +75,11 @@ class WriteContainerViewController: UIViewController {
                 print("success")
             }
         }
-        
     }
     
+//=======
+
+//>>>>>>> YGPageViewController
     // MARK: - Toolbar Properties
 
     let toolbarFlexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
@@ -94,7 +97,7 @@ class WriteContainerViewController: UIViewController {
 
     @IBOutlet var toolbarBottomConstraint: NSLayoutConstraint!
 
-    // MARKED:- WriteContainerViewController의 Lifecycle
+    // MARK:- WriteContainerViewController의 Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.registerForKeyboardNotifications()
@@ -179,5 +182,11 @@ class WriteContainerViewController: UIViewController {
 
     @IBAction func writeViewDonePressed(sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension WriteContainerViewController: AddTagViewControllerDelegate {
+    func saveTagsAfterClosing(tags: [String]) {
+        UserDefaults.standard.set(tags, forKey: "WritePageTags")
     }
 }
