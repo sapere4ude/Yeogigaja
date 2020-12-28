@@ -44,8 +44,7 @@ class WriteContainerViewController: UIViewController {
             "name" : self.writeViewController?.nameTextField.text!,
             "location" : self.writeViewController?.locationTextField.text!,
             "withFriends" : self.writeViewController?.friendsTextField.text!,
-            "description" : self.writeViewController?.descriptionTextView.text!,
-            "image" : "\(self.writeViewController?.inputImage.image!)"
+            "description" : self.writeViewController?.descriptionTextView.text!
         ] as [String : Any]
         
         Database.database().reference().child("\(safeEmail)").child("Contents").observeSingleEvent(of: .value, with: { snapshot in
@@ -60,7 +59,7 @@ class WriteContainerViewController: UIViewController {
             }
         })
 
-        // TODO: 이미지 추가 진행하기
+        // 같은 사용자가 여러 게시물을 올려도 시간단위를 이용하여 게시물의 이름을 구분할 수 있음
         var data = Data()
         data = (self.writeViewController?.inputImage.image)!.jpegData(compressionQuality: 0.8)!
         let filePath = "\(safeEmail)-"+"images"

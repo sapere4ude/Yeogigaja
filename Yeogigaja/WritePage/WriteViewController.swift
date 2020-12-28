@@ -148,8 +148,6 @@ extension WriteViewController: UIImagePickerControllerDelegate, UINavigationCont
         guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
-        inputImage.layer.isHidden = false
-        inputImage.image = selectedImage
     }
 }
 
