@@ -36,6 +36,7 @@
 		6BEBF7DF258C3E3500082D7F /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEBF7DE258C3E3500082D7F /* MainPageViewController.swift */; };
 		6BF44D602563B4970041D318 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44D5F2563B4970041D318 /* RoundedTextField.swift */; };
 		6BF44D642563BB680041D318 /* RoundedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44D632563BB680041D318 /* RoundedTextView.swift */; };
+		7C022B9F259B264200BD104D /* NotifiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C022B9E259B264200BD104D /* NotifiDetailViewController.swift */; };
 		7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58115C252A2C5A00290CE7 /* TableViewController.swift */; };
 		7C5811B22530839D00290CE7 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811B12530839D00290CE7 /* Map.storyboard */; };
 		7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811B4253083BD00290CE7 /* mapViewController.swift */; };
@@ -136,6 +137,7 @@
 		6BEBF7DE258C3E3500082D7F /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		6BF44D5F2563B4970041D318 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		6BF44D632563BB680041D318 /* RoundedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextView.swift; sourceTree = "<group>"; };
+		7C022B9E259B264200BD104D /* NotifiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiDetailViewController.swift; sourceTree = "<group>"; };
 		7C58115C252A2C5A00290CE7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		7C5811B12530839D00290CE7 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		7C5811B4253083BD00290CE7 /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 			children = (
 				7C8E42DF2570D33E0013A4BC /* NotificationViewController.swift */,
 				7C8E42E22570D34C0013A4BC /* Notification.storyboard */,
+				7C022B9E259B264200BD104D /* NotifiDetailViewController.swift */,
 				7C598F042595C7EC00CC1880 /* Cell */,
 			);
 			path = Notification;
@@ -739,6 +742,7 @@
 				6BEBF7DB258C3DEE00082D7F /* UINavigationController+Theme.swift in Sources */,
 				7C873352258F1B23007D51DD /* FavoriteLocationCollectionViewCell.swift in Sources */,
 				7C8E42D02570CCA60013A4BC /* FavoriteLocationViewController.swift in Sources */,
+				7C022B9F259B264200BD104D /* NotifiDetailViewController.swift in Sources */,
 				7C8E42D32570CE670013A4BC /* FavoritePlaceViewController.swift in Sources */,
 				FA97608C251C753300A175EA /* SceneDelegate.swift in Sources */,
 				7CCBA58A2529B56A0036CE02 /* mainPageTableViewCell.swift in Sources */,
