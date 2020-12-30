@@ -24,7 +24,6 @@ class WriteContainerViewController: UIViewController {
             self.toolbar.setItems([self.toolbarFlexibleSpace, self.toolbarAddTagButton], animated: false)
         }
     }
-//<<<<<<< HEAD
     
     // MARK: - Segue. WriteViewController의 파라미터를 WriteViewContainer로 가져오기
     var writeViewController: WriteViewController?
@@ -37,6 +36,7 @@ class WriteContainerViewController: UIViewController {
     // MARK: - Button Action + Firebase 연동
     
     @IBAction func btnDone(_ sender: Any) {
+        print(#function)
         let userEmail = Auth.auth().currentUser?.email
         var safeEmail = userEmail!.replacingOccurrences(of: ".", with: "-") // 문자열에서 원하는 문자 다른것으로 대체
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
@@ -47,6 +47,8 @@ class WriteContainerViewController: UIViewController {
             "withFriends" : self.writeViewController?.friendsTextField.text!,
             "description" : self.writeViewController?.descriptionTextView.text!
         ] as [String : Any]
+        
+        print(self.writeViewController?.nameTextField.text!)
         
         Database.database().reference().child("\(safeEmail)").child("Contents").observeSingleEvent(of: .value, with: { snapshot in
             if var contents = snapshot.value as? [[String: Any]] {
@@ -59,27 +61,43 @@ class WriteContainerViewController: UIViewController {
                 Database.database().reference().child("\(safeEmail)").child("Contents").setValue([newElement])
             }
         })
-
+        
         // 같은 사용자가 여러 게시물을 올려도 시간단위를 이용하여 게시물의 이름을 구분할 수 있음
+        
         var data = Data()
-        data = (self.writeViewController?.horizontalCollectionImageView.asImage())!.jpegData(compressionQuality: 0.8)!
-        let filePath = "\(safeEmail)-"+"images"
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/png"
-        storage.reference().child(filePath).child("\(Date())").putData(data, metadata: metaData) { (metaData, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            } else {
-                
-                print("success")
-            }
+//        data = (self.writeViewController?.horizontalCollectionImageView.asImage())!.jpegData(compressionQuality: 0.8)!
+        self.writeViewController!.shared.forEach {
+            data = $0
+            print("data->\(data)")
+            let filePath = "\(safeEmail)-"+"images"
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/png"
+            storage.reference().child(filePath).child("\(data)" + "\(Date())").putData(data, metadata: metaData)
+//            { (metaData, error) in
+//                if let error = error {
+//                    print(error.localizedDescription)
+//                    return
+//                } else {
+//                    print("success")
+//                }
+//            }
+            print("success")
         }
+//        print("data->\(data)")
+//        let filePath = "\(safeEmail)-"+"images"
+//        let metaData = StorageMetadata()
+//        metaData.contentType = "image/png"
+//        storage.reference().child(filePath).child("\(Date())").putData(data, metadata: metaData) { (metaData, error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            } else {
+//
+//                print("success")
+//            }
+//        }
     }
-    
-//=======
 
-//>>>>>>> YGPageViewController
     // MARK: - Toolbar Properties
 
     let toolbarFlexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)

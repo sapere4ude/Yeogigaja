@@ -526,7 +526,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="vlG-ui-VWw">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="writeViewDonePressedWithSender:" destination="pji-9z-jDb" id="zuI-9C-d3v"/>
+                                <action selector="btnDone:" destination="pji-9z-jDb" id="Tcr-qp-fyK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -11,10 +11,11 @@ import UIKit
 
 class WriteViewController: UITableViewController {
     
+    var shared = [Data]()
+    
     // MARK: - @IBOutlet Properties
     @IBOutlet var horizontalCollectionImageView: UICollectionView!
-
-//<<<<<<< HEAD
+    
     // 이미지 추가를 위한 IBOutlet
     @IBOutlet weak var inputImage: UIImageView!
     
@@ -40,9 +41,7 @@ class WriteViewController: UITableViewController {
         }
     }
 
-//=======
     @IBOutlet var nameTextField: RoundedTextField!
-//>>>>>>> YGPageViewController
     @IBOutlet var friendsTextField: RoundedTextField! {
         didSet {
             self.friendsTextField.tag = 3
@@ -57,35 +56,14 @@ class WriteViewController: UITableViewController {
         }
     }
 
-//<<<<<<< HEAD
     // MARK: - 키보드 상태에 따른 뷰의 크기 조절을 위한 Properties
 
     var keyboardShown: Bool = false // 키보드 상태 확인
     var originY: CGFloat? // 오브젝트의 기본 위치
     var activeTextField: UITextField?
 
-//    @IBOutlet var nameTextField: RoundedTextField!
-//    @IBOutlet var locationTextField: RoundedTextField!
-//    @IBOutlet var friendsTextField: RoundedTextField!
-//    @IBOutlet var descriptionTextView: RoundedTextView!
-    
-//=======
     @IBOutlet var locationTextField: RoundedTextField!
 
-    // MARK: - Firebase로 옮겨주기 위한 작업
-
-    private var writePages = [WritePage]()
-
-    // MARK: - Firebase 작업
-
-    public func configure(with model: WritePage) {
-        self.nameTextField.text = model.name
-        self.locationTextField.text = model.location
-        self.friendsTextField.text = model.withFriends
-        self.descriptionTextView.text = model.description
-    }
-
-//>>>>>>> YGPageViewController
     // MARK: - Gesture Recognizer Properties
 
     lazy var hideKeyboardTapGestureRecognizer: UITapGestureRecognizer = {
@@ -96,7 +74,8 @@ class WriteViewController: UITableViewController {
 
     let maxSelectableImageCount: Int = 6
     var selectableImageCount: Int!
-    private var selectedImageAssets: [DKAsset]?
+    var selectedImageAssets: [DKAsset]?
+    
     private lazy var imagePickerController: DKImagePickerController = {
         let imagePickerController = DKImagePickerController()
         imagePickerController.sourceType = .photo
@@ -154,35 +133,22 @@ class WriteViewController: UITableViewController {
 
     // MARK: - 카메라 아이콘 터치 시 이미지 선택
 
-//    private func selectImage() {
-//        if self.selectableImageCount <= 0 {
-//            let alertController = UIAlertController(title: nil, message: "이미지는 최대 \(maxSelectableImageCount)개만 선택할 수 있습니다.", preferredStyle: .alert)
-//            let alertConfirmAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-//            alertController.addAction(alertConfirmAction)
-//            self.present(alertController, animated: true, completion: nil)
-//            return
-//        }
-//        self.imagePickerController.didSelectAssets = {
-//            [unowned self] assets in
-//            self.updateAssets(assets: assets)
-//            self.imagePickerController.setSelectedAssets(assets: [])
-//        }
-//
-//        self.present(self.imagePickerController, animated: true, completion: nil)
-//    }
-//<<<<<<< HEAD
-    
-    // 이미지 선택
-    @objc private func selectImage() {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let imagePickerController = UIImagePickerController()
-            imagePickerController.delegate = self
-            imagePickerController.allowsEditing = true
-            imagePickerController.modalPresentationStyle = .fullScreen
-            self.present(imagePickerController, animated: true, completion: nil)
+    private func selectImage() {
+        if self.selectableImageCount <= 0 {
+            let alertController = UIAlertController(title: nil, message: "이미지는 최대 \(maxSelectableImageCount)개만 선택할 수 있습니다.", preferredStyle: .alert)
+            let alertConfirmAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alertController.addAction(alertConfirmAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
         }
+        self.imagePickerController.didSelectAssets = {
+            [unowned self] assets in
+            self.updateAssets(assets: assets)
+            self.imagePickerController.setSelectedAssets(assets: [])
+        }
+
+        self.present(self.imagePickerController, animated: true, completion: nil)
     }
-//=======
 
     private func updateAssets(assets: [DKAsset]) {
         let from = (self.selectedImageAssets?.count ?? 0) + 1
@@ -192,7 +158,6 @@ class WriteViewController: UITableViewController {
         for i in from ... to {
             let newIndexPath = IndexPath(row: i, section: 0)
             newIndexPaths.append(newIndexPath)
-//>>>>>>> YGPageViewController
         }
         self.selectableImageCount -= assets.count
         self.imagePickerController.maxSelectableCount = self.selectableImageCount
@@ -200,6 +165,19 @@ class WriteViewController: UITableViewController {
 
         guard let cell = self.horizontalCollectionImageView.cellForItem(at: IndexPath(row: 0, section: 0)) as? HorizontalCollectionImageViewStackCell else { fatalError("Cell Error Occured") }
         cell.setImageCount(count: self.selectedImageAssets?.count ?? 0, maxCount: self.maxSelectableImageCount)
+        print("selectedImageAssets->\(selectedImageAssets)")
+        
+        DKImageAssetExporter.sharedInstance.exportAssetsAsynchronously(assets: selectedImageAssets ?? []) { (info) in
+            for asset in assets {
+                if let localTemporaryPath = asset.localTemporaryPath,
+                    let data = try? Data(contentsOf: localTemporaryPath) {
+                    print("asset.fileName->\(asset.fileName)")
+                    print("data.count->\(data.count)")
+                    self.shared.append(data)
+                    print(self.shared)
+                }
+            }
+        }
     }
 
     // MARK: - 화면 스크롤 시 또는 터치 시 키보드 숨기기
@@ -228,20 +206,6 @@ class WriteViewController: UITableViewController {
     }
 }
 
-//<<<<<<< HEAD
-// MARK: - 이미지를 선택하였을 때에 이미지 정보를 가져오도록 하는 Delegate. 아직 구현 안함
-
-extension WriteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        self.dismiss(animated: true, completion: nil)
-        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
-            return
-        }
-    }
-}
-
-//=======
-//>>>>>>> YGPageViewController
 // MARK: - TextView를 선택하였을 때 맨 아래로 스크롤되도록 하기 위한 Delegate.
 
 extension WriteViewController: UITextViewDelegate {
