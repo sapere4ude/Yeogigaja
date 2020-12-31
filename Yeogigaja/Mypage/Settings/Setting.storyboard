@@ -43,7 +43,7 @@
                                             <segue destination="lqd-Kl-Vg0" kind="show" trigger="accessoryAction" id="PVC-ND-PrU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="61" id="ZaF-a8-gZV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VersionSettingTableViewCell" rowHeight="61" id="ZaF-a8-gZV" customClass="VersionSettingTableViewCell" customModule="Yeogigaja" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="414" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZaF-a8-gZV" id="tKl-kz-FMN">
@@ -74,6 +74,10 @@
                                                 <constraint firstItem="eB3-fd-Tkg" firstAttribute="leading" secondItem="wyF-Ul-ytX" secondAttribute="trailing" constant="272" id="u8v-PG-E4h"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="VersionInfo" destination="eB3-fd-Tkg" id="G4K-Fw-wFQ"/>
+                                            <outlet property="VersionTitle" destination="wyF-Ul-ytX" id="Rbk-XB-aLW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

@@ -32,15 +32,21 @@ class SettingViewController: UIViewController {
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(settingTitle.count)
-        return settingTitle.count
+        return settingTitle.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: SettingTableViewCell = SettingTableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as? SettingTableViewCell else { return UITableViewCell() }
-        cell.SettingLabel.text = settingTitle[indexPath.row].SettingLabel
-        print(settingTitle[indexPath.row].SettingLabel)
-        print(cell.SettingLabel.text)
-        return cell
+        print(indexPath.row)
+        if indexPath.row == settingTitle.count {
+            guard let cell: VersionSettingTableViewCell = SettingTableView.dequeueReusableCell(withIdentifier: "VersionSettingTableViewCell", for: indexPath) as? VersionSettingTableViewCell else { return UITableViewCell()}
+            return cell
+        } else{
+            guard let cell: SettingTableViewCell = SettingTableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as? SettingTableViewCell else { return UITableViewCell() }
+            cell.SettingLabel.text = settingTitle[indexPath.row].SettingLabel
+            
+            return cell
+        }
+
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "SettingDetailViewController") else { return }
