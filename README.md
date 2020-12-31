@@ -1,19 +1,29 @@
-# Yeogigaja
+# <center>**여기가자**</center>
 
+<center>
+
+![XcodeVersion](https://img.shields.io/badge/Xcode-12.3-orange)
+![SwiftVersion](https://img.shields.io/badge/Swift-5-green)
+![platform](https://img.shields.io/badge/platform-iOS-yellow)
+![version](https://img.shields.io/badge/release-1.0.0-critical)
+
+</center>
+
+
+#
 <br>
-
+<br>
 
 ## **👩🏻‍💻 Contributor 🧑🏻‍💻**
 <br>
 
-| 이름 | github |
-|:---:|:---:|
-| **유재준** | [sapere4ude](https://github.com/sapere4ude) |
-| **송서영** | [SongSeoYoung](https://github.com/SongSeoYoung) |
-| **김진태** | [CodingJT](https://github.com/CodingJT)
+
+**유재준**   [sapere4ude](https://github.com/sapere4ude)  
+**송서영**   [SongSeoYoung](https://github.com/SongSeoYoung)  
+**김진태**   [CodingJT](https://github.com/CodingJT)
 <br>
 
----
+#
 
 ## **라이브러리** 📑
 <br>
@@ -25,7 +35,7 @@
 
 <br>
 
----
+#
 
 ## **기능 구현✨**
 <br>
@@ -37,9 +47,4 @@
 ||회원정보 수정 | O | 서영 |
 ||관심지역 선택 | O | 서영|
 
-<br>
-
----
-
-## 
 
