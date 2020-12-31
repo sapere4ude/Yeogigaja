@@ -1,13 +1,10 @@
-# <center>**여기가자**</center>
+# **<center>여기가자</center>**
 
-<center>
 
 ![XcodeVersion](https://img.shields.io/badge/Xcode-12.3-orange)
 ![SwiftVersion](https://img.shields.io/badge/Swift-5-green)
 ![platform](https://img.shields.io/badge/platform-iOS-yellow)
 ![version](https://img.shields.io/badge/release-1.0.0-critical)
-
-</center>
 
 
 #
@@ -23,7 +20,7 @@
 **김진태**   [CodingJT](https://github.com/CodingJT)
 <br>
 
-#
+
 
 ## **라이브러리** 📑
 <br>
@@ -35,7 +32,7 @@
 
 <br>
 
-#
+
 
 ## **기능 구현✨**
 <br>
