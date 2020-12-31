@@ -119,6 +119,40 @@
             </objects>
             <point key="canvasLocation" x="1831.8840579710147" y="129.91071428571428"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="mlV-Xh-P8W">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="lwF-wR-xQY" customClass="WebViewController" customModule="Yeogigaja" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SrW-J3-Zpo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nwt-1F-aLk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="822"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NpE-Ed-VRU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nwt-1F-aLk" firstAttribute="top" secondItem="NpE-Ed-VRU" secondAttribute="top" id="Qua-hF-TgV"/>
+                            <constraint firstAttribute="bottom" secondItem="Nwt-1F-aLk" secondAttribute="bottom" constant="30" id="T4K-Wv-Uuh"/>
+                            <constraint firstItem="Nwt-1F-aLk" firstAttribute="leading" secondItem="NpE-Ed-VRU" secondAttribute="leading" id="dga-4w-853"/>
+                            <constraint firstItem="Nwt-1F-aLk" firstAttribute="trailing" secondItem="NpE-Ed-VRU" secondAttribute="trailing" id="xUX-f5-zpB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Nwt-1F-aLk" id="2Z4-d2-uLn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MEZ-WE-T7x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1237.68115942029" y="917.41071428571422"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hcE-go-tLy">
             <objects>

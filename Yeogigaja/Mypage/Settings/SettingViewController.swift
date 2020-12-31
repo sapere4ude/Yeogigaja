@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WebKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController{
 
     @IBOutlet private weak var SettingTableView: UITableView!
     private let settingTitle: [SettingModel] = [
@@ -55,6 +56,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else{
+            //alert
             if indexPath.row == 1{
                 makeAlert(style: UIAlertController.Style.alert, "로그아웃", "로그아웃 하시겠습니까?")
             }
@@ -62,19 +64,31 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                 makeAlert(style: UIAlertController.Style.alert, "회원탈퇴", "탈퇴하시겠습니까?")
             }
             else{
-                print("3,4")
+                // web view
+                if indexPath.row == 3 || indexPath.row == 4{
+                    guard let webVC = self.storyboard?.instantiateViewController(identifier: "WebViewController") else { return }
+                    self.navigationController?.present(webVC, animated: true, completion: nil)
+                }
+
             }
         }
     }
 }
 
+//MARK: - alert
 extension SettingViewController{
     func makeAlert(style: UIAlertController.Style, _ title: String, _ message: String){
         let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: style)
+        
+        // 서버에서 회원 탈퇴 및 로그아웃 처리 필요
         let YesAction = UIAlertAction(title: "예", style: UIAlertAction.Style.default, handler: {_ in print("yes")})
         let NoAction = UIAlertAction(title: "아니오", style: UIAlertAction.Style.cancel, handler: {_ in print("No")})
+        
+        
         alertController.addAction(YesAction)
         alertController.addAction(NoAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+
 }

@@ -41,6 +41,7 @@
 		7C022BBD259DA38D00BD104D /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C022BBC259DA38D00BD104D /* SettingTableViewCell.swift */; };
 		7C022BC1259DA72500BD104D /* SettingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C022BC0259DA72500BD104D /* SettingDetailViewController.swift */; };
 		7C022BC5259DB03100BD104D /* VersionSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C022BC4259DB03100BD104D /* VersionSettingTableViewCell.swift */; };
+		7C022BC9259DBB2800BD104D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C022BC8259DBB2800BD104D /* WebViewController.swift */; };
 		7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58115C252A2C5A00290CE7 /* TableViewController.swift */; };
 		7C5811B22530839D00290CE7 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C5811B12530839D00290CE7 /* Map.storyboard */; };
 		7C5811B5253083BD00290CE7 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5811B4253083BD00290CE7 /* mapViewController.swift */; };
@@ -146,6 +147,7 @@
 		7C022BBC259DA38D00BD104D /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		7C022BC0259DA72500BD104D /* SettingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDetailViewController.swift; sourceTree = "<group>"; };
 		7C022BC4259DB03100BD104D /* VersionSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionSettingTableViewCell.swift; sourceTree = "<group>"; };
+		7C022BC8259DBB2800BD104D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		7C58115C252A2C5A00290CE7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		7C5811B12530839D00290CE7 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		7C5811B4253083BD00290CE7 /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 				7C022BBC259DA38D00BD104D /* SettingTableViewCell.swift */,
 				7C022BC0259DA72500BD104D /* SettingDetailViewController.swift */,
 				7C022BC4259DB03100BD104D /* VersionSettingTableViewCell.swift */,
+				7C022BC8259DBB2800BD104D /* WebViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -724,6 +727,7 @@
 				7C5811B82530840200290CE7 /* CalendarViewController.swift in Sources */,
 				FA257CE42552F5C6007AD711 /* registerViewController.swift in Sources */,
 				7C58115D252A2C5A00290CE7 /* TableViewController.swift in Sources */,
+				7C022BC9259DBB2800BD104D /* WebViewController.swift in Sources */,
 				6B4BB811254FD52600C5EFBE /* DetailTableViewCell.swift in Sources */,
 				6B598E2E258D1C47000C46EB /* TagsFlowLayout.swift in Sources */,
 				6B4BB80C254FCDB800C5EFBE /* DetailHeaderView.swift in Sources */,
