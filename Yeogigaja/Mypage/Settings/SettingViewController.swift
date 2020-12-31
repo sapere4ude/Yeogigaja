@@ -10,21 +10,26 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
+    @IBOutlet private weak var SettingTableView: UITableView!
+    let settingTitle: [SettingModel] = [
+        SettingModel("회원 정보 수정"),
+        SettingModel("로그아웃"),
+        SettingModel("회원 탈퇴"),
+        SettingModel("이용 약관"),
+        SettingModel("개인정보 처리 방침"),
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+}
+extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
-    */
-
+    
+    
 }
