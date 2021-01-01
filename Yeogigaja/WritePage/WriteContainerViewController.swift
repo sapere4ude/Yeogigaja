@@ -33,8 +33,11 @@ class WriteContainerViewController: UIViewController {
     }()
 
     @IBOutlet var toolbarBottomConstraint: NSLayoutConstraint!
+    
+    var writeViewController: WriteViewController?
 
-    // MARK:- WriteContainerViewController의 Lifecycle
+    // MARK: - WriteContainerViewController의 Lifecycle
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.registerForKeyboardNotifications()
@@ -119,6 +122,10 @@ class WriteContainerViewController: UIViewController {
 
     @IBAction func writeViewDonePressed(sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        writeViewController = segue.destination as? WriteViewController
     }
 }
 

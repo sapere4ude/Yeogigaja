@@ -16,6 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.backgroundColor = .white
         
+        // TabBarController에서 SafeArea의 BottomInset 값을 가져오기 위해 window를 미리 key로 만들어줘야 한다
+        window?.makeKey()
+        
         let tbVC = TabBarController()
         
         //MARK: - 현재 Firebase 서버에 사용자가 존재하는지 여부를 판별하고 존재한다면 -> tableViewController, 존재하지않는다면 -> loginViewController 이동시킨다.
@@ -28,8 +31,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let storyboard: UIStoryboard = UIStoryboard(name: "login", bundle: nil)
             let pushVC = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! loginViewController
             window?.rootViewController = pushVC
-            window?.makeKeyAndVisible()
         }
+        
+        window?.makeKeyAndVisible()
         
     //Line50,51은 제가 작성한게 아니라 확인이 필요합니다.
     guard let _ = (scene as? UIWindowScene) else { return }

@@ -1,10 +1,3 @@
-//
-//  YGBarMenuButton.swift
-//  AdditionalNavBar2
-//
-//  Created by 김진태 on 2020/12/17.
-//
-
 import UIKit
 
 class YGBarMenuButtonView: UIView {
@@ -40,10 +33,6 @@ class YGBarMenuButtonView: UIView {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-    }
-
-    convenience init() {
-        self.init(titleText: "생성자로 인자 전달", leftImage: nil, rightImage: nil)
     }
     
     convenience init(titleText: String?, leftImage: UIImage?, rightImage: UIImage?) {

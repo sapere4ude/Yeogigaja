@@ -106,7 +106,7 @@ class YGMenuBar: UIView {
     }
     
     func selectMenuItem(at indexPath: IndexPath, animated: Bool, scrollPosition: UICollectionView.ScrollPosition) {
-        tabBarCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: [])
+        tabBarCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: scrollPosition)
     }
     
     func scrollToMenuItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
@@ -135,8 +135,9 @@ extension YGMenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.menuBar(scrollTo: indexPath.row)
+        selectMenuItem(at: indexPath, animated: true, scrollPosition: [])
         scrollToMenuItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        delegate?.menuBar(scrollTo: indexPath.row)
     }
 }
 

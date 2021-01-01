@@ -11,6 +11,7 @@ import UIKit
 
 class WriteViewController: UITableViewController {
     // MARK: - @IBOutlet Properties
+
     @IBOutlet var horizontalCollectionImageView: UICollectionView!
 
     @IBOutlet var nameTextField: RoundedTextField!
@@ -29,19 +30,6 @@ class WriteViewController: UITableViewController {
     }
 
     @IBOutlet var locationTextField: RoundedTextField!
-
-    // MARK: - Firebase로 옮겨주기 위한 작업
-
-    private var writePages = [WritePage]()
-
-    // MARK: - Firebase 작업
-
-    public func configure(with model: WritePage) {
-        self.nameTextField.text = model.name
-        self.locationTextField.text = model.location
-        self.friendsTextField.text = model.withFriends
-        self.descriptionTextView.text = model.description
-    }
 
     // MARK: - Gesture Recognizer Properties
 

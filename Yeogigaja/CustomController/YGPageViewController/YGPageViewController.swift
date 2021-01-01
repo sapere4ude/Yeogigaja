@@ -12,10 +12,12 @@ protocol YGPageViewControllerDelegate {
 }
 
 class YGPageViewController: UIViewController {
+    // MARK: - Properties
+
     var pageCollection = PageCollection(pages: [Page(name: "pageCollection을", viewController: UIViewController()), Page(name: "설정해주세요", viewController: UIViewController())], selectedPageIndex: 0)
     var menuBarHeight: CGFloat?
     var delegate: YGPageViewControllerDelegate?
-    
+
     var useLeftBarMenuButton: Bool = false
     var leftBarButtonLeftImage: UIImage?
     var leftBarButtonRightImage: UIImage?
@@ -23,7 +25,12 @@ class YGPageViewController: UIViewController {
     var leftBarButtonLeftImageSize: CGSize?
     var leftBarButtonRightImageSize: CGSize?
     var disablesFirstAndLastPageBounce: Bool = false
-    
+    /**
+            Page View의 Swipe Gesture를 Disable 시키는 프로퍼티. 기본값은 true이다.
+     */
+    var disableSwipeGesture: Bool {
+        return true
+    }
 
     private var pageViewController: UIPageViewController!
     private let menuBar = YGMenuBar()
@@ -34,12 +41,14 @@ class YGPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         if useLeftBarMenuButton {
             setupLeftBarMenuButton()
         }
         setupMenuBar()
         setupPageViewController()
+        if disableSwipeGesture {
+            removeSwipeGesture()
+        }
     }
 
     func setupNavigationBar() {
@@ -76,6 +85,7 @@ class YGPageViewController: UIViewController {
         pageViewController.delegate = self
         pageViewController.dataSource = self
         pageViewController.setViewControllers([pageCollection.pages[0].viewController], direction: .forward, animated: false, completion: nil)
+        
         addChild(pageViewController)
         pageViewController.willMove(toParent: self)
         view.addSubview(pageViewController.view)
@@ -89,6 +99,15 @@ class YGPageViewController: UIViewController {
         pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
+    
+    // Swipe Gesture를 사용하지 않도록 하는 메소드
+    func removeSwipeGesture(){
+        for view in self.pageViewController!.view.subviews {
+            if let subView = view as? UIScrollView {
+                subView.isScrollEnabled = false
+            }
+        }
+    }
 }
 
 extension YGPageViewController: UIPageViewControllerDelegate {
@@ -99,8 +118,11 @@ extension YGPageViewController: UIPageViewControllerDelegate {
 
         guard let currentViewControllerIndex = pageCollection.pages.firstIndex(where: { $0.viewController === currentViewController }) else { return }
 
+        pageCollection.selectedPageIndex = currentViewControllerIndex
+
         let indexPath = IndexPath(item: currentViewControllerIndex, section: 0)
-        menuBar.selectMenuItem(at: indexPath, animated: true, scrollPosition: [])
+        
+        menuBar.selectMenuItem(at: indexPath, animated: false, scrollPosition: [])
         menuBar.scrollToMenuItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }
@@ -109,7 +131,6 @@ extension YGPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let currentViewControllerIndex = pageCollection.pages.firstIndex(where: { $0.viewController === viewController }) {
             if (1 ..< pageCollection.pages.count).contains(currentViewControllerIndex) {
-                pageCollection.selectedPageIndex = currentViewControllerIndex - 1
                 return pageCollection.pages[currentViewControllerIndex - 1].viewController
             }
         }
@@ -120,7 +141,6 @@ extension YGPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let currentViewControllerIndex = pageCollection.pages.firstIndex(where: { $0.viewController === viewController }) {
             if (0 ..< (pageCollection.pages.count - 1)).contains(currentViewControllerIndex) {
-                pageCollection.selectedPageIndex = currentViewControllerIndex + 1
                 return pageCollection.pages[currentViewControllerIndex + 1].viewController
             }
         }
@@ -141,6 +161,6 @@ extension YGPageViewController: YGMenuBarDelegate {
             direction = .forward
         }
         pageCollection.selectedPageIndex = index
-        pageViewController.setViewControllers([pageCollection.pages[index].viewController], direction: direction, animated: true, completion: nil)
+        pageViewController.setViewControllers([pageCollection.pages[index].viewController], direction: direction, animated: false, completion: nil)
     }
 }
