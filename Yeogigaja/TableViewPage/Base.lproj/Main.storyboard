@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xBh-in-tE7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xBh-in-tE7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -97,10 +97,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="entryAreaLabel" destination="9yI-sd-izN" id="if7-3E-6DS"/>
-                                            <outlet property="entryDetailLabel" destination="khT-iL-3ns" id="KLP-un-Nhe"/>
-                                            <outlet property="entryImageView" destination="5Z2-jl-KpP" id="Py5-SR-0VR"/>
-                                            <outlet property="entryTitleLabel" destination="OEb-6i-GeE" id="ef9-gn-HIQ"/>
+                                            <outlet property="entryAreaLabel" destination="9yI-sd-izN" id="69u-RU-7Un"/>
+                                            <outlet property="entryDetailLabel" destination="khT-iL-3ns" id="w6S-cF-ils"/>
+                                            <outlet property="entryImageView" destination="5Z2-jl-KpP" id="ujQ-1J-q2y"/>
+                                            <outlet property="entryTitleLabel" destination="OEb-6i-GeE" id="rBv-BQ-s3f"/>
                                             <outlet property="entryView" destination="X18-1i-hsf" id="C6U-YO-E0N"/>
                                         </connections>
                                     </tableViewCell>

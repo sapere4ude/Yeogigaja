@@ -37,7 +37,6 @@ class FavoriteLocationViewController: UIViewController {
         print("dataToServer->\(dataToServer)")
 
         Database.database().reference().child("\(safeEmail)").child("Location").observeSingleEvent(of: .value, with: { snapshot in
-        
             Database.database().reference().child("\(safeEmail)").child("Location").setValue(self.dataToServer)
             print("success")
              }) { (error) in
@@ -98,7 +97,6 @@ extension FavoriteLocationViewController: UICollectionViewDelegate, UICollection
     //선택된 cell 갯수 확인
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let count = locationCollectionView.indexPathsForSelectedItems?.count
-//        print("locationCollectionView.indexPathsForSelectedItems->\(locationCollectionView.indexPathsForSelectedItems)")
 
         sendData.append(indexPath.row)
         
@@ -107,10 +105,7 @@ extension FavoriteLocationViewController: UICollectionViewDelegate, UICollection
         if (count ?? 0 >= 1){
             makeNavBarRightBtn(count: count)
         }
-        
-        
     }
-    
     
     //셀 1개 이상 선택 시 완료버튼 및 데이터 전송
     func makeNavBarRightBtn(count: Int?){
