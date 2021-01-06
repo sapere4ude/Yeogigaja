@@ -83,6 +83,9 @@ extension TableViewController:UITableViewDataSource, UITableViewDelegate {
         print("did selected")
         let sb = UIStoryboard(name: "DetailViewStoryboard", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "detailView") as? DetailViewController else{ fatalError() }
+        vc.descriptionLabel = fetchInfos[indexPath.row].description
+        vc.titleLabel = fetchInfos[indexPath.row].location
+        vc.withFriendsLabel = fetchInfos[indexPath.row].withFriends
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
