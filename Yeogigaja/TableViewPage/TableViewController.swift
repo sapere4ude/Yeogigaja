@@ -15,7 +15,7 @@ class TableViewController: UIViewController {
     
     // MARK: - 서버정보를 받기위한 배열, fetchInfo는 구조체로 구현
     var fetchInfos: [fetchInfo] = []
-
+    var postInfo: [String: Any] = [:]
     
     @IBOutlet weak var entryTableView: UITableView!
     
@@ -36,8 +36,20 @@ class TableViewController: UIViewController {
 
         let postDatabaseRef = Database.database().reference().child("\(safeEmail)").child("Contents")
         postDatabaseRef.observeSingleEvent(of: .value) { (snapshot) in
-            guard let postInfo = snapshot.value as? [String: Any] else { return }
-            let data = try! JSONSerialization.data(withJSONObject: Array(postInfo.values), options: [])
+            
+//            for item in snapshot.children.allObjects as! [DataSnapshot] {
+//                self.postInfo = item.value as? [String: Any] ?? [:]
+////                    print("-------")
+////                    print("Post ID: \(item.key)")
+////                    print("Image URL: \(postInfo["imageFileURL"] ?? "")")
+////                    print("User: \(postInfo["user"] ?? "")")
+////                    print("Votes: \(postInfo["votes"] ?? "")")
+////                    print("Timestamp: \(postInfo["timestamp"] ?? "")")
+//                }
+            print("snapshot--->\(snapshot.value)")
+            guard let postInfo = snapshot.value as? [[String: Any]] else { return }
+            print("\(postInfo)")
+            let data = try! JSONSerialization.data(withJSONObject: postInfo, options: [])
             print("data--->\(data)")
             let decoder = JSONDecoder()
             let fetchInfos = try! decoder.decode([fetchInfo].self, from: data)  // data -> [fetchInfo].self 형태로 디코딩
