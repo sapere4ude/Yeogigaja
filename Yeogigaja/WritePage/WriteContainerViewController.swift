@@ -40,62 +40,98 @@ class WriteContainerViewController: UIViewController {
         let userEmail = Auth.auth().currentUser?.email
         var safeEmail = userEmail!.replacingOccurrences(of: ".", with: "-") // 문자열에서 원하는 문자 다른것으로 대체
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
-    
-        let newElement = [
-            "name" : self.writeViewController?.nameTextField.text!,
-            "location" : self.writeViewController?.locationTextField.text!,
-            "withFriends" : self.writeViewController?.friendsTextField.text!,
-            "description" : self.writeViewController?.descriptionTextView.text!
-        ] as [String : Any]
         
-        print(self.writeViewController?.nameTextField.text!)
         
-        Database.database().reference().child("\(safeEmail)").child("Contents").observeSingleEvent(of: .value, with: { snapshot in
-            if var contents = snapshot.value as? [[String: Any]] {
-                // append
-                contents.append(newElement)
-                Database.database().reference().child("\(safeEmail)").child("Contents").setValue(contents)
-            }
-            else {
-                // create
-                Database.database().reference().child("\(safeEmail)").child("Contents").setValue([newElement])
-            }
-        })
+        
+        // Generate a unique ID for the post and prepare the post database reference
+        // 이미지를 저장하기 위한 키를 생성
+        let postDatabaseRef = Database.database().reference().child("\(safeEmail)").child("Contents").childByAutoId()
+
+        guard let imageKey = postDatabaseRef.key else {
+            dismiss(animated: true, completion: nil)
+
+            return
+        }
+        
+        print("imageKey--->\(imageKey)")
+        
+        // imageKey 이름으로 된 jpg 파일을 추가
+        // Use the unique key as the image name and prepare the storage reference
+        let imageStorageRef = Storage.storage().reference().child("photos").child("\(imageKey).jpg")
+        
+        //63 - 82 까지 test
+//        let newElement = [
+//            "name" : self.writeViewController?.nameTextField.text!,
+//            "location" : self.writeViewController?.locationTextField.text!,
+//            "withFriends" : self.writeViewController?.friendsTextField.text!,
+//            "description" : self.writeViewController?.descriptionTextView.text!,
+//            "image" : imageStorageRef.fullPath
+//        ] as [String : Any]
+//
+////        print(self.writeViewController?.nameTextField.text!)
+//
+//        Database.database().reference().child("\(safeEmail)").child("Contents").observeSingleEvent(of: .value, with: { snapshot in
+//            if var contents = snapshot.value as? [[String: Any]] {
+//                // append
+//                contents.append(newElement)
+//                Database.database().reference().child("\(safeEmail)").child("Contents").setValue(contents)
+//            }
+//            else {
+//                // create
+//                Database.database().reference().child("\(safeEmail)").child("Contents").setValue([newElement])
+//            }
+            
         
         // 같은 사용자가 여러 게시물을 올려도 시간단위를 이용하여 게시물의 이름을 구분할 수 있음
-        
         var data = Data()
-//        data = (self.writeViewController?.horizontalCollectionImageView.asImage())!.jpegData(compressionQuality: 0.8)!
-        self.writeViewController!.shared.forEach {
-            data = $0
-            print("data->\(data)")
-            let filePath = "\(safeEmail)-"+"images"
-            let metaData = StorageMetadata()
-            metaData.contentType = "image/png"
-            storage.reference().child(filePath).child("\(data)" + "\(Date())").putData(data, metadata: metaData)
-//            { (metaData, error) in
-//                if let error = error {
-//                    print(error.localizedDescription)
-//                    return
-//                } else {
-//                    print("success")
-//                }
-//            }
-            print("success")
-        }
-//        print("data->\(data)")
-//        let filePath = "\(safeEmail)-"+"images"
-//        let metaData = StorageMetadata()
-//        metaData.contentType = "image/png"
-//        storage.reference().child(filePath).child("\(Date())").putData(data, metadata: metaData) { (metaData, error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//                return
-//            } else {
-//
-//                print("success")
-//            }
-//        }
+            self.writeViewController!.shared.forEach {
+                data = $0
+                print("data->\(data)")
+                let filePath = "\(safeEmail)-"+"images"
+                let metaData = StorageMetadata()
+                metaData.contentType = "image/png"
+                
+                let uploadTask = imageStorageRef.putData(data, metadata: metaData) {(metaData, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    } else {
+                        print("success")
+                    }
+                }
+                
+                uploadTask.observe(.success) { (snapshot) in
+                    snapshot.reference.downloadURL(completion: { (url, error) in
+                        guard let url = url else { return }
+                        let imageFileURL = url.absoluteString
+                        print("imageFileURL:\(imageFileURL)")
+                        
+                        let newElement = [
+                            "name" : self.writeViewController?.nameTextField.text!,
+                            "location" : self.writeViewController?.locationTextField.text!,
+                            "withFriends" : self.writeViewController?.friendsTextField.text!,
+                            "description" : self.writeViewController?.descriptionTextView.text!,
+                            "image" : "photos/\(imageKey).jpg"
+                        ] as [String : Any]
+
+                //        print(self.writeViewController?.nameTextField.text!)
+                        
+                        Database.database().reference().child("\(safeEmail)").child("Contents").observeSingleEvent(of: .value, with: { snapshot in
+                            if var contents = snapshot.value as? [[String: Any]] {
+                                // append
+                                contents.append(newElement)
+                                Database.database().reference().child("\(safeEmail)").child("Contents").setValue(contents)
+                            }
+                            else {
+                                // create
+                                Database.database().reference().child("\(safeEmail)").child("Contents").setValue([newElement])
+                            }
+                        
+                    })
+                    self.dismiss(animated: true, completion: nil)
+                })
+                }
+            }
     }
 
     // MARK: - Toolbar Properties

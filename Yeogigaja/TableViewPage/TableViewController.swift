@@ -10,6 +10,8 @@ import UIKit
 import Parchment
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
+//import FirebaseUI
 
 class TableViewController: UIViewController {
     
@@ -33,30 +35,21 @@ class TableViewController: UIViewController {
         let userEmail = Auth.auth().currentUser?.email
         var safeEmail = userEmail!.replacingOccurrences(of: ".", with: "-") // 문자열에서 원하는 문자 다른것으로 대체
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
-
+        
         let postDatabaseRef = Database.database().reference().child("\(safeEmail)").child("Contents")
         postDatabaseRef.observeSingleEvent(of: .value) { (snapshot) in
-            
-//            for item in snapshot.children.allObjects as! [DataSnapshot] {
-//                self.postInfo = item.value as? [String: Any] ?? [:]
-////                    print("-------")
-////                    print("Post ID: \(item.key)")
-////                    print("Image URL: \(postInfo["imageFileURL"] ?? "")")
-////                    print("User: \(postInfo["user"] ?? "")")
-////                    print("Votes: \(postInfo["votes"] ?? "")")
-////                    print("Timestamp: \(postInfo["timestamp"] ?? "")")
-//                }
-            print("snapshot--->\(snapshot.value)")
             guard let postInfo = snapshot.value as? [[String: Any]] else { return }
             print("\(postInfo)")
             let data = try! JSONSerialization.data(withJSONObject: postInfo, options: [])
-            print("data--->\(data)")
             let decoder = JSONDecoder()
             let fetchInfos = try! decoder.decode([fetchInfo].self, from: data)  // data -> [fetchInfo].self 형태로 디코딩
             self.fetchInfos = fetchInfos
             self.entryTableView.reloadData()
             print("snapshot--->\(data), \(fetchInfos)")
         }
+        
+        // 여기에 이미지를 받아오는 코드 작성하기
+        // 이미지를 다운받을 수 있는 함수를 만들어주고 fetchInfos[0].image로 보내줄 수 있는 코드 만들기
     }
 }
 
@@ -75,6 +68,44 @@ extension TableViewController:UITableViewDataSource, UITableViewDelegate {
         cell.entryTitleLabel?.text = fetchInfos[indexPath.row].name
         cell.entryDetailLabel?.text = fetchInfos[indexPath.row].description
         cell.entryAreaLabel?.text = fetchInfos[indexPath.row].location
+        
+        // Create reference to the file whose metadata we want to retrieve
+//        let forestRef = Storage.storage().reference(withPath: fetchInfos[indexPath.row].image ?? "error")
+        
+//        let qq = Storage.storage().reference().child("photos/-MQQkfUbDYCmX-yDHejI.jpg")
+//        print("qq->\(qq)")
+        
+        let storageRef = Storage.storage().reference().child(fetchInfos[indexPath.row].image ?? "error");
+        storageRef.downloadURL { (URL, error) -> Void in
+          if (error != nil) {
+            // Handle any errors
+          } else {
+            // Get the download URL for 'images/stars.jpg'
+            print(URL!)
+            do {
+            let data = try Data(contentsOf: URL!)
+            cell.entryImageView.image = UIImage(data: data)
+            }
+            catch {
+                print("q")
+            }
+          }
+        }
+        
+        
+        
+        
+//        qq.getData(maxSize: 1 * 1024 * 1024) { data, error in
+//            print("데이타는? \(data)")
+//          if let error = error {
+//            // Uh-oh, an error occurred!
+//          } else {
+//            // Data for "images/island.jpg" is returned
+//            print("data? \(data)")
+//            let image = UIImage(data: data!)
+//            cell.entryImageView.image = image
+//          }
+//        }
         
         return cell
     }
@@ -101,6 +132,7 @@ struct fetchInfo: Codable {
     let name: String
     let location: String
     let withFriends: String
+    let image: String?
 }
 
 
