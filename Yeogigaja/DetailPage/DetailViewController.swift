@@ -19,6 +19,8 @@ class DetailViewController: UITableViewController {
     var withFriendsLabel: String? = ""
     var locationLabel: String? = ""
     
+    @IBOutlet weak var headerImageView: UIImageView!
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

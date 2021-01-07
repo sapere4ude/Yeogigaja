@@ -153,6 +153,9 @@
                             <outlet property="delegate" destination="7Mw-X0-b7a" id="7QJ-5j-i5N"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="headerImageView" destination="89l-e3-cXu" id="YXG-rf-XgB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xyh-Sg-oGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

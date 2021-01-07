@@ -91,22 +91,6 @@ extension TableViewController:UITableViewDataSource, UITableViewDelegate {
             }
           }
         }
-        
-        
-        
-        
-//        qq.getData(maxSize: 1 * 1024 * 1024) { data, error in
-//            print("데이타는? \(data)")
-//          if let error = error {
-//            // Uh-oh, an error occurred!
-//          } else {
-//            // Data for "images/island.jpg" is returned
-//            print("data? \(data)")
-//            let image = UIImage(data: data!)
-//            cell.entryImageView.image = image
-//          }
-//        }
-        
         return cell
     }
     
@@ -118,6 +102,22 @@ extension TableViewController:UITableViewDataSource, UITableViewDelegate {
         vc.titleLabel = fetchInfos[indexPath.row].location
         vc.withFriendsLabel = fetchInfos[indexPath.row].withFriends
         
+        let storageRef = Storage.storage().reference().child(fetchInfos[indexPath.row].image ?? "error");
+        storageRef.downloadURL { (URL, error) -> Void in
+          if (error != nil) {
+            // Handle any errors
+          } else {
+            // Get the download URL for 'images/stars.jpg'
+            print(URL!)
+            do {
+            let data = try Data(contentsOf: URL!)
+            vc.headerImageView.image = UIImage(data: data)
+            }
+            catch {
+                print("q")
+            }
+          }
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
