@@ -17,7 +17,7 @@ class TabBarController: UITabBarController {
         removeTabBarTitle()
     }
 
-    private func setupTabBarController() {
+    func setupTabBarController() {
         let view1 = MainPageViewController()
         let mapsb = UIStoryboard(name: "Map", bundle: nil)
         guard let view3 = mapsb.instantiateViewController(identifier: "MapView") as? mapViewController else { return }
