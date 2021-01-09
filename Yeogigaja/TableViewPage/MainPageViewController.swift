@@ -9,20 +9,22 @@
 import UIKit
 
 class MainPageViewController: YGPageViewController {
-    
     // 스와이프 제스쳐 비활성화. 원래 true가 기본값으로 지정되어 있으나 수정의 용이성을 위해 일부러 코드로 작성
     override var disableSwipeGesture: Bool {
         return true
     }
     
     // MARK: - MainPageViewController의 Lifecycle
+
     override func viewDidLoad() {
         self.setupMainPageViewController()
         // YGPageViewController가 구현된 방식으로 인해 super.viewDidLoad가 제일 마지막 라인에서 실행되어야 함
         super.viewDidLoad()
+        navigationItem.backButtonTitle = ""
     }
     
     // MARK: - MainPageViewController를 설정해주는 메소드
+
     private func setupMainPageViewController() {
         self.setupPageCollection()
         
@@ -38,18 +40,21 @@ class MainPageViewController: YGPageViewController {
     }
     
     // MARK: - MainPageViewController의 PageViewController를 설정해주는 메소드
+
+    
+    
     // MainPageViewController에서 스크롤 또는 상단 메뉴를 선턱해 이동할 수 있는 ViewController들을 설정해주는 역할을 한다
     private func setupPageCollection() {
         let mainsb = UIStoryboard(name: "Main", bundle: nil)
-        guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? TableViewController else { return }
+        guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? MainTableViewController else { return }
         
         // 테스트를 위해 넣어준 2번째 뷰
-        let view2 = mainsb.instantiateViewController(identifier: "testView")
+        guard let view2 = mainsb.instantiateViewController(identifier: "tableView") as? MainTableViewController else { return }
         
         // 테스트를 위해 넣어준 3번째 뷰
-        let view3 = mainsb.instantiateViewController(identifier: "anotherView")
+        guard let view3 = mainsb.instantiateViewController(identifier: "tableView") as? MainTableViewController else { return }
         
-        let pages = [Page(name: "메인", viewController: view1), Page(name: "서브", viewController: view2), Page(name: "서브2", viewController: view3)]
+        let pages = [Page(name: "메인", viewController: view1), Page(name: "식당", viewController: view2), Page(name: "공원", viewController: view3)]
         
         self.pageCollection = PageCollection(pages: pages, selectedPageIndex: 0)
     }

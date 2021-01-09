@@ -9,12 +9,12 @@
 import FirebaseAuth
 import UIKit
 
-// 미구현 항목 - 가운데 버튼 누를 시 아무런 작동이 되지 않음. UIButton에 action을 추가해주어야 함
 class TabBarController: UITabBarController {
     // MARK: - Lifecycle
 
     private var centerViewController: UIViewController!
-    private var tabBarTitleRemoved: Bool = false
+    var tabBarTitleRemoved: Bool = false
+    var centerButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,10 @@ class TabBarController: UITabBarController {
         guard let vc4 = mypagesb.instantiateViewController(identifier: "MypageView") as? MypageViewController else { return }
         
         // centerViewController는 임의의 UIViewController 객체로 설정하였다. 나중에 수정할 예정
-        centerViewController = UIViewController()
+        centerViewController = UINavigationController(rootViewController: UIViewController())
+        centerViewController.modalPresentationStyle = .fullScreen
+        
+        let dummyViewController = UIViewController()
 
         // 각 뷰 컨트롤러는 모두 네비게이션 컨트롤러를 갖도록 설정한다.
         let navVC1 = UINavigationController(rootViewController: vc1)
@@ -48,7 +51,7 @@ class TabBarController: UITabBarController {
         // navVC1의 네비게이션 바의 배경 색, 글자 색 등을 Extension을 이용해 구현한 메소드로 설정해줌.
         navVC1.setThemeAsDefault()
 
-        setViewControllers([navVC1, navVC2, centerViewController, navVC3, navVC4], animated: false)
+        setViewControllers([navVC1, navVC2, dummyViewController, navVC3, navVC4], animated: false)
 
         navVC1.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "home"), tag: 0)
         navVC2.tabBarItem = UITabBarItem(title: "지도", image: UIImage(named: "mapWithMarker"), tag: 1)
@@ -56,8 +59,8 @@ class TabBarController: UITabBarController {
         /*  탭바의 가운데에 UITabBarItem과 UIButton이 함께 존재한다
          centerViewController의 UITabBarItem은 공간을 차지하기 위해 더미로 넣은 것이므로 title, image를 null로 지정
          UITabBarItem을 터치하였을 때 UIButton과 함께 작동하지 않도록 하기 위해 isEnabled를 false로 지정 */
-        centerViewController.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 2)
-        centerViewController.tabBarItem.isEnabled = false
+        dummyViewController.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 2)
+        dummyViewController.tabBarItem.isEnabled = false
 
         navVC3.tabBarItem = UITabBarItem(title: "캘린더", image: UIImage(named: "calendar"), tag: 3)
         navVC4.tabBarItem = UITabBarItem(title: "프로필", image: UIImage(named: "user"), tag: 4)
@@ -98,7 +101,7 @@ class TabBarController: UITabBarController {
         let centerButtonHeight: CGFloat = 40.0
         let centerButtonWidth: CGFloat = centerButtonHeight
 
-        let centerButton = UIButton(type: .custom)
+        centerButton = UIButton(type: .custom)
         centerButton.frame = CGRect(x: 0.0, y: 0.0, width: centerButtonWidth, height: centerButtonHeight)
 
         let keyWindow = UIApplication.shared.windows.filter { $0.isKeyWindow }.first
@@ -116,6 +119,12 @@ class TabBarController: UITabBarController {
 
         centerButton.layer.cornerRadius = centerButton.frame.width / 2.0
         centerButton.clipsToBounds = true
+        
+        centerButton.addTarget(self, action: #selector(showCenterViewController), for: .touchUpInside)
         view.addSubview(centerButton)
+    }
+    
+    @objc private func showCenterViewController() {
+        self.present(centerViewController, animated: true, completion: nil)
     }
 }

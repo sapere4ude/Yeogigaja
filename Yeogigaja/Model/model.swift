@@ -21,9 +21,6 @@ struct WritePage: Codable {
 }
 
 struct WritePageCollection {
-    enum WritePageCollectionType {
-        case nearest, highRatings, realtimeReview
-    }
 
     var datas: [WritePage]
     var type: WritePageCollectionType
@@ -32,6 +29,10 @@ struct WritePageCollection {
         self.datas = datas
         self.type = type
     }
+}
+
+enum WritePageCollectionType {
+    case nearestPinned, highRatings, realtimeReview
 }
 
 struct Profile: Codable {

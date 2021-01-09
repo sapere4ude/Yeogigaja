@@ -138,7 +138,7 @@ class loginViewController: UIViewController {
             let tbVC = TabBarController()
 
             let mainsb = UIStoryboard(name: "Main", bundle: nil)
-            guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? TableViewController else{return}
+            guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? MainTableViewController else{return}
             let mapsb = UIStoryboard(name: "Map", bundle: nil)
             guard let view2 = mapsb.instantiateViewController(identifier: "MapView") as? mapViewController else{return}
             let calendarsb = UIStoryboard(name: "Calendar", bundle: nil)
