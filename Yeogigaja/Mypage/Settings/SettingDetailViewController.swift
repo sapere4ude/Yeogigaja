@@ -31,7 +31,18 @@ class SettingDetailViewController: UIViewController, UIGestureRecognizerDelegate
         self.userImg.addGestureRecognizer(tapGesture)
         imagePicker.delegate = self
         self.makeCircleImg()
+        self.title = "회원정보 수정"
+        self.showData()
     }
+    
+    //MARK: database 에서 가져온 (사용자 데이터 띄우기 작업필요)
+    //임시로 아무거나 넣엇습니다.
+    func showData(){
+        self.userName.text = "송서영"
+        self.userId.text = "j@gmgail.com"
+        self.userPassword.text = "password"
+    }
+    
     // 사용자 이미지 원형으로 만들기
     func makeCircleImg(){
         self.userImg.layer.cornerRadius = userImg.frame.size.height/2
@@ -39,6 +50,7 @@ class SettingDetailViewController: UIViewController, UIGestureRecognizerDelegate
         self.userImg.layer.borderColor = UIColor.clear.cgColor
         self.userImg.clipsToBounds = true
     }
+    
     //MARK: UISetting
     func UISet(_ textField: UITextField) {
         textField.autocapitalizationType = .none
@@ -67,27 +79,23 @@ class SettingDetailViewController: UIViewController, UIGestureRecognizerDelegate
         }
     }
     
-    //MARK: navigation bar button 완료 (데이터 전송 필요)
+    //MARK: navigation bar button 완료를 눌렀을 때! (회원정보 수정된 데이터 전송 필요)
     @IBAction func completeBtnPressed(_ sender: Any) {
+        // 회원정보를 제대로 넘길 수 없는 경우 alert
+        if checkingSafe() == false{
+            makeAlert(style: UIAlertController.Style.alert, "회원정보 수정", "비밀번호가 일치하지 않습니다.")
+        }
+        if self.userId.text == "" {
+                makeAlert(style: UIAlertController.Style.alert, "회원정보 수정", "아이디가 입력되지 않았습니다.")
+        }
+        if self.userName.text == ""{
+                makeAlert(style: UIAlertController.Style.alert, "회원정보 수정", "이름이 입력되지 않았습니다.")
+        }
+        
         if checkingSafe() && (self.userId.text != nil) && (self.userName.text != nil) {
             print("성공적으로 회원정보 수정 완료")
             //MARK: 서버로 수정된 데이터 정보 보내기 필요
             self.navigationController?.popViewController(animated: true)
-        }
-        
-        // 회원정보를 제대로 넘길 수 없는 경우 alert
-        else{
-            if checkingSafe() == false{
-                makeAlert(style: UIAlertController.Style.alert, "회원정보 수정", "비밀번호가 일치하지 않습니다.")
-            }
-            else{
-                    if self.userId.text == nil {
-                    makeAlert(style: UIAlertController.Style.alert, "회원정보 수정", "아이디가 입력되지 않았습니다.")
-                } else{
-                    makeAlert(style: UIAlertController.Style.alert, "회원정보 수정", "이름이 입력되지 않았습니다.")
-                }
-            }
-            
         }
     }
     

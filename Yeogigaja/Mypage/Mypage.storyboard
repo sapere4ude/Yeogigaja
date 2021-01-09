@@ -125,6 +125,9 @@
                                         <variation key="heightClass=compact-widthClass=compact">
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="userInfoModify:" destination="a4p-he-VC9" eventType="touchUpInside" id="h5s-6L-Iga"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6G-hz-d0t">
                                         <rect key="frame" x="196.66666666666666" y="0.0" width="1" height="50"/>
