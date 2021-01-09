@@ -56,7 +56,7 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         self.settingTableView.delegate = self
         self.settingTableView.dataSource = self
-        tapGesture()
+//        tapGesture()
         settingTableView.isScrollEnabled = false
         getDataFor()
     }
@@ -129,14 +129,14 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
 
-    //gesture 전체를 관리하는 메서드
-    func tapGesture(){
-        let tapModifyGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapModify(_: )))
-        self.modifyInfo.addGestureRecognizer(tapModifyGesture)
-        let logOutGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapLogOut(_: )))
-        self.logOut.addGestureRecognizer(logOutGesture)
-    }
-    
+//    //gesture 전체를 관리하는 메서드
+//    func tapGesture(){
+//        let tapModifyGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapModify(_: )))
+//        self.modifyInfo.addGestureRecognizer(tapModifyGesture)
+//        let logOutGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapLogOut(_: )))
+//        self.logOut.addGestureRecognizer(logOutGesture)
+//    }
+//
 
 
 
