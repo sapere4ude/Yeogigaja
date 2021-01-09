@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -15,26 +15,23 @@
             <objects>
                 <viewController storyboardIdentifier="FavoriteLocation" id="Iz9-e5-KUT" customClass="FavoriteLocationViewController" customModule="Yeogigaja" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="FavoriteLocation" id="un8-cf-eDC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="관심 지역 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h1-Mc-qK3">
-                                <rect key="frame" x="137" y="84" width="141" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="관심 지역 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h1-Mc-qK3">
+                                <rect key="frame" x="117" y="20" width="141" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="최대 5개 구 까지 설정이 가능합니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQx-DV-L41">
-                                <rect key="frame" x="80" y="122" width="254" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최대 5개 구 까지 설정이 가능합니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQx-DV-L41">
+                                <rect key="frame" x="62" y="58" width="251" height="22"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ftf-FI-A0j">
-                                <rect key="frame" x="20" y="164" width="374" height="676"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ftf-FI-A0j">
+                                <rect key="frame" x="20" y="100" width="335" height="547"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P4j-lw-Lhv">
                                     <size key="itemSize" width="110" height="110"/>
@@ -66,8 +63,6 @@
                                                         <constraint firstItem="3ky-0a-8Ai" firstAttribute="leading" secondItem="JA2-z6-O6k" secondAttribute="leading" constant="30" id="Fhc-RQ-33Q"/>
                                                         <constraint firstAttribute="bottom" secondItem="3ky-0a-8Ai" secondAttribute="bottom" constant="37" id="JC8-8o-7An"/>
                                                         <constraint firstItem="3ky-0a-8Ai" firstAttribute="top" secondItem="JA2-z6-O6k" secondAttribute="top" constant="37" id="S5A-nd-duG"/>
-                                                        <constraint firstAttribute="width" constant="110" id="fJl-WI-yDJ"/>
-                                                        <constraint firstAttribute="height" constant="110" id="oj4-54-toS"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -97,6 +92,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fE3-c8-3uq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ftf-FI-A0j" secondAttribute="trailing" constant="20" id="0MY-Yh-iKd"/>
+                            <constraint firstItem="Ftf-FI-A0j" firstAttribute="leading" secondItem="fE3-c8-3uq" secondAttribute="leading" constant="20" id="38E-fm-T1t"/>
+                            <constraint firstAttribute="bottom" secondItem="Ftf-FI-A0j" secondAttribute="bottom" constant="20" id="8ZY-yd-zan"/>
+                            <constraint firstItem="WQx-DV-L41" firstAttribute="centerX" secondItem="un8-cf-eDC" secondAttribute="centerX" id="YSG-KC-XS2"/>
+                            <constraint firstItem="0h1-Mc-qK3" firstAttribute="centerX" secondItem="un8-cf-eDC" secondAttribute="centerX" id="Yei-lJ-26o"/>
+                            <constraint firstItem="WQx-DV-L41" firstAttribute="top" secondItem="0h1-Mc-qK3" secondAttribute="bottom" constant="8" id="bqZ-Ip-Un9"/>
+                            <constraint firstItem="0h1-Mc-qK3" firstAttribute="top" secondItem="fE3-c8-3uq" secondAttribute="top" constant="20" id="c6t-bi-IMg"/>
+                            <constraint firstItem="Ftf-FI-A0j" firstAttribute="top" secondItem="WQx-DV-L41" secondAttribute="bottom" constant="20" id="dBM-It-75u"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="locationCollectionView" destination="Ftf-FI-A0j" id="NoM-ws-haN"/>
