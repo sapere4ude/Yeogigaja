@@ -15,6 +15,14 @@ import FirebaseStorage
 
 class TableViewController: UIViewController {
     
+    //MARK:paging
+    let queryOnceCnt:Int = 10
+    var currentPage:Int = 0
+    let callNextPageBeforeOffset:CGFloat = 150
+    var isQuery:Bool = false
+    var reachEnd:Bool = false
+    var searchText:String = ""
+    
     // MARK: - 서버정보를 받기위한 배열, fetchInfo는 구조체로 구현
     var fetchInfos: [fetchInfo] = []
     var postInfo: [String: Any] = [:]
@@ -36,20 +44,20 @@ class TableViewController: UIViewController {
         var safeEmail = userEmail!.replacingOccurrences(of: ".", with: "-") // 문자열에서 원하는 문자 다른것으로 대체
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         
-        let postDatabaseRef = Database.database().reference().child("\(safeEmail)").child("Contents")
-        postDatabaseRef.observeSingleEvent(of: .value) { (snapshot) in
-            guard let postInfo = snapshot.value as? [[String: Any]] else { return }
-            print("\(postInfo)")
-            let data = try! JSONSerialization.data(withJSONObject: postInfo, options: [])
-            let decoder = JSONDecoder()
-            let fetchInfos = try! decoder.decode([fetchInfo].self, from: data)  // data -> [fetchInfo].self 형태로 디코딩
-            self.fetchInfos = fetchInfos
-            self.entryTableView.reloadData()
-            print("snapshot--->\(data), \(fetchInfos)")
-        }
         
-        // 여기에 이미지를 받아오는 코드 작성하기
-        // 이미지를 다운받을 수 있는 함수를 만들어주고 fetchInfos[0].image로 보내줄 수 있는 코드 만들기
+        DispatchQueue.main.async {
+            let postDatabaseRef = Database.database().reference().child("\(safeEmail)").child("Contents")
+            postDatabaseRef.observeSingleEvent(of: .value) { (snapshot) in
+                guard let postInfo = snapshot.value as? [[String: Any]] else { return }
+                print("\(postInfo)")
+                let data = try! JSONSerialization.data(withJSONObject: postInfo, options: [])
+                let decoder = JSONDecoder()
+                let fetchInfos = try! decoder.decode([fetchInfo].self, from: data)  // data -> [fetchInfo].self 형태로 디코딩
+                self.fetchInfos = fetchInfos
+                self.entryTableView.reloadData()
+                print("snapshot--->\(data), \(fetchInfos)")
+            }
+        }
     }
 }
 
