@@ -4,20 +4,30 @@
 target 'Yeogigaja' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  
+  # add the Firebase pod for Google Analytics
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  # add pods for any other desired Firebase products
+  # https://firebase.google.com/docs/ios/setup#available-pods
 
   # Pods for Yeogigaja
 
-  pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 5.2'
+  pod 'SwiftyJSON', '~> 4.0'
   pod 'SnapKit', '~> 5.0.0'
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Crashlytics'
-  pod 'Firebase/Storage'
   pod "PagingKit"
   pod "Parchment"
+<<<<<<< HEAD
+=======
+  pod 'JGProgressHUD'
+
+  # Calendar
+  pod 'FSCalendar'
+  pod 'DKImagePickerController'
+>>>>>>> MyPage+Write+Firebase_v3
   pod "GEOSwift"
 
 end

@@ -16,19 +16,15 @@
 
 #import "GoogleDataTransport/GDTCCTLibrary/Private/GDTCCTUploader.h"
 
-#import "GoogleDataTransport/GDTCORLibrary/Public/GDTCORConsoleLogger.h"
-#import "GoogleDataTransport/GDTCORLibrary/Public/GDTCOREvent.h"
-#import "GoogleDataTransport/GDTCORLibrary/Public/GDTCORPlatform.h"
-#import "GoogleDataTransport/GDTCORLibrary/Public/GDTCORRegistrar.h"
-#import "GoogleDataTransport/GDTCORLibrary/Public/GDTCORStorageProtocol.h"
+#import "GoogleDataTransport/GDTCORLibrary/Internal/GDTCORPlatform.h"
+#import "GoogleDataTransport/GDTCORLibrary/Internal/GDTCORRegistrar.h"
+#import "GoogleDataTransport/GDTCORLibrary/Internal/GDTCORStorageProtocol.h"
+#import "GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/GDTCORConsoleLogger.h"
+#import "GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/GDTCOREvent.h"
 
-#if SWIFT_PACKAGE
-#import "nanopb.h"
-#else
 #import <nanopb/pb.h>
 #import <nanopb/pb_decode.h>
 #import <nanopb/pb_encode.h>
-#endif
 
 #import "GoogleDataTransport/GDTCCTLibrary/Private/GDTCCTCompressionHelper.h"
 #import "GoogleDataTransport/GDTCCTLibrary/Private/GDTCCTNanopbHelpers.h"
@@ -53,6 +49,9 @@ static NSString *const kLibraryDataCCTNextUploadTimeKey = @"GDTCCTUploaderFLLNex
 
 /** */
 static NSString *const kLibraryDataFLLNextUploadTimeKey = @"GDTCCTUploaderFLLNextUploadTimeKey";
+
+static NSString *const kINTServerURL =
+    @"https://dummyapiverylong-dummy.dummy.com/dummy/api/very/long";
 
 #if !NDEBUG
 NSNotificationName const GDTCCTUploadCompleteNotification = @"com.GDTCCTUploader.UploadComplete";
@@ -81,11 +80,15 @@ typedef void (^GDTCCTUploaderEventBatchBlock)(NSNumber *_Nullable batchID,
 
 @implementation GDTCCTUploader
 
+@synthesize uploaderSession = _uploaderSession;
+static NSURL *_testServerURL = nil;
+
 + (void)load {
   GDTCCTUploader *uploader = [GDTCCTUploader sharedInstance];
   [[GDTCORRegistrar sharedInstance] registerUploader:uploader target:kGDTCORTargetCCT];
   [[GDTCORRegistrar sharedInstance] registerUploader:uploader target:kGDTCORTargetFLL];
   [[GDTCORRegistrar sharedInstance] registerUploader:uploader target:kGDTCORTargetCSH];
+  [[GDTCORRegistrar sharedInstance] registerUploader:uploader target:kGDTCORTargetINT];
 }
 
 + (instancetype)sharedInstance {
@@ -97,22 +100,15 @@ typedef void (^GDTCCTUploaderEventBatchBlock)(NSNumber *_Nullable batchID,
   return sharedInstance;
 }
 
-- (instancetype)init {
-  self = [super init];
-  if (self) {
-    _uploaderQueue = dispatch_queue_create("com.google.GDTCCTUploader", DISPATCH_QUEUE_SERIAL);
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    _uploaderSession = [NSURLSession sessionWithConfiguration:config
-                                                     delegate:self
-                                                delegateQueue:nil];
-  }
-  return self;
++ (void)setTestServerURL:(NSURL *_Nullable)serverURL {
+  _testServerURL = serverURL;
 }
 
-/**
- *
- */
-- (nullable NSURL *)serverURLForTarget:(GDTCORTarget)target {
++ (NSURL *_Nullable)testServerURL {
+  return _testServerURL;
+}
+
++ (NSDictionary<NSNumber *, NSURL *> *)uploadURLs {
   // These strings should be interleaved to construct the real URL. This is just to (hopefully)
   // fool github URL scanning bots.
   static NSURL *CCTServerURL;
@@ -162,31 +158,49 @@ typedef void (^GDTCCTUploaderEventBatchBlock)(NSNumber *_Nullable batchID,
                           p2[31], p1[32], p2[32], p1[33], p2[33], p1[34], p2[34], p1[35], '\0'};
     CSHServerURL = [NSURL URLWithString:[NSString stringWithUTF8String:URL]];
   });
+  static NSDictionary<NSNumber *, NSURL *> *uploadURLs;
+  static dispatch_once_t URLOnceToken;
+  dispatch_once(&URLOnceToken, ^{
+    uploadURLs = @{
+      @(kGDTCORTargetCCT) : CCTServerURL,
+      @(kGDTCORTargetFLL) : FLLServerURL,
+      @(kGDTCORTargetCSH) : CSHServerURL,
+      @(kGDTCORTargetINT) : [NSURL URLWithString:kINTServerURL]
+    };
+  });
+  return uploadURLs;
+}
 
++ (nullable NSURL *)serverURLForTarget:(GDTCORTarget)target {
 #if !NDEBUG
   if (_testServerURL) {
     return _testServerURL;
   }
 #endif  // !NDEBUG
 
-  switch (target) {
-    case kGDTCORTargetCCT:
-      return CCTServerURL;
-
-    case kGDTCORTargetFLL:
-      return FLLServerURL;
-
-    case kGDTCORTargetCSH:
-      return CSHServerURL;
-
-    default:
-      GDTCORLogDebug(@"GDTCCTUploader doesn't support target %ld", (long)target);
-      return nil;
-      break;
-  }
+  NSDictionary<NSNumber *, NSURL *> *uploadURLs = [self uploadURLs];
+  return uploadURLs[@(target)];
 }
 
-- (NSString *)FLLAndCSHAPIKey {
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    _uploaderQueue = dispatch_queue_create("com.google.GDTCCTUploader", DISPATCH_QUEUE_SERIAL);
+  }
+  return self;
+}
+
+- (NSURLSession *)uploaderSession {
+  if (_uploaderSession == nil) {
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    _uploaderSession = [NSURLSession sessionWithConfiguration:config
+                                                     delegate:self
+                                                delegateQueue:nil];
+  }
+  return _uploaderSession;
+}
+
+- (NSString *)FLLAndCSHandINTAPIKey {
   static NSString *defaultServerKey;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
@@ -364,6 +378,8 @@ typedef void (^GDTCCTUploaderEventBatchBlock)(NSNumber *_Nullable batchID,
 
     case kGDTCORTargetFLL:
       // Falls through.
+    case kGDTCORTargetINT:
+      // Falls through.
     case kGDTCORTargetCSH:
       self->_FLLNextUploadTime = futureUploadTime;
       break;
@@ -501,8 +517,14 @@ typedef void (^GDTCCTUploaderEventBatchBlock)(NSNumber *_Nullable batchID,
 
   // Upload events when there are with no additional conditions for kGDTCORTargetCSH.
   if (target == kGDTCORTargetCSH) {
-    GDTCORLogDebug(@"%@",
-                   @"CCT: kGDTCORTargetCSH events are allowed to be uploaded straight away.");
+    GDTCORLogDebug(@"%@", @"CCT: kGDTCORTargetCSH events are allowed to be "
+                          @"uploaded straight away.");
+    return YES;
+  }
+
+  if (target == kGDTCORTargetINT) {
+    GDTCORLogDebug(@"%@", @"CCT: kGDTCORTargetINT events are allowed to be "
+                          @"uploaded straight away.");
     return YES;
   }
 
@@ -578,7 +600,7 @@ typedef void (^GDTCCTUploaderEventBatchBlock)(NSNumber *_Nullable batchID,
     GDTCORLogDebug(@"There was no data to construct a request for target %ld.", (long)target);
     return nil;
   }
-  NSURL *URL = [self serverURLForTarget:target];
+  NSURL *URL = [[self class] serverURLForTarget:target];
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
   NSString *targetString;
   switch (target) {
@@ -593,6 +615,9 @@ typedef void (^GDTCCTUploaderEventBatchBlock)(NSNumber *_Nullable batchID,
     case kGDTCORTargetCSH:
       targetString = @"csh";
       break;
+    case kGDTCORTargetINT:
+      targetString = @"int";
+      break;
 
     default:
       targetString = @"unknown";
@@ -602,8 +627,13 @@ typedef void (^GDTCCTUploaderEventBatchBlock)(NSNumber *_Nullable batchID,
       [NSString stringWithFormat:@"datatransport/%@ %@support/%@ apple/", kGDTCORVersion,
                                  targetString, kGDTCCTSupportSDKVersion];
   if (target == kGDTCORTargetFLL || target == kGDTCORTargetCSH) {
-    [request setValue:[self FLLAndCSHAPIKey] forHTTPHeaderField:@"X-Goog-Api-Key"];
+    [request setValue:[self FLLAndCSHandINTAPIKey] forHTTPHeaderField:@"X-Goog-Api-Key"];
   }
+
+  if (target == kGDTCORTargetINT) {
+    [request setValue:[self FLLAndCSHandINTAPIKey] forHTTPHeaderField:@"X-Goog-Api-Key"];
+  }
+
   if ([GDTCCTCompressionHelper isGzipped:data]) {
     [request setValue:@"gzip" forHTTPHeaderField:@"Content-Encoding"];
   }
@@ -682,7 +712,7 @@ typedef void (^GDTCCTUploaderEventBatchBlock)(NSNumber *_Nullable batchID,
     return;
   }
   if (response.statusCode == 302 || response.statusCode == 301) {
-    if ([request.URL isEqual:[self serverURLForTarget:kGDTCORTargetFLL]]) {
+    if ([request.URL isEqual:[[self class] serverURLForTarget:kGDTCORTargetFLL]]) {
       NSURLRequest *newRequest = [self constructRequestForTarget:kGDTCORTargetCCT
                                                             data:task.originalRequest.HTTPBody];
       completionHandler(newRequest);

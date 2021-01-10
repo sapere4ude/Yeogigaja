@@ -23,6 +23,12 @@ class tableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func prepareForReuse() {
+        entryTitleLabel?.text = "QQQ"
+        entryDetailLabel?.text = "BBB"
+        entryAreaLabel?.text = "www"
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
