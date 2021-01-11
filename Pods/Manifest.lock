@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.2.2)
+  - Cosmos (23.0.0)
   - CropViewController (2.5.5)
   - DKCamera (1.6.7)
   - DKImagePickerController (4.3.2):
@@ -151,6 +152,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - Cosmos (~> 23.0)
   - DKImagePickerController
   - Firebase/Analytics
   - Firebase/Auth
@@ -167,6 +169,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Cosmos
     - CropViewController
     - DKCamera
     - DKImagePickerController
@@ -199,6 +202,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   CropViewController: bd3ff11eeeaadc1e267bb9c3f3e9ee67a52d3285
   DKCamera: a902b66921fca14b7a75266feb8c7568aa7caa71
   DKImagePickerController: b5eb7f7a388e4643264105d648d01f727110fc3d
@@ -229,6 +233,6 @@ SPEC CHECKSUMS:
   SwiftyGif: e466e86c660d343357ab944a819a101c4127cb40
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: eab0b9d1fb36ca9d75f05101b110676f332729c3
+PODFILE CHECKSUM: c465c111697486e5b6f728ec7d7c0c54b7adeb90
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0
