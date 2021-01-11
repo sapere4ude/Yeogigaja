@@ -49,6 +49,16 @@ class FavoriteLocationViewController: UIViewController {
         self.locationCollectionView.allowsMultipleSelection = true
         self.title = "관심 지역"
         self.navigationItem.rightBarButtonItem = self.rightButton
+        flowLayoutSetting()
+    }
+    
+    func flowLayoutSetting() {
+        let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        let flowWidth: CGFloat = UIScreen.main.bounds.width / 3.0
+        print(flowWidth)
+        flowLayout.itemSize = CGSize(width: flowWidth - 20, height: flowWidth - 20)
+        self.locationCollectionView.collectionViewLayout = flowLayout
     }
     
 

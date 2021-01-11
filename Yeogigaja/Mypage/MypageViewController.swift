@@ -27,8 +27,6 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
     private let cellImg1: [UIImage?] = [UIImage(named:"help"), UIImage(named:"docs"), UIImage(named:"setting")]
     private let sections = ["활동", "정보"]
     
-    @IBOutlet weak var modifyInfo: UIView!
-    @IBOutlet weak var logOut: UIView!
     
     
     @IBAction func touchUpLogout(_ sender: Any) {
@@ -52,11 +50,18 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         alert.addAction(progress)
         self.present(alert, animated: false, completion: nil)
     }
+    
+    @IBAction func userInfoModify(_ sender: Any) {
+        let sb = UIStoryboard(name: "Setting", bundle: nil)
+        guard let vc = sb.instantiateViewController(identifier: "SettingDetailViewController") as? SettingDetailViewController else {fatalError()}
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settingTableView.delegate = self
         self.settingTableView.dataSource = self
-        tapGesture()
         settingTableView.isScrollEnabled = false
         getDataFor()
     }
@@ -127,17 +132,6 @@ class MypageViewController: UIViewController, UIGestureRecognizerDelegate {
         self.userImg.layer.borderColor = UIColor.clear.cgColor
         self.userImg.clipsToBounds = true
     }
-
-
-    //gesture 전체를 관리하는 메서드
-    func tapGesture(){
-        let tapModifyGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapModify(_: )))
-        self.modifyInfo.addGestureRecognizer(tapModifyGesture)
-        let logOutGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapLogOut(_: )))
-        self.logOut.addGestureRecognizer(logOutGesture)
-    }
-    
-
 
 
 }

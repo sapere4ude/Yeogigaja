@@ -38,14 +38,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.12.25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVq-gs-mZ4">
-                                                    <rect key="frame" x="20" y="41" width="85" height="20"/>
+                                                    <rect key="frame" x="20" y="41" width="294" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemGray2Color"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aVq-gs-mZ4" secondAttribute="trailing" constant="309" id="1wq-vu-OSD"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="aVq-gs-mZ4" secondAttribute="trailing" constant="100" id="1wq-vu-OSD"/>
                                                 <constraint firstItem="aVq-gs-mZ4" firstAttribute="top" secondItem="Hzz-bn-dho" secondAttribute="bottom" constant="8" id="QeY-7t-ffQ"/>
                                                 <constraint firstAttribute="bottom" secondItem="aVq-gs-mZ4" secondAttribute="bottom" constant="10" id="QzA-hH-Ur2"/>
                                                 <constraint firstItem="aVq-gs-mZ4" firstAttribute="leading" secondItem="a4p-OH-L5d" secondAttribute="leading" constant="20" id="SEN-Hx-OTy"/>
@@ -138,7 +138,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zc9-Qf-hhT">
                                 <rect key="frame" x="20" y="230" width="374" height="595"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">안녕하세요. 여기가자 입니다.
+                                <string key="text">안녕하세요. 여기가자 입니다.
 
 어디갈야할지 모를 때! 
 핫 플레이스에 대한 정보를 스스로 커스텀하고 
@@ -174,7 +174,7 @@
 많은 이용 부탁드립니다
 
 
-감사합니다.</mutableString>
+감사합니다.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
