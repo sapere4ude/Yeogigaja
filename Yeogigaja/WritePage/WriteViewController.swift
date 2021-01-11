@@ -5,14 +5,40 @@
 //  Created by 김진태 on 2020/11/26.
 //  Copyright © 2020 sapere4ude. All rights reserved.
 //
-
 import DKImagePickerController
 import UIKit
 
 class WriteViewController: UITableViewController {
+    
+    var shared = [Data]()
+    
     // MARK: - @IBOutlet Properties
-
     @IBOutlet var horizontalCollectionImageView: UICollectionView!
+    
+    // 이미지 추가를 위한 IBOutlet
+    @IBOutlet weak var inputImage: UIImageView!
+    
+    
+    @IBOutlet var selectImageStackView: UIStackView! {
+        didSet {
+            self.selectImageStackView.layer.cornerRadius = 8.0
+            self.selectImageStackView.layer.borderWidth = 1.0
+            self.selectImageStackView.layer.borderColor = UIColor.lightGray.cgColor
+
+            // selectImageStackView에 Padding 추가
+            self.selectImageStackView.layoutMargins = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
+            self.selectImageStackView.isLayoutMarginsRelativeArrangement = true
+        }
+    }
+    @IBOutlet var scrollableHorizontalStackView: UIStackView!
+
+
+    @IBOutlet var tagTextField: RoundedTextField! {
+        didSet {
+            self.tagTextField.tag = 2
+            self.tagTextField.returnKeyType = .continue
+        }
+    }
 
     @IBOutlet var nameTextField: RoundedTextField!
     @IBOutlet var friendsTextField: RoundedTextField! {
@@ -29,10 +55,14 @@ class WriteViewController: UITableViewController {
         }
     }
 
+    // MARK: - 키보드 상태에 따른 뷰의 크기 조절을 위한 Properties
+    var keyboardShown: Bool = false // 키보드 상태 확인
+    var originY: CGFloat? // 오브젝트의 기본 위치
+    var activeTextField: UITextField?
+
     @IBOutlet var locationTextField: RoundedTextField!
 
     // MARK: - Gesture Recognizer Properties
-
     lazy var hideKeyboardTapGestureRecognizer: UITapGestureRecognizer = {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
@@ -41,7 +71,8 @@ class WriteViewController: UITableViewController {
 
     let maxSelectableImageCount: Int = 6
     var selectableImageCount: Int!
-    private var selectedImageAssets: [DKAsset]?
+    var selectedImageAssets: [DKAsset]?
+    
     private lazy var imagePickerController: DKImagePickerController = {
         let imagePickerController = DKImagePickerController()
         imagePickerController.sourceType = .photo
@@ -56,26 +87,27 @@ class WriteViewController: UITableViewController {
         imagePickerController.navigationBar.isTranslucent = false
         return imagePickerController
     }()
-
+    
     // MARK: - WriteViewController의 Lifecycle
-
     override func viewDidLoad() {
+        print(#function)
         super.viewDidLoad()
         self.setWriteViewController()
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        print(#function)
         super.viewWillAppear(animated)
         self.registerGestureRecognizer()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        print(#function)
         super.viewWillDisappear(true)
         self.unregisterGestureRecognizer()
     }
 
     // MARK: - WriteViewController 초기 설정 담당 Method
-
     private func setWriteViewController() {
         self.tableView.separatorStyle = .none
         self.selectableImageCount = self.maxSelectableImageCount
@@ -96,7 +128,6 @@ class WriteViewController: UITableViewController {
     }
 
     // MARK: - 카메라 아이콘 터치 시 이미지 선택
-
     private func selectImage() {
         if self.selectableImageCount <= 0 {
             let alertController = UIAlertController(title: nil, message: "이미지는 최대 \(maxSelectableImageCount)개만 선택할 수 있습니다.", preferredStyle: .alert)
@@ -129,10 +160,22 @@ class WriteViewController: UITableViewController {
 
         guard let cell = self.horizontalCollectionImageView.cellForItem(at: IndexPath(row: 0, section: 0)) as? HorizontalCollectionImageViewStackCell else { fatalError("Cell Error Occured") }
         cell.setImageCount(count: self.selectedImageAssets?.count ?? 0, maxCount: self.maxSelectableImageCount)
+        print("selectedImageAssets->\(selectedImageAssets)")
+        
+        DKImageAssetExporter.sharedInstance.exportAssetsAsynchronously(assets: selectedImageAssets ?? []) { (info) in
+            for asset in assets {
+                if let localTemporaryPath = asset.localTemporaryPath,
+                    let data = try? Data(contentsOf: localTemporaryPath) {
+                    print("asset.fileName->\(asset.fileName)")
+                    print("data.count->\(data.count)")
+                    self.shared.append(data)
+                    print(self.shared)
+                }
+            }
+        }
     }
 
     // MARK: - 화면 스크롤 시 또는 터치 시 키보드 숨기기
-
     @objc private func hideKeyboard() {
         self.view.endEditing(true)
     }
@@ -148,7 +191,6 @@ class WriteViewController: UITableViewController {
     }
 
     // MARK: - TableView를 맨 아래로 스크롤하는 메소드
-
     private func scrollToBottom() {
         let point = CGPoint(x: 0, y: self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.frame.height)
         if point.y >= 0 {
@@ -158,7 +200,6 @@ class WriteViewController: UITableViewController {
 }
 
 // MARK: - TextView를 선택하였을 때 맨 아래로 스크롤되도록 하기 위한 Delegate.
-
 extension WriteViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         self.scrollToBottom()

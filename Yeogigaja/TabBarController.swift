@@ -35,12 +35,12 @@ class TabBarController: UITabBarController {
         guard let vc3 = calendarsb.instantiateViewController(identifier: "CalendarView") as? CalendarViewController else { return }
         let mypagesb = UIStoryboard(name: "Mypage", bundle: nil)
         guard let vc4 = mypagesb.instantiateViewController(identifier: "MypageView") as? MypageViewController else { return }
-        
+
         // centerViewController는 임의의 UIViewController 객체로 설정하였다. 나중에 수정할 예정
         centerViewController = UINavigationController(rootViewController: UIViewController())
         centerViewController.modalPresentationStyle = .fullScreen
-        
-        let dummyViewController = UIViewController()
+
+        let dummyViewController = centerViewController as! UINavigationController
 
         // 각 뷰 컨트롤러는 모두 네비게이션 컨트롤러를 갖도록 설정한다.
         let navVC1 = UINavigationController(rootViewController: vc1)
@@ -80,7 +80,7 @@ class TabBarController: UITabBarController {
     /**
      - 참조 링크 : https://www.manongdao.com/article-1775265.html
      - 설명 : 탭바에 이미지만 나타나도록 설정해주는 메소드. 6.0이라는 값은 UITabBarItem의 라벨의 높이인 듯 하다. 6.0이라는 값은 OS 버전 관계 없이 고정적.
-         */
+          */
     private func removeTabBarTitle() {
         guard let items = tabBar.items else {
             return
@@ -119,12 +119,12 @@ class TabBarController: UITabBarController {
 
         centerButton.layer.cornerRadius = centerButton.frame.width / 2.0
         centerButton.clipsToBounds = true
-        
+
         centerButton.addTarget(self, action: #selector(showCenterViewController), for: .touchUpInside)
         view.addSubview(centerButton)
     }
-    
+
     @objc private func showCenterViewController() {
-        self.present(centerViewController, animated: true, completion: nil)
+        present(centerViewController, animated: true, completion: nil)
     }
 }

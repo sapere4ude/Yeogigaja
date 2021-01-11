@@ -5,7 +5,6 @@
 //  Created by sapere4ude on 2020/10/31.
 //  Copyright © 2020 sapere4ude. All rights reserved.
 //
-
 import UIKit
 import Firebase
 import FirebaseAuth
@@ -136,24 +135,24 @@ class loginViewController: UIViewController {
             }
             
             let tbVC = TabBarController()
+            tbVC.setupTabBarController()
 
-            let mainsb = UIStoryboard(name: "Main", bundle: nil)
-            guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? MainTableViewController else{return}
-            let mapsb = UIStoryboard(name: "Map", bundle: nil)
-            guard let view2 = mapsb.instantiateViewController(identifier: "MapView") as? mapViewController else{return}
-            let calendarsb = UIStoryboard(name: "Calendar", bundle: nil)
-            guard let view3 = calendarsb.instantiateViewController(identifier: "CalendarView") as? CalendarViewController else{return}
-            let mypagesb = UIStoryboard(name: "Mypage", bundle: nil)
-            guard let view4 = mypagesb.instantiateViewController(identifier: "MypageView") as? MypageViewController else{return}
-
-            tbVC.setViewControllers([view1, view2, view3, view4], animated: false)
-
-            //MARK:- image 수정 필요
-            view1.tabBarItem = UITabBarItem(title: "전체 항목", image: nil, tag: 0)
-            view2.tabBarItem = UITabBarItem(title: "지역별 항목", image: nil, tag: 1)
-            view3.tabBarItem = UITabBarItem(title: "캘린더", image: nil, tag: 2)
-            view4.tabBarItem = UITabBarItem(title: "마이페이지", image: nil, tag: 3)
-
+//            let mainsb = UIStoryboard(name: "Main", bundle: nil)
+//            guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? TableViewController else{return}
+//            let mapsb = UIStoryboard(name: "Map", bundle: nil)
+//            guard let view2 = mapsb.instantiateViewController(identifier: "MapView") as? mapViewController else{return}
+//            let calendarsb = UIStoryboard(name: "Calendar", bundle: nil)
+//            guard let view3 = calendarsb.instantiateViewController(identifier: "CalendarView") as? CalendarViewController else{return}
+//            let mypagesb = UIStoryboard(name: "Mypage", bundle: nil)
+//            guard let view4 = mypagesb.instantiateViewController(identifier: "MypageView") as? MypageViewController else{return}
+//
+//            tbVC.setViewControllers([view1, view2, view3, view4], animated: false)
+//
+//            //MARK:- image 수정 필요
+//            view1.tabBarItem = UITabBarItem(title: "전체 항목", image: nil, tag: 0)
+//            view2.tabBarItem = UITabBarItem(title: "지역별 항목", image: nil, tag: 1)
+//            view3.tabBarItem = UITabBarItem(title: "캘린더", image: nil, tag: 2)
+//            view4.tabBarItem = UITabBarItem(title: "마이페이지", image: nil, tag: 3)
             self.view.window?.rootViewController = tbVC
             self.view.window?.makeKeyAndVisible()
         })
