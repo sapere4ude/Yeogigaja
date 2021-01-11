@@ -6,6 +6,7 @@ extension UINavigationController {
     /*
         사용법 : navigationController?.setThemeAsDefault()
      */
+
     func setThemeAsDefault() {
         self.navigationBar.tintColor = UIColor.navigationBarLabelColor
         self.navigationBar.barTintColor = UIColor.navigationBarBackgroundColor
@@ -13,7 +14,7 @@ extension UINavigationController {
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.isTranslucent = false
     }
-    
+
     func setThemeAsDarkTranslucent() {
         self.navigationBar.tintColor = UIColor.white
         self.navigationBar.barTintColor = UIColor.black

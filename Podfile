@@ -26,5 +26,6 @@ target 'Yeogigaja' do
   pod 'FSCalendar'
   pod 'DKImagePickerController'
   pod "GEOSwift"
+  pod 'Cosmos', '~> 23.0'
 
 end

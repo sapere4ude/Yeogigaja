@@ -136,7 +136,6 @@ class loginViewController: UIViewController {
             }
             
             let tbVC = TabBarController()
-            tbVC.setupTabBarController()
 
 //            let mainsb = UIStoryboard(name: "Main", bundle: nil)
 //            guard let view1 = mainsb.instantiateViewController(identifier: "tableView") as? TableViewController else{return}

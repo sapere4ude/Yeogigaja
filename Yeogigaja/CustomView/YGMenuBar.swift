@@ -13,10 +13,10 @@ class YGMenuBar: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor = .white
+        backgroundColor = .white
         setupTabBar()
         setupSeparatorView()
     }
@@ -86,7 +86,7 @@ class YGMenuBar: UIView {
         let indexPath = IndexPath(item: 0, section: 0)
         selectMenuItem(at: indexPath, animated: false, scrollPosition: [])
     }
-    
+
     private func setupSeparatorView() {
         addSubview(separatorView)
         separatorView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
@@ -104,11 +104,11 @@ class YGMenuBar: UIView {
         tabBarCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         tabBarCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
-    
+
     func selectMenuItem(at indexPath: IndexPath, animated: Bool, scrollPosition: UICollectionView.ScrollPosition) {
-        tabBarCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: [])
+        tabBarCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: scrollPosition)
     }
-    
+
     func scrollToMenuItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
         tabBarCollectionView.scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
     }
@@ -135,8 +135,9 @@ extension YGMenuBar: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.menuBar(scrollTo: indexPath.row)
+        selectMenuItem(at: indexPath, animated: true, scrollPosition: [])
         scrollToMenuItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        delegate?.menuBar(scrollTo: indexPath.row)
     }
 }
 

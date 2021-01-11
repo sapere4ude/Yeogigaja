@@ -8,7 +8,8 @@
 
 import UIKit
 
-// MARK: - 글 입력할 때 얻게되는 정보. 이를 Firebase로 전달
+// MARK: 글 입력할 때 얻게되는 정보. 이를 Firebase로 전달
+
 struct WritePage: Codable {
     var id: String
     var name: String
@@ -19,16 +20,32 @@ struct WritePage: Codable {
     var sentDate: Date
 }
 
+struct WritePageCollection {
+
+    var datas: [WritePage]
+    var type: WritePageCollectionType
+
+    init(datas: [WritePage], type: WritePageCollectionType) {
+        self.datas = datas
+        self.type = type
+    }
+}
+
+enum WritePageCollectionType {
+    case nearestPinned, highRatings, realtimeReview
+}
+
 struct Profile: Codable {
-    //let email: String
+    // let email: String
     let name: String
 }
 
-// MARK:- YGPageViewController에서 YGMenuBar와 PageViewController의 연동을 위해 사용하는 데이터 구조
+// MARK: YGPageViewController에서 YGMenuBar와 PageViewController의 연동을 위해 사용하는 데이터 구조
+
 struct Page {
     var name: String
     var viewController: UIViewController
-    
+
     init(name: String, viewController: UIViewController) {
         self.name = name
         self.viewController = viewController
@@ -36,6 +53,6 @@ struct Page {
 }
 
 struct PageCollection {
-    var pages: [Page] = [Page]()
+    var pages = [Page]()
     var selectedPageIndex: Int = 0
 }
