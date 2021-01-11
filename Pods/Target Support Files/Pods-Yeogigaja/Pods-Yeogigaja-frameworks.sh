@@ -198,8 +198,6 @@ fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-<<<<<<< HEAD
-=======
   install_framework "${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DKCamera/DKCamera.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework"
@@ -211,7 +209,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FirebaseDatabase/FirebaseDatabase.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FirebaseStorage/FirebaseStorage.framework"
->>>>>>> MyPage+Write+Firebase_v3
   install_framework "${BUILT_PRODUCTS_DIR}/GEOSwift/GEOSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework"
@@ -230,8 +227,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-<<<<<<< HEAD
-=======
   install_framework "${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DKCamera/DKCamera.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework"
@@ -243,7 +238,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FirebaseDatabase/FirebaseDatabase.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FirebaseStorage/FirebaseStorage.framework"
->>>>>>> MyPage+Write+Firebase_v3
   install_framework "${BUILT_PRODUCTS_DIR}/GEOSwift/GEOSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework"

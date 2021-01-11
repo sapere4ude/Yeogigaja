@@ -8,8 +8,8 @@ target 'Yeogigaja' do
   # add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
-  pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'Firebase/Database'
   # add pods for any other desired Firebase products
   # https://firebase.google.com/docs/ios/setup#available-pods
 
@@ -20,14 +20,11 @@ target 'Yeogigaja' do
   pod 'SnapKit', '~> 5.0.0'
   pod "PagingKit"
   pod "Parchment"
-<<<<<<< HEAD
-=======
   pod 'JGProgressHUD'
 
   # Calendar
   pod 'FSCalendar'
   pod 'DKImagePickerController'
->>>>>>> MyPage+Write+Firebase_v3
   pod "GEOSwift"
 
 end
