@@ -140,6 +140,7 @@ PODS:
     - nanopb/encode (= 2.30906.0)
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
+  - NMapsMap (3.10.2)
   - PagingKit (1.15.0)
   - Parchment (2.4.0)
   - PromisesObjC (1.2.12)
@@ -161,6 +162,7 @@ DEPENDENCIES:
   - FSCalendar
   - GEOSwift
   - JGProgressHUD
+  - NMapsMap
   - PagingKit
   - Parchment
   - SnapKit (~> 5.0.0)
@@ -192,6 +194,7 @@ SPEC REPOS:
     - JGProgressHUD
     - leveldb-library
     - nanopb
+    - NMapsMap
     - PagingKit
     - Parchment
     - PromisesObjC
@@ -225,6 +228,7 @@ SPEC CHECKSUMS:
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
+  NMapsMap: 2c092c6408c738774edea41e00f0fd1bad9e0ca9
   PagingKit: 4bd58b65d71a82ab98486b6927e870c7fbc6c6eb
   Parchment: 002785473861582385db5c6725165353c500198e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -233,6 +237,6 @@ SPEC CHECKSUMS:
   SwiftyGif: e466e86c660d343357ab944a819a101c4127cb40
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: c465c111697486e5b6f728ec7d7c0c54b7adeb90
+PODFILE CHECKSUM: 18ee40a243fcfd00d3ff15555975ee319782206b
 
 COCOAPODS: 1.10.0

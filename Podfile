@@ -28,4 +28,9 @@ target 'Yeogigaja' do
   pod "GEOSwift"
   pod 'Cosmos', '~> 23.0'
 
+  pod 'NMapsMap'
 end
+
+
+    
+
