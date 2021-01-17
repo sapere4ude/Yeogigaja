@@ -11,12 +11,25 @@ import UIKit
 
 class DetailViewController: UITableViewController {
     var data: WritePage?
-    
+
+    var dateText: String? {
+        guard let data = data else { return nil }
+        let sentDate = data.sentDate
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateText = dateFormatter.string(from: sentDate)
+        return dateText
+    }
+
     //    var fetchInfos: [fetchInfo] = []
 //        var titleLabel: String? = ""
 //        var descriptionLabel: String? = ""
 //        var withFriendsLabel: String? = ""
 //        var locationLabel: String? = ""
+
+    fileprivate var favoriteButton: DetailCountButton!
+    fileprivate var pinButton: DetailCountButton!
+    fileprivate var commentButton: DetailCountButton!
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -28,7 +41,7 @@ class DetailViewController: UITableViewController {
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.separatorStyle = .none
     }
-    
+
     //    override func viewWillAppear(_ animated: Bool) {
     //        super.viewWillAppear(animated)
     //        navigationController?.setThemeAsDarkTranslucent()
@@ -61,7 +74,7 @@ class DetailViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,14 +116,67 @@ class DetailViewController: UITableViewController {
             cell.userProfileImageView.image = image
             cell.selectionStyle = .none
 
+            cell.dateLabel.text = dateText
+
+            setupPostCellButtons(cell: cell)
+
             return cell
         default:
-            fatalError("Detail View Controller의 cellForRowAt 메소드에서 엉뚱한 인덱스에 접근하였습니다")
+            let cellIdentifier = String(describing: DetailTableViewCommentCell.self)
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! DetailTableViewCommentCell
+            
+            cell.selectionStyle = .none
+            
+            return cell
         }
     }
 
     @objc func locationButtonPressed() {
-        print("임시로 버튼 기능 추가")
+        print("지도 버튼이 눌렸습니다")
+    }
+
+    @objc func favoriteButtonPressed(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        print("좋아요 버튼이 눌렸습니다")
+        favoriteButton.isHighlighted = !favoriteButton.isHighlighted
+    }
+
+    @objc func pinButtonPressed(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        print("핀찍기 버튼이 눌렸습니다")
+        pinButton.isHighlighted = !pinButton.isHighlighted
+    }
+
+    @objc func commentButtonPressed(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        print("댓글 버튼이 눌렸습니다")
+    }
+
+    private func setupPostCellButtons(cell: DetailTableViewPostCell) {
+        let favoriteButtonTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(favoriteButtonPressed(_:)))
+        let pinButtonTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(pinButtonPressed(_:)))
+        let commentButtonTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(commentButtonPressed(_:)))
+
+        if favoriteButton == nil || favoriteButton != cell.favoriteButton {
+            favoriteButton = cell.favoriteButton
+        }
+
+        if pinButton == nil || pinButton != cell.pinButton {
+            pinButton = cell.pinButton
+        }
+
+        if commentButton == nil || commentButton != cell.commentButton {
+            commentButton = cell.commentButton
+        }
+
+        favoriteButton.tag = 0
+        favoriteButton.isUserInteractionEnabled = true
+        favoriteButton.addGestureRecognizer(favoriteButtonTapGestureRecognizer)
+
+        pinButton.tag = 1
+        pinButton.isUserInteractionEnabled = true
+        pinButton.addGestureRecognizer(pinButtonTapGestureRecognizer)
+
+        commentButton.tag = 2
+        commentButton.isUserInteractionEnabled = true
+        commentButton.addGestureRecognizer(commentButtonTapGestureRecognizer)
     }
 }
 

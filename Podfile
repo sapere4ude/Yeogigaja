@@ -27,5 +27,6 @@ target 'Yeogigaja' do
   pod 'DKImagePickerController'
   pod "GEOSwift"
   pod 'Cosmos', '~> 23.0'
+  pod 'TagListView', '~> 1.0'
 
 end

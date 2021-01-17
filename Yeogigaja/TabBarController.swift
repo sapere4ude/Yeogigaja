@@ -40,7 +40,7 @@ class TabBarController: UITabBarController {
         centerViewController = UINavigationController(rootViewController: UIViewController())
         centerViewController.modalPresentationStyle = .fullScreen
 
-        let dummyViewController = centerViewController as! UINavigationController
+        let dummyViewController: UIViewController = UIViewController()
 
         // 각 뷰 컨트롤러는 모두 네비게이션 컨트롤러를 갖도록 설정한다.
         let navVC1 = UINavigationController(rootViewController: vc1)
@@ -112,7 +112,7 @@ class TabBarController: UITabBarController {
         let center = CGPoint(x: tabBar.center.x, y: centerY)
         centerButton.center = center
 
-        let centerButtonImage = UIImage(named: "add-small")?.withTintColor(.white)
+        let centerButtonImage = UIImage(named: "addSmall")?.withTintColor(.white)
         centerButton.setImage(centerButtonImage, for: .normal)
         centerButton.adjustsImageWhenHighlighted = false
         centerButton.backgroundColor = UIColor.tabBarCenterButtonColor

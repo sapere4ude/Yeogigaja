@@ -149,6 +149,7 @@ PODS:
   - SnapKit (5.0.1)
   - SwiftyGif (5.3.0)
   - SwiftyJSON (4.3.0)
+  - TagListView (1.4.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
@@ -165,6 +166,7 @@ DEPENDENCIES:
   - Parchment
   - SnapKit (~> 5.0.0)
   - SwiftyJSON (~> 4.0)
+  - TagListView (~> 1.0)
 
 SPEC REPOS:
   trunk:
@@ -199,6 +201,7 @@ SPEC REPOS:
     - SnapKit
     - SwiftyGif
     - SwiftyJSON
+    - TagListView
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
@@ -232,7 +235,8 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyGif: e466e86c660d343357ab944a819a101c4127cb40
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
 
-PODFILE CHECKSUM: c465c111697486e5b6f728ec7d7c0c54b7adeb90
+PODFILE CHECKSUM: 19b21a5d2a6c2f31693a80b33a64046bd10b85d0
 
 COCOAPODS: 1.10.0
